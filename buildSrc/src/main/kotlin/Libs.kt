@@ -10,5 +10,8 @@ object Libs {
     const val navigation_component_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav_version}"
     const val navigation_component_ui = "androidx.navigation:navigation-ui-ktx:${Versions.nav_version}"
 
+    // Hilt
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hilt_kapt = "com.google.dagger:hilt-compiler:${Versions.hilt}"
 
 }

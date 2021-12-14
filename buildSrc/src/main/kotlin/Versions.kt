@@ -10,6 +10,6 @@ object Versions {
     const val androidx_espresso = "3.4.0"
     const val tools = "7.0.4"
     const val gradle = "1.6.0"
-
+    const val hilt = "2.38.1"
 
 }

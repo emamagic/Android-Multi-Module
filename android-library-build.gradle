@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk Android.compileSdk
@@ -20,6 +22,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    buildFeatures {
+        dataBinding true
     }
 
     compileOptions {
@@ -44,5 +50,8 @@ dependencies {
 
     implementation Libs.navigation_component_fragment
     implementation Libs.navigation_component_ui
+
+    implementation Libs.hilt
+    kapt Libs.hilt_kapt
 
 }
