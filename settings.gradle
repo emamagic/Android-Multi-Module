@@ -9,8 +9,8 @@ dependencyResolutionManagement {
 rootProject.name = "Limonad_Android"
 include(
         ":app",
-        ":common-android",
-        ":common-jvm",
+        ":common-android"
+        ,
         ":features:login:signin",
         ":features:login:signup",
         ":features:login:intro",
