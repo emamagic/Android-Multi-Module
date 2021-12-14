@@ -1,0 +1,10 @@
+dependencies {
+
+    implementation Libs.androidx_core
+    implementation Libs.androidx_compat
+    implementation Libs.material
+    implementation Libs.constraint_layout
+    testImplementation Tests.junit_4
+    androidTestImplementation Tests.androidx_junit
+    androidTestImplementation Tests.androidx_espresso
+}
