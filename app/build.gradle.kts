@@ -38,11 +38,21 @@ android {
 
 dependencies {
 
-    implementation ("androidx.core:core-ktx:1.7.0")
-    implementation ("androidx.appcompat:appcompat:1.4.0")
-    implementation ("com.google.android.material:material:1.4.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.2")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
+    implementation (Libs.navigation_component_fragment)
+    implementation (Libs.navigation_component_ui)
+    implementation (Libs.androidx_core)
+    implementation (Libs.androidx_compat)
+    implementation (Libs.material)
+    implementation (Libs.constraint_layout)
+    testImplementation (Test.junit_4)
+    androidTestImplementation (Test.androidx_junit)
+    androidTestImplementation (Test.androidx_espresso)
+
+//    implementation (project(Modules.signin))
+//    implementation (project(Modules.signup))
+//    implementation (project(Modules.intro))
+//    implementation (project(Modules.workspaceCreate))
+//    implementation (project(Modules.workspaceSelect))
+//    implementation (project(Modules.workspaceAddMember))
+
 }
