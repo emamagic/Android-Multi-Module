@@ -1,4 +1,4 @@
-object Test {
+object Tests {
 
     const val navigation_component_test = "androidx.navigation:navigation-testing:${Versions.nav_version}"
 

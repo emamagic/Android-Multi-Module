@@ -2,7 +2,7 @@ object Versions {
 
     const val nav_version = "2.3.5"
     const val androidx_core = "1.7.0"
-    const val androidx_compat = "1.4.0"
+    const val androidx_appcompat = "1.4.0"
     const val material = "1.4.0"
     const val constraint_layout = "2.1.2"
     const val junit_4 = "4.13.2"

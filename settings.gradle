@@ -9,11 +9,15 @@ dependencyResolutionManagement {
 rootProject.name = "Limonad_Android"
 include(
         ":app",
-        ":signin",
-        ":signup",
-        ":intro",
+        ":login:signin",
+        ":login:signup",
+        ":login:intro",
         ":workspace:workspace-create",
         ":workspace:workspace-select",
         ":workspace:workspace-add-member",
-        ":common-android"
+        ":common-android",
+        ":conversation:conversation-add-member",
+        ":conversation:conversation-list",
+        ":chat",
+        ":thread"
 )
