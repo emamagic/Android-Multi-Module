@@ -12,7 +12,15 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/common-android" />
+            <option value="$PROJECT_DIR$/common-entity" />
+            <option value="$PROJECT_DIR$/common-jvm" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/cache" />
+            <option value="$PROJECT_DIR$/data/common-cache" />
+            <option value="$PROJECT_DIR$/data/network" />
+            <option value="$PROJECT_DIR$/data/repository" />
+            <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/chat" />
             <option value="$PROJECT_DIR$/features/conversation" />
@@ -28,6 +36,7 @@
             <option value="$PROJECT_DIR$/features/workspace/workspace-create" />
             <option value="$PROJECT_DIR$/features/workspace/workspace-select" />
             <option value="$PROJECT_DIR$/navigator" />
+            <option value="$PROJECT_DIR$/safe" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

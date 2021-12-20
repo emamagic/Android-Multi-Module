@@ -2,9 +2,18 @@ apply plugin: 'com.android.library'
 apply from:   "$rootDir/android-common-build.gradle"
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
+android {
+    buildFeatures {
+        dataBinding true
+    }
+}
+
 dependencies {
 
-    implementation project(Modules.commonAndroid)
+    implementation project(Modules.core)
     implementation project(Modules.navigator)
+    implementation project(Modules.commonEntity)
+    implementation Libs.dagger
+    kapt Libs.dagger_kapt
 
 }

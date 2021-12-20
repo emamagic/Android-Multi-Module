@@ -1,6 +1,6 @@
 object Modules {
     const val app = ":app"
-    const val commonAndroid = ":common-android"
+    const val core = ":core"
     const val commonJvm = ":common-jvm"
     const val signin = ":features:login:signin"
     const val signup = ":features:login:signup"
@@ -11,4 +11,11 @@ object Modules {
     const val chat = ":features:chat"
     const val thread = ":features:thread"
     const val navigator = ":navigator"
+    const val cache = ":data:cache"
+    const val commonCache = ":data:common-cache"
+    const val network = ":data:network"
+    const val repository = ":data:network"
+    const val domain = ":domain"
+    const val safe = ":safe"
+    const val commonEntity = ":common-entity"
 }

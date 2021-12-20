@@ -14,4 +14,28 @@ object Libs {
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hilt_kapt = "com.google.dagger:hilt-compiler:${Versions.hilt}"
 
+    // Dagger2
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val dagger_kapt = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+
+    // Retrofit
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val moshi = "com.squareup.retrofit2:converter-moshi:${Versions.moshi}"
+
+    // Logging Interceptor
+    const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logging_interceptor}"
+
+    // Timber
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
+    // Multidex
+    const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
+
+    // Coroutines
+    const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+
+    // JavaX
+    const val java_x = "javax.inject:javax.inject:${Versions.java_x}"
+
+
 }

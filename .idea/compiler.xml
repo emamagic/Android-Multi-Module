@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="Limonad_Android.app" target="11" />
+      <module name="Limonad_Android.buildSrc" target="11" />
+      <module name="Limonad_Android.common-cache" target="11" />
+      <module name="Limonad_Android.core" target="11" />
+      <module name="Limonad_Android.data.cache" target="11" />
+      <module name="Limonad_Android.data.common-cache" target="11" />
+      <module name="Limonad_Android.data.network" target="11" />
+      <module name="Limonad_Android.data.repository" target="11" />
+      <module name="Limonad_Android.data.safe" target="11" />
+      <module name="Limonad_Android.domain" target="1.8" />
+      <module name="Limonad_Android.features.chat" target="11" />
+      <module name="Limonad_Android.features.conversation.conversation-add-member" target="11" />
+      <module name="Limonad_Android.features.conversation.conversation-list" target="11" />
+      <module name="Limonad_Android.features.login.intro" target="11" />
+      <module name="Limonad_Android.features.login.signin" target="11" />
+      <module name="Limonad_Android.features.login.signup" target="11" />
+      <module name="Limonad_Android.features.thread" target="11" />
+      <module name="Limonad_Android.features.workspace.workspace-add-member" target="11" />
+      <module name="Limonad_Android.features.workspace.workspace-create" target="11" />
+      <module name="Limonad_Android.features.workspace.workspace-select" target="11" />
+      <module name="Limonad_Android.navigator" target="11" />
+      <module name="Limonad_Android.repository" target="11" />
+      <module name="Limonad_Android.safe" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

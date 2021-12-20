@@ -11,5 +11,14 @@ object Versions {
     const val tools = "7.0.4"
     const val gradle = "1.6.0"
     const val hilt = "2.38.1"
+    const val dagger = "2.40.5"
+    const val retrofit = "2.9.0"
+    const val logging_interceptor = "4.9.3"
+    const val moshi = "2.9.0"
+    const val timber = "5.0.1"
+    const val multidex = "2.0.1"
+    const val coroutine = "1.3.9"
+    const val java_x = "1"
+
 
 }

@@ -7,4 +7,6 @@ dependencies {
     testImplementation Tests.junit_4
     androidTestImplementation Tests.androidx_junit
     androidTestImplementation Tests.androidx_espresso
+
+    implementation Libs.timber
 }
