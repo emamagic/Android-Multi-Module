@@ -37,5 +37,8 @@ object Libs {
     // JavaX
     const val java_x = "javax.inject:javax.inject:${Versions.java_x}"
 
+    // Kotlin Reflect
+    const val kotlin_reflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin_reflect}"
+
 
 }

@@ -22,7 +22,6 @@ include(
         ":features:thread",
         ":navigator",
         ":data:cache",
-        ':data:common-cache',
         ":data:network",
         ":data:repository",
         ":common-jvm",

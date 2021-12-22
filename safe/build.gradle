@@ -5,7 +5,6 @@ dependencies {
 
     implementation project(Modules.commonJvm)
     implementation Libs.retrofit
-    implementation Libs.moshi
     implementation Libs.coroutine
 
 }

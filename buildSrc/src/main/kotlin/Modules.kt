@@ -12,7 +12,6 @@ object Modules {
     const val thread = ":features:thread"
     const val navigator = ":navigator"
     const val cache = ":data:cache"
-    const val commonCache = ":data:common-cache"
     const val network = ":data:network"
     const val repository = ":data:network"
     const val domain = ":domain"

@@ -1,5 +1,7 @@
 plugins {
     id("com.android.library")
+    kotlin ("android")
+    kotlin("kapt")
 }
 
 apply {
@@ -8,11 +10,10 @@ apply {
 
 dependencies {
 
-    "implementation"(Libs.retrofit)
-    "implementation"(Libs.logging_interceptor)
-    "implementation"(Libs.moshi)
-    "implementation"(Libs.dagger)
-    "kapt"(Libs.dagger_kapt)
-    "implementation"(project(Modules.safe))
+    implementation(Libs.retrofit)
+    implementation(Libs.logging_interceptor)
+    implementation(Libs.moshi)
+    implementation(Libs.dagger)
+    kapt(Libs.dagger_kapt)
 
 }

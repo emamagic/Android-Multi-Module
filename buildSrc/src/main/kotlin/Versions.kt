@@ -19,6 +19,7 @@ object Versions {
     const val multidex = "2.0.1"
     const val coroutine = "1.3.9"
     const val java_x = "1"
+    const val kotlin_reflect = "1.6.10"
 
 
 }

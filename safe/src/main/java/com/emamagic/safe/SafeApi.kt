@@ -14,31 +14,59 @@ import java.io.IOException
 import java.net.SocketException
 import java.net.UnknownHostException
 
-abstract class SafeApi: ErrorHandler {
+abstract class SafeApi : ErrorHandler {
 
     suspend fun <T> safe(call: suspend () -> Response<T>): ResultWrapper<T> =
-        withContext(Dispatchers.IO) { doApiCall { call() } }
+        withContext(Dispatchers.IO) { handleResponse { call() } }
 
-    private fun <T> handleResponse(response: Response<T>): ResultWrapper<T> {
-        if (response.isSuccessful) {
-            response.body()?.let {
-                return ResultWrapper.Success(
-                    data = it,
-                    code = response.code()
-                )
-            }
-        }
-        return ResultWrapper.Failed(
-            error = ErrorEntity.Api(response.errorBody()?.string()),
-        )
-    }
+    suspend fun <T, E> safe(
+        call: suspend () -> Response<T>,
+        mapper: (T) -> E
+    ): ResultWrapper<E> =
+        withContext(Dispatchers.IO) { handleResponse({ call() }, mapper) }
 
-    private inline fun <T> doApiCall(call: () -> Response<T>): ResultWrapper<T> {
+
+    private inline fun <T> handleResponse(call: () -> Response<T>): ResultWrapper<T> {
         return try {
-            handleResponse(call())
+            val response = call()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return ResultWrapper.Success(
+                        data = it,
+                        code = response.code()
+                    )
+                }
+            }
+            return ResultWrapper.Failed(
+                error = ErrorEntity.Api(response.errorBody()?.string()),
+            )
         } catch (t: Throwable) {
             ResultWrapper.Failed(getError(t))
         }
+
+    }
+
+    private inline fun <T, E> handleResponse(
+        call: () -> Response<T>,
+        noinline converter: (T) -> E
+    ): ResultWrapper<E> {
+        return try {
+            val response = call()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return ResultWrapper.Success(
+                        data = converter(it),
+                        code = response.code()
+                    )
+                }
+            }
+            return ResultWrapper.Failed(
+                error = ErrorEntity.Api(response.errorBody()?.string()),
+            )
+        } catch (t: Throwable) {
+            ResultWrapper.Failed(getError(t))
+        }
+
     }
 
     override fun getError(throwable: Throwable): ErrorEntity {
