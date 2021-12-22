@@ -3,7 +3,6 @@ package com.emamagic.common_android.base
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -16,6 +15,7 @@ abstract class BaseFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         observeNavigation(getViewModel())
+
         setupSnackbar(this, getViewModel().snackBarError, Snackbar.LENGTH_LONG)
     }
 
