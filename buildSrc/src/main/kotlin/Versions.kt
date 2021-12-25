@@ -20,6 +20,6 @@ object Versions {
     const val coroutine = "1.3.9"
     const val java_x = "1"
     const val kotlin_reflect = "1.6.10"
-
+    const val life_cycle_scope = "2.2.0"
 
 }

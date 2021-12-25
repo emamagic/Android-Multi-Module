@@ -13,6 +13,7 @@ dependencies {
     implementation project(Modules.core)
     implementation project(Modules.navigator)
     implementation project(Modules.commonEntity)
+    implementation project(Modules.commonJvm)
     implementation Libs.dagger
     kapt Libs.dagger_kapt
 

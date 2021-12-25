@@ -1,7 +1,7 @@
 package com.emamagic.common_android.di
 
-import android.app.Application
 import com.emamagic.network.di.RetrofitModule
+import com.emamagic.network.service.ConfigService
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,6 +9,6 @@ import javax.inject.Singleton
 @Component(modules = [RetrofitModule::class])
 interface AppComponent {
 
-    fun inject(app: Application)
+    fun getConfigService(): ConfigService
 
 }

@@ -9,7 +9,6 @@ import com.emamagic.safe.SafeApi
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class ConfigRepositoryImpl @Inject constructor(
     private val configService: ConfigService
 ) : SafeApi(), ConfigRepository {

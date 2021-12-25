@@ -14,10 +14,9 @@ class App: MultiDexApplication(), AppComponentProvider {
         super.onCreate()
         if(BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
         appComponent = DaggerAppComponent.create()
-        appComponent.inject(this)
 
     }
 
-    override fun provideBaseComponent(): AppComponent = appComponent
+    override fun provideAppComponent(): AppComponent = appComponent
 
 }

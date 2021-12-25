@@ -40,5 +40,7 @@ object Libs {
     // Kotlin Reflect
     const val kotlin_reflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin_reflect}"
 
+    // LifeCycle Scope
+    const val life_cycle_scope = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.life_cycle_scope}"
 
 }
