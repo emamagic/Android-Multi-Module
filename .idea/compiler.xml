@@ -5,6 +5,7 @@
       <module name="Limonad_Android.app" target="11" />
       <module name="Limonad_Android.buildSrc" target="11" />
       <module name="Limonad_Android.common-cache" target="11" />
+      <module name="Limonad_Android.common-entity" target="1.8" />
       <module name="Limonad_Android.core" target="11" />
       <module name="Limonad_Android.data.cache" target="11" />
       <module name="Limonad_Android.data.common-cache" target="11" />

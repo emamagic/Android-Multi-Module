@@ -13,7 +13,7 @@ object Modules {
     const val navigator = ":navigator"
     const val cache = ":data:cache"
     const val network = ":data:network"
-    const val repository = ":data:network"
+    const val repository = ":data:repository"
     const val domain = ":domain"
     const val safe = ":safe"
     const val commonEntity = ":common-entity"

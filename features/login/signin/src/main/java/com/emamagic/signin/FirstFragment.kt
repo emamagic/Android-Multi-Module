@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 
 class FirstFragment: Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,6 +19,9 @@ class FirstFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
 
     }
 

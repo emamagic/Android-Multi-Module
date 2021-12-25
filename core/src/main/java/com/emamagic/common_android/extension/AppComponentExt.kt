@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment
 import com.emamagic.common_android.di.AppComponent
 import com.emamagic.common_android.di.AppComponentProvider
 
-
-fun Context.findBaseComponent(): AppComponent {
+fun Context.findAppComponent(): AppComponent {
     return if (applicationContext is AppComponentProvider) {
         (applicationContext as AppComponentProvider).provideBaseComponent()
     } else {
@@ -15,7 +14,7 @@ fun Context.findBaseComponent(): AppComponent {
     }
 }
 
-fun View.findBaseComponent(): AppComponent = context.findBaseComponent()
+fun View.findAppComponent(): AppComponent = context.findAppComponent()
 
-fun Fragment.findBaseComponent(): AppComponent = requireContext().findBaseComponent()
+fun Fragment.findAppComponent(): AppComponent = requireContext().findAppComponent()
 

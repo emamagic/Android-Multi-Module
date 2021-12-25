@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30925925925925923" />
         <entry key="common-android/src/main/res/layout/fragment_host.xml" value="0.34270833333333334" />
+        <entry key="features/login/signin/src/main/res/layout/fragment_first.xml" value="0.34270833333333334" />
         <entry key="login/signin/src/main/res/layout/fragment_first.xml" value="0.34270833333333334" />
         <entry key="login/signup/src/main/res/layout/fragment_second_fragment.xml" value="0.34270833333333334" />
       </map>

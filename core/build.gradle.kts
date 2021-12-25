@@ -16,8 +16,10 @@ dependencies {
     implementation(project(Modules.navigator))
     implementation(project(Modules.domain))
     implementation(project(Modules.network))
+    implementation(project(Modules.repository))
     implementation(project(Modules.cache))
     implementation(project(Modules.commonEntity))
+    implementation(project(Modules.commonJvm))
     implementation(Libs.dagger)
     kapt(Libs.dagger_kapt)
 
