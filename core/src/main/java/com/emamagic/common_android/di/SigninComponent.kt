@@ -4,9 +4,10 @@ import com.emamagic.common_android.interactor.GetConfigUi
 import com.emamagic.domain.interactor.GetConfig
 import com.emamagic.repository.di.BinderModule
 import dagger.Component
+import dagger.Subcomponent
 
 @FragmentScope
-@Component(dependencies = [AppComponent::class], modules = [BinderModule::class])
+@Subcomponent
 interface SigninComponent {
 
     fun getConfigUi(): GetConfigUi

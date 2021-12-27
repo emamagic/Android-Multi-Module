@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.emamagic.common_android.di.DaggerSigninComponent
 import com.emamagic.common_android.extension.findAppComponent
-import kotlinx.coroutines.launch
 
 class FirstFragment: Fragment() {
 
@@ -28,11 +26,10 @@ class FirstFragment: Fragment() {
 
         view.findViewById<Button>(R.id.btn).setOnClickListener {
         }
-        val signinComponent = DaggerSigninComponent.builder().appComponent(findAppComponent()).build()
-        val getConfig = signinComponent.getConfigUi()
+        val signinComponent = findAppComponent().getSigninComponent()
 
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            val config = getConfig()
+            val config = signinComponent.getConfigUi()()
 
             Log.e("TAG", "onCreate: ${config.data}")
             Log.e("TAG", "onCreate: ${config.code}")
