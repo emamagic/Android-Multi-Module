@@ -50,7 +50,14 @@ android {
 dependencies {
 
     // Di
-    implementation(project(Modules.viewInteractor))
+    implementation(project(Modules.network))
+    implementation(project(Modules.repository))
+    implementation(project(Modules.cache))
+    implementation(project(Modules.domain))
+    implementation(project(Modules.safe))
+    implementation(project(Modules.core))
+    implementation(Libs.retrofit)
+    implementation(Libs.logging_interceptor)
 
     // Features
     implementation(project(Modules.signin))

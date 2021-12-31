@@ -1,14 +1,17 @@
 package com.emamagic.signin
 
 import com.emamagic.core.utils.FragmentScope
-import com.emamagic.view_interactor.AppComponent
-import com.emamagic.view_interactor.ViewModelFactoryBinderModule
-import dagger.Component
+import dagger.Subcomponent
 
 @FragmentScope
-@Component(modules = [ViewModelFactoryBinderModule::class, ViewModelModule::class], dependencies = [AppComponent::class])
+@Subcomponent(modules = [ViewModelModule::class])
 interface SigninComponent {
 
     fun inject(firstFragment: FirstFragment)
+
+    @Subcomponent.Factory
+    interface Factory {
+        fun create() : SigninComponent
+    }
 
 }

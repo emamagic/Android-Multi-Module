@@ -1,22 +1,17 @@
 package com.emamagic.limonad_android
 
 import androidx.multidex.MultiDexApplication
-import com.emamagic.view_interactor.AppComponent
-import com.emamagic.view_interactor.AppComponentProvider
-import com.emamagic.view_interactor.DaggerAppComponent
+import com.emamagic.limonad_android.di.DiProvider
+import com.emamagic.limonad_android.di.SubComponents
 import timber.log.Timber
 
-class App: MultiDexApplication(), AppComponentProvider {
+class App: MultiDexApplication(), SubComponents {
 
-    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
         if(BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
-        appComponent = DaggerAppComponent.create()
-
+        DiProvider.buildDi(this)
     }
-
-    override fun provideAppComponent(): AppComponent = appComponent
 
 }

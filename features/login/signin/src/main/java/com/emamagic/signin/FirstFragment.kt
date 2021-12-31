@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.emamagic.core.extension.findAppComponent
 import javax.inject.Inject
 
 class FirstFragment: Fragment() {
@@ -28,7 +27,7 @@ class FirstFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        DaggerSigninComponent.builder().appComponent(findAppComponent()).build().inject(this)
+        (requireContext().applicationContext as SigninComponentProvider).provideSigninComponent().inject(this)
         val vm = ViewModelProvider(this, viewModelFactory)[FirstViewModel::class.java]
 
         Log.e("TAG", "onViewCreated: ${vm.test.hashCode()}")
