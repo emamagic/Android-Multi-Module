@@ -43,4 +43,7 @@ object Libs {
     // LifeCycle Scope
     const val life_cycle_scope = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.life_cycle_scope}"
 
+    // ViewModel Scope
+    const val view_model_scope = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.view_model_scope}"
+
 }

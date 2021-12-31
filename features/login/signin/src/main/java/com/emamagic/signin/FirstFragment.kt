@@ -1,13 +1,15 @@
 package com.emamagic.signin
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.emamagic.core.extension.findComponent
+import timber.log.Timber
 import javax.inject.Inject
 
 class FirstFragment: Fragment() {
@@ -27,10 +29,14 @@ class FirstFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireContext().applicationContext as SigninComponentProvider).provideSigninComponent().inject(this)
-        val vm = ViewModelProvider(this, viewModelFactory)[FirstViewModel::class.java]
+        findComponent<SigninComponentProvider>().provideSigninComponent().inject(this)
+        val viewModel = ViewModelProvider(this, viewModelFactory)[FirstViewModel::class.java]
 
-        Log.e("TAG", "onViewCreated: ${vm.test.hashCode()}")
+        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
+            val config = viewModel.getConfig()
+            Timber.e("onViewCreated: $config")
+        }
+
         view.findViewById<Button>(R.id.btn).setOnClickListener {
 
 
