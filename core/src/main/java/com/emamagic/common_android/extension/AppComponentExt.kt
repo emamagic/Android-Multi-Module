@@ -3,8 +3,8 @@ package com.emamagic.common_android.extension
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.emamagic.common_android.di.AppComponent
-import com.emamagic.common_android.di.AppComponentProvider
+import com.emamagic.view_interactor.AppComponent
+import com.emamagic.view_interactor.AppComponentProvider
 
 fun Context.findAppComponent(): AppComponent {
     return if (applicationContext is AppComponentProvider) {

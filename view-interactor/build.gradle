@@ -1,0 +1,23 @@
+plugins {
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply plugin: 'com.android.library'
+apply from: "$rootDir/android-common-build.gradle"
+
+dependencies {
+
+    implementation(project(Modules.network))
+    implementation(project(Modules.repository))
+    implementation(project(Modules.cache))
+    implementation(project(Modules.domain))
+    implementation(project(Modules.safe))
+    implementation(Libs.retrofit)
+    implementation(Libs.logging_interceptor)
+
+    implementation(Libs.dagger)
+    kapt(Libs.dagger_kapt)
+
+
+}

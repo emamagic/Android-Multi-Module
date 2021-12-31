@@ -49,8 +49,10 @@ android {
 
 dependencies {
 
-    implementation(Libs.multidex)
+    // Di
+    implementation(project(Modules.viewInteractor))
 
+    // Features
     implementation(project(Modules.signin))
     implementation(project(Modules.signup))
     implementation(project(Modules.intro))
@@ -59,12 +61,14 @@ dependencies {
     implementation(project(Modules.workspaceAddMember))
     implementation(project(Modules.chat))
     implementation(project(Modules.thread))
-    implementation(project(Modules.navigator))
-    implementation(project(Modules.core))
 
+    // Navigator
+    implementation(project(Modules.navigator))
+
+    // Other
+    implementation(Libs.multidex)
     implementation (Libs.dagger)
     kapt (Libs.dagger_kapt)
-
     implementation (Libs.navigation_component_fragment)
     implementation (Libs.navigation_component_ui)
 }

@@ -1,4 +1,4 @@
-package com.emamagic.common_android.di
+package com.emamagic.view_interactor
 
 interface AppComponentProvider {
     fun provideAppComponent(): AppComponent

@@ -1,9 +1,9 @@
 package com.emamagic.limonad_android
 
 import androidx.multidex.MultiDexApplication
-import com.emamagic.common_android.di.AppComponent
-import com.emamagic.common_android.di.AppComponentProvider
-import com.emamagic.common_android.di.DaggerAppComponent
+import com.emamagic.view_interactor.AppComponent
+import com.emamagic.view_interactor.AppComponentProvider
+import com.emamagic.view_interactor.DaggerAppComponent
 import timber.log.Timber
 
 class App: MultiDexApplication(), AppComponentProvider {

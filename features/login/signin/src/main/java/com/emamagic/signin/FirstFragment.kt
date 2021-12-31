@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.ViewModelProvider
 import com.emamagic.common_android.extension.findAppComponent
+import javax.inject.Inject
 
 class FirstFragment: Fragment() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,17 +28,19 @@ class FirstFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        DaggerSigninComponent.builder().appComponent(findAppComponent()).build().inject(this)
+        val vm = ViewModelProvider(this, viewModelFactory)[FirstViewModel::class.java]
+
+        Log.e("TAG", "onViewCreated: ${vm.test.hashCode()}")
         view.findViewById<Button>(R.id.btn).setOnClickListener {
-        }
-        val signinComponent = findAppComponent().getSigninComponent()
 
-        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            val config = signinComponent.getConfigUi()()
 
-            Log.e("TAG", "onCreate: ${config.data}")
-            Log.e("TAG", "onCreate: ${config.code}")
-            Log.e("TAG", "onCreate: ${config.error}")
         }
+
+
+//        val useCase = findAppComponent().getSigninComponent().getFirstFragmentUseCase()
+
+//        Log.e("TAG", "onViewCreated: ${useCase.hashCode()}")
 
     }
 }

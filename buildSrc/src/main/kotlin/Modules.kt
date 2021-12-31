@@ -17,4 +17,5 @@ object Modules {
     const val domain = ":domain"
     const val safe = ":safe"
     const val commonEntity = ":common-entity"
+    const val viewInteractor = ":view-interactor"
 }

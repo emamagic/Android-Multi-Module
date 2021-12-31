@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.7">
+    <bytecodeTargetLevel target="1.8">
       <module name="Limonad_Android.app" target="11" />
       <module name="Limonad_Android.buildSrc" target="11" />
       <module name="Limonad_Android.common-cache" target="11" />
-      <module name="Limonad_Android.common-entity" target="1.8" />
       <module name="Limonad_Android.core" target="11" />
       <module name="Limonad_Android.data.cache" target="11" />
       <module name="Limonad_Android.data.common-cache" target="11" />
       <module name="Limonad_Android.data.network" target="11" />
       <module name="Limonad_Android.data.repository" target="11" />
       <module name="Limonad_Android.data.safe" target="11" />
-      <module name="Limonad_Android.domain" target="1.8" />
       <module name="Limonad_Android.features.chat" target="11" />
       <module name="Limonad_Android.features.conversation.conversation-add-member" target="11" />
       <module name="Limonad_Android.features.conversation.conversation-list" target="11" />
@@ -26,6 +24,7 @@
       <module name="Limonad_Android.navigator" target="11" />
       <module name="Limonad_Android.repository" target="11" />
       <module name="Limonad_Android.safe" target="11" />
+      <module name="Limonad_Android.view-interactor" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
