@@ -1,4 +1,4 @@
-package com.emamagic.common_android.utils;
+package com.emamagic.core.utils;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Documented;

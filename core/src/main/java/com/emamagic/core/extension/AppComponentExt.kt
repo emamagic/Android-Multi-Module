@@ -1,4 +1,4 @@
-package com.emamagic.common_android.extension
+package com.emamagic.core.extension
 
 import android.content.Context
 import android.view.View

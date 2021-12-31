@@ -1,9 +1,9 @@
-package com.emamagic.common_android.extension
+package com.emamagic.core.extension
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import com.emamagic.common_android.utils.Event
+import com.emamagic.core.utils.Event
 import com.google.android.material.snackbar.Snackbar
 
 /**

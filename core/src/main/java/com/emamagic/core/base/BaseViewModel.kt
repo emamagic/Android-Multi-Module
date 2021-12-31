@@ -1,10 +1,10 @@
-package com.emamagic.common_android.base
+package com.emamagic.core.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
-import com.emamagic.common_android.utils.Event
+import com.emamagic.core.utils.Event
 import com.emamagic.navigator.NavigationCommand
 
 abstract class BaseViewModel: ViewModel() {

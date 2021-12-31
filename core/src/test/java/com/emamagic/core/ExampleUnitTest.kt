@@ -1,4 +1,4 @@
-package com.emamagic.common_android
+package com.emamagic.core
 
 import org.junit.Test
 

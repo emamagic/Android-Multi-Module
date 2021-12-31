@@ -1,6 +1,6 @@
 package com.emamagic.signin
 
-import com.emamagic.common_android.utils.FragmentScope
+import com.emamagic.core.utils.FragmentScope
 import com.emamagic.view_interactor.AppComponent
 import com.emamagic.view_interactor.ViewModelFactoryBinderModule
 import dagger.Component

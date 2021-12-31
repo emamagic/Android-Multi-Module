@@ -1,4 +1,4 @@
-package com.emamagic.common_android.utils
+package com.emamagic.core.utils
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

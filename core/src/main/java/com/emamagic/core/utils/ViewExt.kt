@@ -1,10 +1,9 @@
-package com.emamagic.common_android.utils
+package com.emamagic.core.utils
 
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
-import androidx.appcompat.widget.SearchView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
 

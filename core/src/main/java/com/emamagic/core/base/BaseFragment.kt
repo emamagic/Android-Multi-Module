@@ -1,4 +1,4 @@
-package com.emamagic.common_android.base
+package com.emamagic.core.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.emamagic.common_android.extension.setupSnackbar
+import com.emamagic.core.extension.setupSnackbar
 import com.emamagic.navigator.NavigationCommand
 import com.google.android.material.snackbar.Snackbar
 

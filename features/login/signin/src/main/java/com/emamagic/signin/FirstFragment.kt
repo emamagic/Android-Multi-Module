@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.emamagic.common_android.extension.findAppComponent
+import com.emamagic.core.extension.findAppComponent
 import javax.inject.Inject
 
 class FirstFragment: Fragment() {
