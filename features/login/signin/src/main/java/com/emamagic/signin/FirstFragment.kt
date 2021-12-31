@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.emamagic.core.base.BaseFragment
+import com.emamagic.core.utils.Logger
 import com.emamagic.core.extension.findComponent
-import timber.log.Timber
 import javax.inject.Inject
 
-class FirstFragment: Fragment() {
+class FirstFragment: BaseFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -34,8 +34,9 @@ class FirstFragment: Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launchWhenResumed {
             val config = viewModel.getConfig()
-            Timber.e("onViewCreated: $config")
+            Logger.e(config)
         }
+
 
         view.findViewById<Button>(R.id.btn).setOnClickListener {
 

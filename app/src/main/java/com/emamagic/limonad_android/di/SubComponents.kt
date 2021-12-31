@@ -6,6 +6,6 @@ import com.emamagic.signin.SigninComponentProvider
 interface SubComponents: SigninComponentProvider {
 
     override fun provideSigninComponent(): SigninComponent {
-        return DiProvider.appComponent().signinComponent().create()
+        return AppComponentProvider.appComponent().signinComponent().create()
     }
 }

@@ -20,6 +20,4 @@ dependencies {
     implementation(Libs.dagger)
     kapt(Libs.dagger_kapt)
 
-
-
 }

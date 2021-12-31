@@ -9,17 +9,17 @@ import com.google.android.material.snackbar.Snackbar
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
  */
-fun Fragment.showSnackbar(snackbarText: String, timeLength: Int) {
-    activity?.let { Snackbar.make(it.findViewById(android.R.id.content), snackbarText, timeLength).show() }
+fun Fragment.showSnackBar(snackBarText: String, timeLength: Int) {
+    activity?.let { Snackbar.make(it.findViewById(android.R.id.content), snackBarText, timeLength).show() }
 }
 
 /**
  * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
  */
-fun Fragment.setupSnackbar(lifecycleOwner: LifecycleOwner, snackbarEvent: LiveData<Event<Int>>, timeLength: Int) {
-    snackbarEvent.observe(lifecycleOwner) { event ->
+fun Fragment.setupSnackBar(lifecycleOwner: LifecycleOwner, snackBarEvent: LiveData<Event<Int>>, timeLength: Int) {
+    snackBarEvent.observe(lifecycleOwner) { event ->
         event.getContentIfNotHandled()?.let { res ->
-            context?.let { showSnackbar(it.getString(res), timeLength) }
+            context?.let { showSnackBar(it.getString(res), timeLength) }
         }
     }
 }
