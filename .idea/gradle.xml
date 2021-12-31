@@ -36,7 +36,6 @@
             <option value="$PROJECT_DIR$/features/workspace/workspace-select" />
             <option value="$PROJECT_DIR$/navigator" />
             <option value="$PROJECT_DIR$/safe" />
-            <option value="$PROJECT_DIR$/view-interactor" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

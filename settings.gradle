@@ -27,6 +27,5 @@ include(
         ":common-jvm",
         ":domain",
         ":safe",
-        ":common-entity",
-        ":view-interactor"
+        ":common-entity"
 )

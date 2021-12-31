@@ -15,7 +15,6 @@ dependencies {
     implementation(project(Modules.domain))
     implementation(project(Modules.commonEntity))
     implementation(project(Modules.commonJvm))
-    implementation(project(Modules.viewInteractor))
     implementation(Libs.navigation_component_fragment)
     implementation(Libs.navigation_component_ui)
     implementation(Libs.dagger)

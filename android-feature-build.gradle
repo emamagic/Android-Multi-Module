@@ -10,9 +10,6 @@ android {
 
 dependencies {
 
-    // Di
-    implementation(project(Modules.viewInteractor))
-
     implementation project(Modules.core)
     implementation project(Modules.navigator)
     implementation project(Modules.commonEntity)

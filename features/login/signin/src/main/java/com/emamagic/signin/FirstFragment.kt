@@ -42,10 +42,5 @@ class FirstFragment: Fragment() {
 
         }
 
-
-//        val useCase = findAppComponent().getSigninComponent().getFirstFragmentUseCase()
-
-//        Log.e("TAG", "onViewCreated: ${useCase.hashCode()}")
-
     }
 }
