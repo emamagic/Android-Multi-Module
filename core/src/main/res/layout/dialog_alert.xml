@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:padding="8dp"
+    android:layout_marginBottom="200dp"
+    android:background="@drawable/simple_round_transparent"
+    android:elevation="15dp"
+    android:layoutDirection="rtl"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_iw">
+
+        <ImageButton
+            android:id="@+id/btnDismiss"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/hover_oval"
+            android:gravity="center"
+            app:srcCompat="@drawable/ic_cross"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/alert_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:drawableRight="@drawable/ic_error_blue_24dp"
+            android:gravity="center"
+            android:text="اطلاع رسانی"
+            android:textAlignment="center"
+            android:textColor="#007BC3"
+            android:textSize="12sp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/alert_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alert_title"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="test\ntest\n"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_alignParentLeft="true" />
+
+        <View
+            android:id="@+id/dummy_view"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/alert_message"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/dummy_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/dummy_view"
+            android:layout_alignBottom="@id/dummy_view"
+            android:padding="2dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/alert_done"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_btn_red"
+                android:maxWidth="150dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="بسیار خوب"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/alert_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_btn_grey"
+                android:maxWidth="150dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="بسیار خوب"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</ScrollView>

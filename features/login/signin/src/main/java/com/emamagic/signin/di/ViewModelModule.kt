@@ -1,7 +1,8 @@
-package com.emamagic.signin
+package com.emamagic.signin.di
 
 import androidx.lifecycle.ViewModel
 import com.emamagic.core.utils.ViewModelKey
+import com.emamagic.signin.FirstViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

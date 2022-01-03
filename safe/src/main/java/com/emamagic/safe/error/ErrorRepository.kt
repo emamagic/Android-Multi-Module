@@ -6,7 +6,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 object ErrorRepository {
 
@@ -14,7 +13,7 @@ object ErrorRepository {
     val errorMessage = _errorMessage.receiveAsFlow()
 
     fun handleErrorMessage(errorEntity: ErrorEntity) {
-        Timber.e("${errorEntity.message} // ${errorEntity.code} // ${errorEntity.errorBody}")
+     //   Timber.e("${errorEntity.message} // ${errorEntity.code} // ${errorEntity.errorBody}")
         val message: String = when (errorEntity) {
             is ErrorEntity.Api -> "There is problem to network communication"
             is ErrorEntity.Database -> "There is problem to record information"

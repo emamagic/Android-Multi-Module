@@ -1,47 +1,46 @@
 package com.emamagic.signin
 
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.emamagic.core.base.BaseEffect
 import com.emamagic.core.base.BaseFragment
-import com.emamagic.core.utils.Logger
 import com.emamagic.core.extension.findComponent
-import javax.inject.Inject
+import com.emamagic.signin.contract.SigninEvent
+import com.emamagic.signin.contract.SigninState
+import com.emamagic.signin.databinding.FragmentFirstBinding
+import com.emamagic.signin.di.SigninComponentProvider
+import kotlinx.coroutines.launch
 
-class FirstFragment: BaseFragment() {
+class FirstFragment : BaseFragment<FragmentFirstBinding, SigninState, SigninEvent, FirstViewModel>() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_first, container, false)
-    }
+    override val viewModel: FirstViewModel
+        get() = ViewModelProvider(this, viewModelFactory)[FirstViewModel::class.java]
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun getResId() = R.layout.fragment_first
 
+    override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<SigninComponentProvider>().provideSigninComponent().inject(this)
-        val viewModel = ViewModelProvider(this, viewModelFactory)[FirstViewModel::class.java]
 
-        viewLifecycleOwner.lifecycleScope.launchWhenResumed {
-            val config = viewModel.getConfig()
-            Logger.e(config)
+        lifecycleScope.launch {
+            viewModel.getConfig()
         }
 
-
-        view.findViewById<Button>(R.id.btn).setOnClickListener {
-
-
+        binding.btn.setOnClickListener {
+            viewModel.setEvent(SigninEvent.NavigateToSingUp)
+//            viewModel.setEvent(SigninEvent.CustomEvent)
         }
 
     }
+
+
+    override fun renderViewState(viewState: SigninState) {
+
+    }
+
+
 }

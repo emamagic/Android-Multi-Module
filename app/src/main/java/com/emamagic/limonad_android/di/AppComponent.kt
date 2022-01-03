@@ -4,7 +4,7 @@ import android.app.Application
 import com.emamagic.core.base.ViewModelFactoryBinderModule
 import com.emamagic.network.di.RetrofitModule
 import com.emamagic.repository.di.RepositoryBinderModule
-import com.emamagic.signin.SigninComponent
+import com.emamagic.signin.di.SigninComponent
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

@@ -6,12 +6,10 @@ import com.emamagic.safe.error.ErrorHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import retrofit2.Response
-import timber.log.Timber
 
 fun <T> Response<T>.toResult(errorHandler: ErrorHandler): ResultWrapper<T> {
     try {
         if (isSuccessful) {
-            Timber.e("bb success")
             body()?.let {
                 return ResultWrapper.Success(
                     data = it,

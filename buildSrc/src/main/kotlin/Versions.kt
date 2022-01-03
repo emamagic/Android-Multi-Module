@@ -22,5 +22,6 @@ object Versions {
     const val kotlin_reflect = "1.6.10"
     const val life_cycle_scope = "2.2.0"
     const val view_model_scope = "2.2.0"
+    const val kotlin_coroutines = "1.6.0"
 
 }

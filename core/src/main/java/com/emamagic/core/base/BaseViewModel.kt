@@ -1,26 +1,92 @@
 package com.emamagic.core.base
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import com.emamagic.core.utils.Event
-import com.emamagic.navigator.NavigationCommand
+import com.emamagic.core.utils.AlertType
+import com.emamagic.core.utils.ToastyMode
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
-abstract class BaseViewModel: ViewModel() {
+@Suppress("UNCHECKED_CAST")
+abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
+    ViewModel() {
 
-    // FOR ERROR HANDLER
-    protected val _snackbarError = MutableLiveData<Event<Int>>()
-    val snackBarError: LiveData<Event<Int>> get() = _snackbarError
+    init {
+        subscribeEvents()
+    }
 
-    // FOR NAVIGATION
-    private val _navigation = MutableLiveData<Event<NavigationCommand>>()
-    val navigation: LiveData<Event<NavigationCommand>> = _navigation
+    // Create Initial State of View
+    private val initialState: STATE by lazy { createInitialState() }
+    abstract fun createInitialState(): STATE
 
-    /**
-     * Convenient method to handle navigation from a [ViewModel]
-     */
-     fun navigate(directions: NavDirections) {
-        _navigation.value = Event(NavigationCommand.To(directions))
+    // Get Current State
+    val currentState: STATE
+        get() = uiState.value
+
+    private val _uiState: MutableStateFlow<STATE> = MutableStateFlow(initialState)
+    val uiState = _uiState.asStateFlow()
+
+    private val _uiEvent: MutableSharedFlow<EVENT> = MutableSharedFlow()
+    val uiEvent = _uiEvent.asSharedFlow()
+
+    private val _uiEffect: Channel<BaseEffect> = Channel()
+    val uiEffect = _uiEffect.receiveAsFlow()
+
+    fun setEvent(event: EVENT) {
+        viewModelScope.launch { _uiEvent.emit(event) }
+    }
+
+    protected fun setState(reduce: STATE.() -> STATE) {
+        val newState = currentState.reduce()
+        _uiState.value = newState
+    }
+
+    protected fun setEffect(builder: () -> BaseEffect) {
+        val effectValue = builder()
+        viewModelScope.launch { _uiEffect.send(effectValue) }
+    }
+
+    private fun subscribeEvents() = viewModelScope.launch {
+        uiEvent.collect {
+            handleEvent(it)
+        }
+    }
+
+    abstract fun handleEvent(event: EVENT)
+
+    fun navigateTo(directions: NavDirections) {
+        setEffect { BaseEffect.NavigateTo(directions) }
+    }
+
+    fun navigateBack() {
+        setEffect { BaseEffect.NavigateBack }
+    }
+
+    fun showToast(
+        message: String,
+        @ToastyMode mode: Int = ToastyMode.MODE_TOAST_DEFAULT
+    ) {
+        setEffect { BaseEffect.ShowToast(message, mode) }
+    }
+
+    fun showAlert(
+        message: String,
+        accept: String?,
+        decline: String?,
+        @AlertType alertType: Int,
+        canBeDismiss: Boolean = false,
+//        val action: BaseFragment.DialogListener? = null
+    ) {
+        setEffect { BaseEffect.ShowAlert(message, accept, decline, alertType, canBeDismiss) }
+    }
+
+    fun showLoading(isDime: Boolean = false) {
+        setEffect { BaseEffect.ShowLoading(isDime) }
+    }
+
+    fun hideLoading() {
+        setEffect { BaseEffect.HideLoading }
     }
 }

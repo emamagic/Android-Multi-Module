@@ -1,6 +1,7 @@
-package com.emamagic.signin
+package com.emamagic.signin.di
 
 import com.emamagic.core.utils.FragmentScope
+import com.emamagic.signin.FirstFragment
 import dagger.Subcomponent
 
 @FragmentScope

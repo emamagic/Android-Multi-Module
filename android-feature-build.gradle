@@ -14,8 +14,11 @@ dependencies {
     implementation project(Modules.navigator)
     implementation project(Modules.commonEntity)
     implementation project(Modules.commonJvm)
+    implementation Libs.kotlin_coroutines
     implementation Libs.dagger
     kapt Libs.dagger_kapt
+    implementation (Libs.navigation_component_fragment)
+    implementation (Libs.navigation_component_ui)
 
     implementation Libs.view_model_scope
 }

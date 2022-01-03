@@ -46,4 +46,7 @@ object Libs {
     // ViewModel Scope
     const val view_model_scope = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.view_model_scope}"
 
+    // Kotlin Coroutines
+    const val kotlin_coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin_coroutines}"
+
 }

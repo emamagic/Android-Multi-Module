@@ -5,7 +5,24 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30925925925925923" />
         <entry key="common-android/src/main/res/layout/fragment_host.xml" value="0.34270833333333334" />
+        <entry key="core/src/main/res/drawable/bg_corroct_toast.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/bg_error_toast.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/hover_oval.xml" value="0.35333333333333333" />
+        <entry key="core/src/main/res/drawable/hover_oval_drawable.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/ic_corroct_toast.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/ic_cross.xml" value="0.24074074074074073" />
+        <entry key="core/src/main/res/drawable/ic_error_blue_24dp.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/ic_error_red_24dp.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/ic_error_toast.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/ic_error_yellow_24dp.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/rounded_btn_grey.xml" value="0.1640625" />
+        <entry key="core/src/main/res/drawable/rounded_iw.xml" value="0.24074074074074073" />
+        <entry key="core/src/main/res/drawable/simple_round_transparent.xml" value="0.24074074074074073" />
+        <entry key="core/src/main/res/layout/dialog_alert.xml" value="0.34270833333333334" />
+        <entry key="core/src/main/res/layout/hover_oval.xml" value="0.34270833333333334" />
+        <entry key="core/src/main/res/layout/layout_toast.xml" value="0.34270833333333334" />
         <entry key="features/login/signin/src/main/res/layout/fragment_first.xml" value="0.34270833333333334" />
+        <entry key="features/login/signup/src/main/res/layout/fragment_second_fragment.xml" value="0.34270833333333334" />
         <entry key="login/signin/src/main/res/layout/fragment_first.xml" value="0.34270833333333334" />
         <entry key="login/signup/src/main/res/layout/fragment_second_fragment.xml" value="0.34270833333333334" />
       </map>
