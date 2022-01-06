@@ -6,7 +6,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Limonad_Android"
+rootProject.name = "Android-Multi-Module"
 include(
         ":app",
         ':core',

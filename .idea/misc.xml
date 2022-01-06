@@ -1,48 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="app/src/main/res/drawable-v24/ic_lemon_logo.xml" value="0.35333333333333333" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.22870370370370371" />
-        <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.22870370370370371" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.30925925925925923" />
-        <entry key="common-android/src/main/res/layout/fragment_host.xml" value="0.34270833333333334" />
-        <entry key="core/src/main/res/drawable/bg_corroct_toast.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/bg_error_toast.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/hover_oval.xml" value="0.35333333333333333" />
-        <entry key="core/src/main/res/drawable/hover_oval_drawable.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/ic_corroct_toast.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/ic_cross.xml" value="0.24074074074074073" />
-        <entry key="core/src/main/res/drawable/ic_error_blue_24dp.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/ic_error_red_24dp.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/ic_error_toast.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/ic_error_yellow_24dp.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/rounded_btn_grey.xml" value="0.1640625" />
-        <entry key="core/src/main/res/drawable/rounded_iw.xml" value="0.24074074074074073" />
-        <entry key="core/src/main/res/drawable/simple_round_transparent.xml" value="0.24074074074074073" />
-        <entry key="core/src/main/res/layout/dialog_alert.xml" value="0.34270833333333334" />
-        <entry key="core/src/main/res/layout/hover_oval.xml" value="0.34270833333333334" />
-        <entry key="core/src/main/res/layout/layout_toast.xml" value="0.34270833333333334" />
-        <entry key="features/login/signin/src/main/res/layout/fragment_first.xml" value="0.34270833333333334" />
-        <entry key="features/login/signin/src/main/res/layout/fragment_phone_number.xml" value="0.34270833333333334" />
-        <entry key="features/login/signup/src/main/res/layout/fragment_second_fragment.xml" value="0.34270833333333334" />
-        <entry key="login/signin/src/main/res/layout/fragment_first.xml" value="0.34270833333333334" />
-        <entry key="login/signup/src/main/res/layout/fragment_second_fragment.xml" value="0.34270833333333334" />
-      </map>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="SuppressABINotification">
-    <option name="modulesWithSuppressedNotConfigured">
-      <set>
-        <option value="Limonad_Android.domain" />
-      </set>
-    </option>
   </component>
 </project>
