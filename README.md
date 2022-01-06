@@ -11,5 +11,5 @@ this is a sample for android multi module application
 5. dagger 2
 6. kotlin dsl
 
-<img src="/photo/multi_module_diagram.png" width="300" >
+<img src="/photo/multi_module_diagram.png">
 
