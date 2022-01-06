@@ -13,6 +13,7 @@ complete modules functionality and write testing
 4. Navigation Components
 5. dagger 2
 6. kotlin dsl
+7. ....
 
 <img src="/photo/multi_module_diagram.png">
 
