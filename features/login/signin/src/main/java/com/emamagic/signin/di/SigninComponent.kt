@@ -1,14 +1,14 @@
 package com.emamagic.signin.di
 
 import com.emamagic.core.utils.FragmentScope
-import com.emamagic.signin.FirstFragment
+import com.emamagic.signin.phone_number.PhoneNumberFragment
 import dagger.Subcomponent
 
 @FragmentScope
 @Subcomponent(modules = [ViewModelModule::class])
 interface SigninComponent {
 
-    fun inject(firstFragment: FirstFragment)
+    fun inject(phoneNumberFragment: PhoneNumberFragment)
 
     @Subcomponent.Factory
     interface Factory {

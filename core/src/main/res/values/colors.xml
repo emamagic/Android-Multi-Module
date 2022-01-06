@@ -260,4 +260,63 @@
     <color name="gray_light">#FFB2B2B2</color>
     <color name="gray_ultra_light">#E5E5E5</color>
     <color name="gray_ultra_ultra_light">#F5F5F5</color>
+
+
+    <color name="dim_color">#cc000000</color>
+    <color name="default_color">#FCFCFC</color>
+
+
+    <color name="pinFieldLibraryAccent">#3D5A80</color>
+    <color name="inactivePinFieldColor">#B0B2B5</color>
+    <color name="pinFieldLibraryTransparent">#00000000</color>
+
+    <color name="limoo_info_state">#305BBF</color>
+    <color name="limoo_success_state">#30BF69</color>
+    <color name="limoo_warning_state">#D9B221</color>
+    <color name="limoo_error_state">#BF3039</color>
+
+    <color name="limoo_black">#202021</color>
+    <color name="limoo_background_input">#F3F5F7</color>
+
+    <color name="limoo_grey_1">#36393D</color>
+    <color name="limoo_grey_2">#505254</color>
+    <color name="limoo_grey_3">#6F7275</color>
+    <color name="limoo_grey_4">#989A9E</color>
+    <color name="limoo_grey_5">#B0B2B5</color>
+    <color name="limoo_grey_6">#CCCDCF</color>
+    <color name="limoo_grey_7">#DEDFE0</color>
+    <color name="limoo_grey_8">#EDEEF0</color>
+    <color name="limoo_grey_9">#F4F5F7</color>
+
+    <color name="limoo_primary">#89CC29</color>
+    <color name="limoo_primary_light">#C4E594</color>
+    <color name="limoo_primary_dark">#456614</color>
+
+    <color name="limoo_primary_light_1">#95D13E</color>
+    <color name="limoo_primary_light_2">#A1D654</color>
+    <color name="limoo_primary_light_3">#ACDB69</color>
+    <color name="limoo_primary_light_4">#B8E07E</color>
+    <color name="limoo_primary_light_5">#C4E594</color>
+    <color name="limoo_primary_light_6">#D0EBA9</color>
+    <color name="limoo_primary_light_7">#DCF0BF</color>
+    <color name="limoo_primary_light_8">#E7F5D4</color>
+    <color name="limoo_primary_light_9">#F3FAEA</color>
+    <color name="limoo_primary_light_10">#F9FDF4</color>
+
+    <color name="limoo_primary_dark_1">#7BB825</color>
+    <color name="limoo_primary_dark_2">#6EA321</color>
+    <color name="limoo_primary_dark_3">#608F1D</color>
+    <color name="limoo_primary_dark_4">#527A18</color>
+    <color name="limoo_primary_dark_5">#456614</color>
+    <color name="limoo_primary_dark_6">#375210</color>
+    <color name="limoo_primary_dark_7">#293D0C</color>
+    <color name="limoo_primary_dark_8">#293D0C</color>
+    <color name="limoo_primary_dark_9">#0E1404</color>
+    <color name="limoo_primary_dark_10">#070A02</color>
+
+
+    <color name="limoo_secondary">#3A69A6</color>
+    <color name="limoo_secondary_light">#9DB4D2</color>
+    <color name="limoo_secondary_dark">#172A4D</color>
+
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="limoo_8d">8dp</dimen>
+    <dimen name="limoo_10d">10dp</dimen>
+    <dimen name="limoo_root_padding">16dp</dimen>
+    <dimen name="limoo_large_margin">24dp</dimen>
+    <dimen name="limoo_medium_margin">16dp</dimen>
+    <dimen name="limoo_small_margin">8dp</dimen>
+    <dimen name="limoo_very_large_margin">56dp</dimen>
+
+    <dimen name="limoo_8s">8sp</dimen>
+    <dimen name="limoo_11s">11sp</dimen>
+    <dimen name="limoo_12s">12sp</dimen>
+    <dimen name="limoo_14s">14sp</dimen>
+    <dimen name="limoo_16s">16sp</dimen>
+    <dimen name="limoo_18s">18sp</dimen>
+
+    <dimen name="limoo_button_height">48dp</dimen>
+    <dimen name="limoo_input_height">52dp</dimen>
+
+
+</resources>
