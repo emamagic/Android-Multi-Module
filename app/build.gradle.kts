@@ -63,10 +63,6 @@ dependencies {
     implementation(project(Modules.signin))
     implementation(project(Modules.signup))
     implementation(project(Modules.intro))
-    implementation(project(Modules.workspaceCreate))
-    implementation(project(Modules.workspaceSelect))
-    implementation(project(Modules.workspaceAddMember))
-    implementation(project(Modules.chat))
     implementation(project(Modules.thread))
 
     // Navigator

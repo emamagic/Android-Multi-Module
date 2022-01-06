@@ -15,9 +15,6 @@
       <module name="Android-Multi-Module.features.login.signin" target="11" />
       <module name="Android-Multi-Module.features.login.signup" target="11" />
       <module name="Android-Multi-Module.features.thread" target="11" />
-      <module name="Android-Multi-Module.features.workspace.workspace-add-member" target="11" />
-      <module name="Android-Multi-Module.features.workspace.workspace-create" target="11" />
-      <module name="Android-Multi-Module.features.workspace.workspace-select" target="11" />
       <module name="Android-Multi-Module.navigator" target="11" />
       <module name="Android-Multi-Module.safe" target="11" />
     </bytecodeTargetLevel>

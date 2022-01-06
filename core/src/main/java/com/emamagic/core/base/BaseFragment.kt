@@ -30,6 +30,8 @@ import javax.inject.Inject
 
 abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : BaseEvent, VM : BaseViewModel<STATE, EVENT>>: Fragment() {
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     private var _binding: DB? = null
     protected val binding: DB get() = _binding!!
     private lateinit var loading: FrameLayout

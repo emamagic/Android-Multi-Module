@@ -13,10 +13,6 @@ import kotlinx.coroutines.launch
 abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
     ViewModel() {
 
-    init {
-        subscribeEvents()
-    }
-
     // Create Initial State of View
     private val initialState: STATE by lazy { createInitialState() }
     abstract fun createInitialState(): STATE
@@ -35,7 +31,8 @@ abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
     val uiEffect = _uiEffect.receiveAsFlow()
 
     fun setEvent(event: EVENT) {
-        viewModelScope.launch { _uiEvent.emit(event) }
+        val newEvent = event
+        viewModelScope.launch { _uiEvent.emit(newEvent) }
     }
 
     protected fun setState(reduce: STATE.() -> STATE) {
@@ -46,6 +43,11 @@ abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
     protected fun setEffect(builder: () -> BaseEffect) {
         val effectValue = builder()
         viewModelScope.launch { _uiEffect.send(effectValue) }
+    }
+
+
+    init {
+        subscribeEvents()
     }
 
     private fun subscribeEvents() = viewModelScope.launch {

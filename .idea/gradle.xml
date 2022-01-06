@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -20,19 +21,11 @@
             <option value="$PROJECT_DIR$/data/repository" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/features" />
-            <option value="$PROJECT_DIR$/features/chat" />
-            <option value="$PROJECT_DIR$/features/conversation" />
-            <option value="$PROJECT_DIR$/features/conversation/conversation-add-member" />
-            <option value="$PROJECT_DIR$/features/conversation/conversation-list" />
             <option value="$PROJECT_DIR$/features/login" />
             <option value="$PROJECT_DIR$/features/login/intro" />
             <option value="$PROJECT_DIR$/features/login/signin" />
             <option value="$PROJECT_DIR$/features/login/signup" />
             <option value="$PROJECT_DIR$/features/thread" />
-            <option value="$PROJECT_DIR$/features/workspace" />
-            <option value="$PROJECT_DIR$/features/workspace/workspace-add-member" />
-            <option value="$PROJECT_DIR$/features/workspace/workspace-create" />
-            <option value="$PROJECT_DIR$/features/workspace/workspace-select" />
             <option value="$PROJECT_DIR$/navigator" />
             <option value="$PROJECT_DIR$/safe" />
           </set>
