@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_splash.xml" value="0.35333333333333333" />
+        <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.35333333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15648148148148147" />
+        <entry key="features/login/signin/src/main/res/drawable/bg_btn.xml" value="0.35333333333333333" />
+        <entry key="features/login/signin/src/main/res/drawable/bg_register.xml" value="0.35333333333333333" />
+        <entry key="features/login/signin/src/main/res/drawable/ic_baseline_email_24.xml" value="0.35333333333333333" />
+        <entry key="features/login/signin/src/main/res/drawable/ic_key.xml" value="0.35333333333333333" />
+        <entry key="features/login/signin/src/main/res/drawable/ic_phone.xml" value="0.35333333333333333" />
         <entry key="features/login/signin/src/main/res/layout/fragment_phone_number.xml" value="0.15989583333333332" />
+        <entry key="features/login/signin/src/main/res/layout/fragment_signin.xml" value="0.34270833333333334" />
+        <entry key="features/signin/src/main/res/layout/fragment_signin.xml" value="0.34270833333333334" />
       </map>
     </option>
   </component>

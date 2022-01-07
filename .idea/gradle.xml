@@ -21,10 +21,7 @@
             <option value="$PROJECT_DIR$/data/repository" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/features" />
-            <option value="$PROJECT_DIR$/features/login" />
-            <option value="$PROJECT_DIR$/features/login/signin" />
-            <option value="$PROJECT_DIR$/features/login/signup" />
-            <option value="$PROJECT_DIR$/features/thread" />
+            <option value="$PROJECT_DIR$/features/signin" />
             <option value="$PROJECT_DIR$/navigator" />
             <option value="$PROJECT_DIR$/safe" />
           </set>

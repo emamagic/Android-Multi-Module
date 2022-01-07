@@ -5,16 +5,12 @@
     app:startDestination="@id/signinFragment">
 
     <fragment android:id="@+id/signinFragment"
-        android:name="com.emamagic.signin.SigninFragment">
-        <action android:id="@+id/action_firstFragment_to_secondFragment"
-            app:destination="@id/signupFragment"
-            app:enterAnim="@anim/nav_default_pop_enter_anim"
-            app:exitAnim="@anim/nav_default_pop_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-    </fragment>
+        android:name="com.emamagic.signin.SigninFragment"/>
 
-    <fragment android:id="@+id/signupFragment"
-        android:name="com.emamagic.signup.SignupFragment"/>
+
+<!--    app:enterAnim="@anim/nav_default_pop_enter_anim"-->
+<!--    app:exitAnim="@anim/nav_default_pop_exit_anim"-->
+<!--    app:popEnterAnim="@anim/nav_default_pop_enter_anim"-->
+<!--    app:popExitAnim="@anim/nav_default_pop_exit_anim"-->
 
 </navigation>

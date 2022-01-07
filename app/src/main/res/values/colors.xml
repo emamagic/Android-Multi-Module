@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
-    <color name="limoo_secondary">#3A69A6</color>
-    <color name="limoo_secondary_light">#9DB4D2</color>
-    <color name="limoo_secondary_dark">#172A4D</color>
+    <color name="colorPrimary">#110414</color>
+    <color name="colorPrimaryDark">#0A030E</color>
+    <color name="colorAccent">#F8CB06</color>
+
 </resources>

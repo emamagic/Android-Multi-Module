@@ -10,9 +10,7 @@ rootProject.name = "Android-Multi-Module"
 include(
         ":app",
         ':core',
-        ":features:login:signin",
-        ":features:login:signup",
-        ":features:thread",
+        ":features:signin",
         ":navigator",
         ":data:cache",
         ":data:network",

@@ -61,8 +61,6 @@ dependencies {
 
     // Features
     implementation(project(Modules.signin))
-    implementation(project(Modules.signup))
-    implementation(project(Modules.thread))
 
     // Navigator
     implementation(project(Modules.navigator))
