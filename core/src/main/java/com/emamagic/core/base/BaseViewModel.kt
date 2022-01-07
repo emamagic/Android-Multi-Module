@@ -9,7 +9,6 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-@Suppress("UNCHECKED_CAST")
 abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
     ViewModel() {
 

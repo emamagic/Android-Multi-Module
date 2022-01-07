@@ -49,4 +49,6 @@ object Libs {
     // Kotlin Coroutines
     const val kotlin_coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin_coroutines}"
 
+    // Store 4
+    const val store_4 = "com.dropbox.mobile.store:store4:${Versions.store_version}"
 }
