@@ -18,12 +18,12 @@ class SigninViewModel @Inject constructor(
         when (event) {
             SigninEvent.NavigateToSingUp -> navigateTo(SigninFragmentDirections.actionFirstFragmentToSecondFragment())
             SigninEvent.CustomEvent -> setEffect { SigninEffect.CustomEffect }
-            //  setState {  }
         }.exhaustive
     }
 
 
-    suspend fun getConfig() = signInUseCase.getConfig()
+    suspend fun getConfig() = signInUseCase.getConfig().manageResult()
+
 
 
 }

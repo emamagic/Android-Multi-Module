@@ -21,6 +21,7 @@ object Libs {
     // Retrofit
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val moshi = "com.squareup.retrofit2:converter-moshi:${Versions.moshi}"
+    const val gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.gson_converter}"
 
     // Logging Interceptor
     const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logging_interceptor}"

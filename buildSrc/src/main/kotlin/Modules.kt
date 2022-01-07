@@ -4,7 +4,6 @@ object Modules {
     const val commonJvm = ":common-jvm"
     const val signin = ":features:login:signin"
     const val signup = ":features:login:signup"
-    const val intro = ":features:login:intro"
     const val thread = ":features:thread"
     const val navigator = ":navigator"
     const val cache = ":data:cache"

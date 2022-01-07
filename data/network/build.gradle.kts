@@ -10,9 +10,10 @@ apply {
 
 dependencies {
 
+    implementation(project(Modules.commonJvm))
     implementation(Libs.retrofit)
     implementation(Libs.logging_interceptor)
-    implementation(Libs.moshi)
+    implementation(Libs.gson_converter)
     implementation(Libs.dagger)
     kapt(Libs.dagger_kapt)
 

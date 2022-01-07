@@ -23,12 +23,17 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.emamagic.core.R
+import com.emamagic.core.extension.gone
+import com.emamagic.core.extension.visible
 import com.emamagic.core.utils.AlertType
+import com.emamagic.core.utils.Logger
 import com.emamagic.core.utils.ToastyMode
+import kotlinx.coroutines.Job
 import java.lang.Exception
 import javax.inject.Inject
 
-abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : BaseEvent, VM : BaseViewModel<STATE, EVENT>>: Fragment() {
+abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : BaseEvent, VM : BaseViewModel<STATE, EVENT>> :
+    Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -83,7 +88,10 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : Bas
             }
             is BaseEffect.ShowLoading -> showLoading(viewEffect.isDim)
             is BaseEffect.HideLoading -> hideLoading()
-            is BaseEffect.NavigateTo -> findNavController().navigate(viewEffect.directions, getExtras())
+            is BaseEffect.NavigateTo -> findNavController().navigate(
+                viewEffect.directions,
+                getExtras()
+            )
             is BaseEffect.NavigateBack -> findNavController().navigateUp()
             is BaseEffect.ShowAlert -> showAlert(
                 viewEffect.message,
@@ -95,7 +103,7 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : Bas
             )
             else ->
                 if (!renderCustomViewEffect(viewEffect))
-                throw Exception("RenderViewEffect Does Not Implemented")
+                    throw Exception("RenderViewEffect Does Not Implemented")
         }
     }
 
@@ -108,17 +116,13 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : Bas
         requireActivity().onBackPressedDispatcher.addCallback(owner, callback!!)
     }
 
-    private fun showLoading(isDim: Boolean = false){
-        if (loading.visibility != View.VISIBLE){
-            if (isDim) loading.setBackgroundColor(Color.parseColor("#cc000000"))
-            loading.visibility = View.VISIBLE
-        }
+    private fun showLoading(isDim: Boolean = false) {
+        if (isDim) loading.setBackgroundColor(Color.parseColor("#cc000000"))
+        loading.visible()
     }
 
-    private fun hideLoading(){
-        if (loading.visibility != View.GONE){
-            loading.visibility = View.GONE
-        }
+    private fun hideLoading() {
+        loading.gone()
     }
 
     private fun toasty(title: String, @ToastyMode selectedMode: Int? = null) {
@@ -176,7 +180,7 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : Bas
         dialogBuilder.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialogBuilder.setCancelable(false)
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_alert, null)
-     //   dialogBuilder.window!!.attributes.windowAnimations = R.style.DialogAnimation
+        //   dialogBuilder.window!!.attributes.windowAnimations = R.style.DialogAnimation
         val msg = dialogView?.findViewById<TextView>(R.id.alert_message)
         val success = dialogView?.findViewById<Button>(R.id.alert_done)
         val cancel = dialogView?.findViewById<Button>(R.id.alert_cancel)
@@ -259,7 +263,7 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : Bas
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        if (callback != null){
+        if (callback != null) {
             callback?.isEnabled = false
             callback?.remove()
         }

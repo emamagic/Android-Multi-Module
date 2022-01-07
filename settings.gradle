@@ -12,7 +12,6 @@ include(
         ':core',
         ":features:login:signin",
         ":features:login:signup",
-        ":features:login:intro",
         ":features:thread",
         ":navigator",
         ":data:cache",

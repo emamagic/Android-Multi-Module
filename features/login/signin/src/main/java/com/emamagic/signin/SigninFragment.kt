@@ -3,12 +3,14 @@ package com.emamagic.signin
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.emamagic.core.base.BaseFragment
 import com.emamagic.core.extension.findComponent
 import com.emamagic.signin.contract.SigninEvent
 import com.emamagic.signin.contract.SigninState
 import com.emamagic.signin.databinding.FragmentPhoneNumberBinding
 import com.emamagic.signin.di.SigninComponentProvider
+import kotlinx.coroutines.launch
 
 class SigninFragment :
     BaseFragment<FragmentPhoneNumberBinding, SigninState, SigninEvent, SigninViewModel>() {
@@ -22,6 +24,12 @@ class SigninFragment :
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<SigninComponentProvider>().provideSigninComponent().inject(this)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.getConfig()?.let {
+
+            }
+        }
 
         binding.btn.setOnClickListener {
             viewModel.setEvent(SigninEvent.NavigateToSingUp)

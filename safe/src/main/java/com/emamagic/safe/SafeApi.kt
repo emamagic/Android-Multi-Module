@@ -73,16 +73,16 @@ abstract class SafeApi : ErrorHandler {
         return when (throwable) {
             is IOException,
             is NoInternetException,
-            is SocketException -> ErrorEntity.Network(message = "${throwable.message}//${throwable.cause}")
-            is SQLiteException -> ErrorEntity.Database(message = "${throwable.message}//${throwable.cause}")
+            is SocketException -> ErrorEntity.Network(message = "${throwable.message}")
+            is SQLiteException -> ErrorEntity.Database(message = "${throwable.message}")
             is UnknownHostException,
-            is ServerConnectionException -> ErrorEntity.Server(message = "${throwable.message}//${throwable.cause}")
+            is ServerConnectionException -> ErrorEntity.Server(message = "${throwable.message}")
             is HttpException -> ErrorEntity.Api(
                 message = throwable.response()?.message(),
                 code = throwable.code(),
                 errorBody = throwable.response()?.errorBody()?.string()
             )
-            else -> ErrorEntity.Unknown(message = "${throwable.message}//${throwable.cause}")
+            else -> ErrorEntity.Unknown(message = "${throwable.message}")
         }
     }
 

@@ -3,6 +3,8 @@ package com.emamagic.core.base
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
+import com.emamagic.common_jvm.ResultWrapper
+import com.emamagic.common_jvm.succeeded
 import com.emamagic.core.utils.AlertType
 import com.emamagic.core.utils.ToastyMode
 import kotlinx.coroutines.channels.Channel
@@ -90,4 +92,16 @@ abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
     fun hideLoading() {
         setEffect { BaseEffect.HideLoading }
     }
+
+
+    fun <T> ResultWrapper<T>.manageResult(): T? {
+//        hideLoading()
+        if (!succeeded) {
+            showToast(error?.message ?: "unKnown error")
+            return null
+        }
+        return data
+    }
+
+
 }

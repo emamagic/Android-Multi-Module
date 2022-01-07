@@ -1,5 +1,7 @@
 package com.emamagic.core.extension
 
+import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -22,4 +24,19 @@ fun Fragment.setupSnackBar(lifecycleOwner: LifecycleOwner, snackBarEvent: LiveDa
             context?.let { showSnackBar(it.getString(res), timeLength) }
         }
     }
+}
+
+fun View.gone() {
+    if (isVisible)
+        visibility = View.GONE
+}
+
+fun View.inVisible() {
+    if (isVisible)
+        visibility = View.INVISIBLE
+}
+
+fun View.visible() {
+    if (!isVisible)
+        visibility = View.VISIBLE
 }

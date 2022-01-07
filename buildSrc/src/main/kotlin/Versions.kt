@@ -24,5 +24,6 @@ object Versions {
     const val view_model_scope = "2.2.0"
     const val kotlin_coroutines = "1.6.0"
     const val store_version = "4.0.1"
+    const val gson_converter = "2.9.0"
 
 }
