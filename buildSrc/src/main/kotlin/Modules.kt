@@ -3,6 +3,7 @@ object Modules {
     const val core = ":core"
     const val commonJvm = ":common-jvm"
     const val signin = ":features:signin"
+    const val home = ":features:home"
     const val navigator = ":navigator"
     const val cache = ":data:cache"
     const val network = ":data:network"

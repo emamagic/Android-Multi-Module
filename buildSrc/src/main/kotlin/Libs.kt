@@ -52,4 +52,16 @@ object Libs {
 
     // Store 4
     const val store_4 = "com.dropbox.mobile.store:store4:${Versions.store_version}"
+
+    // SwipeRefresh
+    const val swipe_refresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipe_refresh}"
+
+    // Auto Image Slider
+    const val auto_image_slider = "com.github.smarteist:autoimageslider:${Versions.auto_image_slider}"
+
+    // Shimmer
+    const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
+
+    // Circle Image View
+    const val circle_image_view = "de.hdodenhof:circleimageview:${Versions.circle_image_view}"
 }

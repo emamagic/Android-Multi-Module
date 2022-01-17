@@ -73,11 +73,11 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : Bas
 
 //    resources.getIdentifier("fragment_first", "layout",requireActivity().packageName)
 
+    abstract fun onFragmentCreated(view: View, savedInstanceState: Bundle?)
+
     abstract fun renderViewState(viewState: STATE)
 
     open fun renderCustomViewEffect(viewEffect: BaseEffect): Boolean = false
-
-    abstract fun onFragmentCreated(view: View, savedInstanceState: Bundle?)
 
     private fun renderDefaultViewEffect(viewEffect: BaseEffect) {
         when (viewEffect) {

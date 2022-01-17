@@ -16,7 +16,7 @@ class SigninViewModel @Inject constructor(
 
     override fun handleEvent(event: SigninEvent) {
         when (event) {
-            SigninEvent.NavigateToSingUp -> {}
+            SigninEvent.NavigateToHome -> navigateTo(SigninFragmentDirections.actionSigninFragmentToNavGraphHomeFeature())
             SigninEvent.CustomEvent -> setEffect { SigninEffect.CustomEffect }
         }.exhaustive
     }

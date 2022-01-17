@@ -9,7 +9,7 @@ object Versions {
     const val androidx_junit = "1.1.3"
     const val androidx_espresso = "3.4.0"
     const val tools = "7.0.4"
-    const val gradle = "1.6.0"
+    const val gradle = "1.6.10"
     const val hilt = "2.38.1"
     const val dagger = "2.40.5"
     const val retrofit = "2.9.0"
@@ -25,5 +25,9 @@ object Versions {
     const val kotlin_coroutines = "1.6.0"
     const val store_version = "4.0.1"
     const val gson_converter = "2.9.0"
+    const val swipe_refresh = "1.1.0"
+    const val auto_image_slider = "1.4.0"
+    const val shimmer = "0.5.0"
+    const val circle_image_view = "3.1.0"
 
 }

@@ -2,6 +2,7 @@ package com.emamagic.android_multi_module.di
 
 import android.app.Application
 import com.emamagic.core.base.ViewModelFactoryBinderModule
+import com.emamagic.home.di.HomeComponent
 import com.emamagic.network.di.RetrofitModule
 import com.emamagic.repository.di.RepositoryBinderModule
 import com.emamagic.signin.di.SigninComponent
@@ -22,6 +23,7 @@ interface AppComponent {
 
     // Save the reference of factories in the app component for creating sub components
     fun signinComponent(): SigninComponent.Factory
+    fun homeComponent(): HomeComponent.Factory
 
     @Component.Factory
     interface Factory {

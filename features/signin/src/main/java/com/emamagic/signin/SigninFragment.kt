@@ -23,7 +23,7 @@ class SigninFragment :
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<SigninComponentProvider>().provideSigninComponent().inject(this)
 
-
+        binding.btnLogin.setOnClickListener { viewModel.setEvent(SigninEvent.NavigateToHome) }
 
     }
 

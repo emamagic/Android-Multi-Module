@@ -11,6 +11,7 @@ include(
         ":app",
         ':core',
         ":features:signin",
+        ":features:home",
         ":navigator",
         ":data:cache",
         ":data:network",

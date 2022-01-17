@@ -61,6 +61,7 @@ dependencies {
 
     // Features
     implementation(project(Modules.signin))
+    implementation(project(Modules.home))
 
     // Navigator
     implementation(project(Modules.navigator))

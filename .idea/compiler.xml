@@ -11,11 +11,13 @@
       <module name="Android-Multi-Module.features.chat" target="11" />
       <module name="Android-Multi-Module.features.conversation.conversation-add-member" target="11" />
       <module name="Android-Multi-Module.features.conversation.conversation-list" target="11" />
+      <module name="Android-Multi-Module.features.home" target="11" />
       <module name="Android-Multi-Module.features.login.intro" target="11" />
       <module name="Android-Multi-Module.features.login.signin" target="11" />
       <module name="Android-Multi-Module.features.login.signup" target="11" />
       <module name="Android-Multi-Module.features.signin" target="11" />
       <module name="Android-Multi-Module.features.thread" target="11" />
+      <module name="Android-Multi-Module.home" target="11" />
       <module name="Android-Multi-Module.navigator" target="11" />
       <module name="Android-Multi-Module.safe" target="11" />
     </bytecodeTargetLevel>

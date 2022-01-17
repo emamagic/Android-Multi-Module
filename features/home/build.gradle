@@ -1,0 +1,10 @@
+apply {
+    from("$rootDir/android-feature-build.gradle")
+}
+
+dependencies {
+    implementation (Libs.swipe_refresh)
+    implementation (Libs.shimmer)
+    implementation (Libs.circle_image_view)
+//    implementation (Libs.auto_image_slider)
+}
