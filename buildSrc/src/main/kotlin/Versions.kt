@@ -29,5 +29,7 @@ object Versions {
     const val auto_image_slider = "1.4.0"
     const val shimmer = "0.5.0"
     const val circle_image_view = "3.1.0"
+    const val epoxy = "5.0.0-beta05"
+    const val epoxy_kapt = "5.0.0-beta05"
 
 }

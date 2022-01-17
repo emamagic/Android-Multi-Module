@@ -8,6 +8,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation project(Modules.core)
@@ -21,4 +25,7 @@ dependencies {
     implementation (Libs.navigation_component_ui)
 
     implementation Libs.view_model_scope
+
+    implementation Libs.epoxy
+    kapt Libs.epoxy_kapt
 }

@@ -64,4 +64,8 @@ object Libs {
 
     // Circle Image View
     const val circle_image_view = "de.hdodenhof:circleimageview:${Versions.circle_image_view}"
+
+    // Epoxy
+    const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
+    const val epoxy_kapt = "com.airbnb.android:epoxy-processor:${Versions.epoxy_kapt}"
 }
