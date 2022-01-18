@@ -14,9 +14,9 @@ include(
         ":navigator",
         ":data:cache",
         ":data:network",
-        ":data:repository",
-        ":common-jvm",
-        ":domain",
+        ":data:repository-impl",
+        ":domain:common-jvm",
+        ":domain:repository",
         ":safe",
-        ":common-entity"
+        ":domain:common-entity"
 )

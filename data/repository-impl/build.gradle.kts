@@ -13,7 +13,7 @@ dependencies {
     implementation(project(Modules.cache))
     implementation(project(Modules.commonJvm))
     implementation(project(Modules.commonEntity))
-    implementation(project(Modules.domain))
+    implementation(project(Modules.repository))
     implementation(Libs.retrofit)
     implementation(Libs.dagger)
     implementation(Libs.dagger_kapt)

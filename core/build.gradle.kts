@@ -17,7 +17,7 @@ android {
 dependencies {
 
     implementation(project(Modules.navigator))
-    implementation(project(Modules.domain))
+    implementation(project(Modules.repository))
     implementation(project(Modules.commonEntity))
     implementation(project(Modules.commonJvm))
     implementation(Libs.navigation_component_fragment)

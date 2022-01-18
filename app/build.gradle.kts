@@ -50,9 +50,9 @@ android {
 dependencies {
 
     implementation(project(Modules.network))
-    implementation(project(Modules.repository))
+    implementation(project(Modules.repositoryImpl))
     implementation(project(Modules.cache))
-    implementation(project(Modules.domain))
+    implementation(project(Modules.repository))
     implementation(project(Modules.safe))
     implementation(project(Modules.core))
     implementation(Libs.retrofit)
