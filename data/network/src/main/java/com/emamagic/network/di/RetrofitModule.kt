@@ -1,7 +1,9 @@
 package com.emamagic.network.di
 
 import com.emamagic.network.interceptor.ClientInterceptor
-import com.emamagic.network.service.ConfigService
+import com.emamagic.network.service.GenreService
+import com.emamagic.network.service.MovieDetailsService
+import com.emamagic.network.service.MovieService
 import com.emamagic.network.util.Const
 import dagger.Lazy
 import dagger.Module
@@ -49,7 +51,13 @@ object RetrofitModule {
     }
 
     @Provides
-    fun provideConfigService(retrofit: Retrofit): ConfigService = retrofit.create(ConfigService::class.java)
+    fun provideMovieService(retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)
+
+    @Provides
+    fun provideMovieDetailsService(retrofit: Retrofit): MovieDetailsService = retrofit.create(MovieDetailsService::class.java)
+
+    @Provides
+    fun provideGenreService(retrofit: Retrofit): GenreService = retrofit.create(GenreService::class.java)
 
 
 }

@@ -68,4 +68,7 @@ object Libs {
     // Epoxy
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val epoxy_kapt = "com.airbnb.android:epoxy-processor:${Versions.epoxy_kapt}"
+
+    // Annotation
+    const val annotationx = "androidx.annotation:annotation:${Versions.annotation}"
 }

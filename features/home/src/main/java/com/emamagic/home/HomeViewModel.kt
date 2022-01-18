@@ -7,7 +7,6 @@ import com.emamagic.home.contract.HomeState
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
-
 ): BaseViewModel<HomeState, HomeEvent>() {
 
     override fun createInitialState(): HomeState = HomeState.initialize()

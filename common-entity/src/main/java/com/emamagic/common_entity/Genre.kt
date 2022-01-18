@@ -1,5 +1,7 @@
 package com.emamagic.common_entity
 
 data class Genre(
-    val image: String,
+    val id: Long,
+    val name: String,
+    val imageLink: String
 )

@@ -52,7 +52,7 @@ class ClientInterceptor @Inject constructor(private val app: Application): Inter
         return result
     }
 
-    private fun onOnIntercept(chain: Interceptor.Chain): Response {
+    private fun onIntercept(chain: Interceptor.Chain): Response {
         try {
             val response: Response = chain.proceed(chain.request())
             return response.newBuilder().body(ResponseBody.create(response.body?.contentType()!! ,response.body?.string()!!))

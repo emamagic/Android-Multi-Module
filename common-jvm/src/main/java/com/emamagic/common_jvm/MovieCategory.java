@@ -1,24 +1,19 @@
-package com.emamagic.home;
+package com.emamagic.common_jvm;
 
 import androidx.annotation.StringDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @StringDef({
-        CategoryType.GENRE,
-        CategoryType.TOP,
-        CategoryType.NEW,
-        CategoryType.SERIES,
-        CategoryType.POPULAR,
-        CategoryType.ANIMATION,
+        MovieCategory.TOP,
+        MovieCategory.SERIES,
+        MovieCategory.POPULAR,
+        MovieCategory.ANIMATION,
 })
 
 @Retention(RetentionPolicy.SOURCE)
-public @interface CategoryType {
-    String GENRE = "genre";
+public @interface MovieCategory {
     String TOP = "top_movie_imdb";
-    String NEW = "movie_new";
     String SERIES = "series";
     String POPULAR = "popular_movie";
     String ANIMATION = "animation";

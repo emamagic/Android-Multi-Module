@@ -1,16 +1,23 @@
 package com.emamagic.repository.di
 
-import com.emamagic.domain.repository.ConfigRepository
-import com.emamagic.repository.repository.ConfigRepositoryImpl
+import com.emamagic.domain.repository.GenreRepository
+import com.emamagic.domain.repository.MovieDetailRepository
+import com.emamagic.domain.repository.MovieRepository
+import com.emamagic.repository.repository.GenreRepositoryImpl
+import com.emamagic.repository.repository.MovieDetailRepositoryImpl
+import com.emamagic.repository.repository.MovieRepositoryImpl
 import dagger.Binds
 import dagger.Module
-import javax.inject.Singleton
 
 @Module
 abstract class RepositoryBinderModule {
 
-    @Singleton
     @Binds
-    abstract fun bindConfigRepository(configRepositoryImpl: ConfigRepositoryImpl): ConfigRepository
+    abstract fun bindGenreRepository(genreRepositoryImpl: GenreRepositoryImpl): GenreRepository
 
+    @Binds
+    abstract fun bindMovieRepository(movieRepositoryImpl: MovieRepositoryImpl): MovieRepository
+
+    @Binds
+    abstract fun bindGenreRepository(movieDetailRepository: MovieDetailRepositoryImpl): MovieDetailRepository
 }
