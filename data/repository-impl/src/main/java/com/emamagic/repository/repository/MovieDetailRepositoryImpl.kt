@@ -5,7 +5,7 @@ import com.emamagic.common_entity.Episode
 import com.emamagic.common_entity.MovieDetail
 import com.emamagic.common_entity.Season
 import com.emamagic.common_jvm.ResultWrapper
-import com.emamagic.domain.repository.MovieDetailRepository
+import com.emamagic.domain.MovieDetailRepository
 import com.emamagic.network.service.MovieDetailsService
 import com.emamagic.safe.SafeApi
 import javax.inject.Inject

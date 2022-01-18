@@ -3,7 +3,7 @@ package com.emamagic.repository.repository
 import com.emamagic.common_entity.Movie
 import com.emamagic.common_entity.Slider
 import com.emamagic.common_jvm.ResultWrapper
-import com.emamagic.domain.repository.MovieRepository
+import com.emamagic.domain.MovieRepository
 import com.emamagic.network.service.MovieService
 import com.emamagic.safe.SafeApi
 import javax.inject.Inject

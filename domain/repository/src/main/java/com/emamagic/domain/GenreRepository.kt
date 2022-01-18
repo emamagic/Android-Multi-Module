@@ -1,4 +1,4 @@
-package com.emamagic.domain.repository
+package com.emamagic.domain
 
 import com.emamagic.common_entity.Genre
 import com.emamagic.common_jvm.ResultWrapper

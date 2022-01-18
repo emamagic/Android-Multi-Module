@@ -2,7 +2,7 @@ package com.emamagic.repository.repository
 
 import com.emamagic.common_entity.Genre
 import com.emamagic.common_jvm.ResultWrapper
-import com.emamagic.domain.repository.GenreRepository
+import com.emamagic.domain.GenreRepository
 import com.emamagic.network.service.GenreService
 import com.emamagic.safe.SafeApi
 import javax.inject.Inject

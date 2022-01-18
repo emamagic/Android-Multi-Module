@@ -1,8 +1,8 @@
 package com.emamagic.repository.di
 
-import com.emamagic.domain.repository.GenreRepository
-import com.emamagic.domain.repository.MovieDetailRepository
-import com.emamagic.domain.repository.MovieRepository
+import com.emamagic.domain.GenreRepository
+import com.emamagic.domain.MovieDetailRepository
+import com.emamagic.domain.MovieRepository
 import com.emamagic.repository.repository.GenreRepositoryImpl
 import com.emamagic.repository.repository.MovieDetailRepositoryImpl
 import com.emamagic.repository.repository.MovieRepositoryImpl

@@ -1,7 +1,7 @@
 package com.emamagic.core.interactor
 
 import com.emamagic.common_jvm.MovieCategory
-import com.emamagic.domain.repository.MovieRepository
+import com.emamagic.domain.MovieRepository
 import javax.inject.Inject
 
 class HomeUseCase @Inject constructor(
