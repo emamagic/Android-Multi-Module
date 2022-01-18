@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @StringDef({
-        MovieCategory.TOP,
+        MovieCategory.TOP_IMDB,
         MovieCategory.SERIES,
         MovieCategory.POPULAR,
         MovieCategory.ANIMATION,
@@ -13,7 +13,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.SOURCE)
 public @interface MovieCategory {
-    String TOP = "top_movie_imdb";
+    String TOP_IMDB = "top_movie_imdb";
     String SERIES = "series";
     String POPULAR = "popular_movie";
     String ANIMATION = "animation";

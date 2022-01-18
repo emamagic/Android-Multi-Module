@@ -5,6 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 
 data class SliderListResponse(
-    @SerializedName("sliders")
+    @SerializedName("slider")
     val sliders: List<SliderDto>
 )

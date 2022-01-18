@@ -27,3 +27,7 @@ dependencies {
     kapt(Libs.dagger_kapt)
 
 }
+
+kapt {
+    correctErrorTypes = true
+}

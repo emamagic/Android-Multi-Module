@@ -26,10 +26,7 @@ import com.emamagic.core.R
 import com.emamagic.core.extension.gone
 import com.emamagic.core.extension.visible
 import com.emamagic.core.utils.AlertType
-import com.emamagic.core.utils.Logger
 import com.emamagic.core.utils.ToastyMode
-import kotlinx.coroutines.Job
-import java.lang.Exception
 import javax.inject.Inject
 
 abstract class BaseFragment<DB : ViewDataBinding, STATE : BaseState, EVENT : BaseEvent, VM : BaseViewModel<STATE, EVENT>> :

@@ -27,5 +27,6 @@ dependencies {
     implementation Libs.view_model_scope
 
     implementation Libs.epoxy
+    implementation Libs.epoxy_data_binding
     kapt Libs.epoxy_kapt
 }

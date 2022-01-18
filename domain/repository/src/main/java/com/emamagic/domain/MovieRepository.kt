@@ -12,8 +12,6 @@ interface MovieRepository {
 
     suspend fun getMoviesByMovieCategory(@MovieCategory category: String): ResultWrapper<List<Movie>>
 
-    suspend fun getAllMovie(): ResultWrapper<List<Movie>>
-
     suspend fun getMoviesByGenreCategory(@GenreCategory category: String): ResultWrapper<List<Movie>>
 
     suspend fun searchMovies(@MovieCategory category: String, query: String): ResultWrapper<List<Movie>>

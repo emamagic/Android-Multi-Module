@@ -6,6 +6,7 @@ import androidx.navigation.NavDirections
 import com.emamagic.common_jvm.ResultWrapper
 import com.emamagic.common_jvm.succeeded
 import com.emamagic.core.utils.AlertType
+import com.emamagic.core.utils.Logger
 import com.emamagic.core.utils.ToastyMode
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
@@ -98,6 +99,7 @@ abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
 //        hideLoading()
         if (!succeeded) {
             showToast(error?.message ?: "unKnown error")
+            Logger.e("Error Happened", error?.message)
             return null
         }
         return data

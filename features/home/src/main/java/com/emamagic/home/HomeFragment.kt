@@ -1,6 +1,7 @@
 package com.emamagic.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.emamagic.core.base.BaseFragment
@@ -20,10 +21,21 @@ class HomeFragment: BaseFragment<FragmentHomeBinding, HomeState, HomeEvent, Home
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
+
     }
 
 
     override fun renderViewState(viewState: HomeState) {
+
+        viewState.series.forEach { topImdb ->
+            binding.recyclerViewSeries.withModels {
+                movieHorizontal {
+                    id(topImdb.id)
+                    movie(topImdb)
+                }
+            }
+        }
+
 
     }
 

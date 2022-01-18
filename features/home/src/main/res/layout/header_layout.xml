@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_profile"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_margin="8dp" />
+    </data>
 
-    <TextView
-        android:id="@+id/email_user"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img_profile"
-        android:layout_marginLeft="8dp"
-        android:fontFamily="monospace"
-        android:textColor="@color/textColor"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        tools:text="Email Address" />
-
-    <TextView
-        android:id="@+id/phone_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/email_user"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="monospace"
-        android:textColor="@color/textColor"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        tools:text="Phone Number" />
+        android:background="@color/colorPrimary">
 
 
-</RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="8dp" />
+
+        <TextView
+            android:id="@+id/email_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_profile"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="monospace"
+            android:textColor="@color/textColor"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:text="Email Address" />
+
+        <TextView
+            android:id="@+id/phone_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email_user"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="monospace"
+            android:textColor="@color/textColor"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:text="Phone Number" />
+
+
+    </RelativeLayout>
+</layout>

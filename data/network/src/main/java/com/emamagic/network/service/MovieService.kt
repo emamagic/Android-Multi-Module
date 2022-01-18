@@ -9,17 +9,12 @@ import retrofit2.http.Query
 interface MovieService {
 
     @GET("getSlider.php")
-    suspend fun getSliders(): SliderListResponse
-
-    @GET("getInformationHome.php")
-    suspend fun getMoviesByMovieCategory(
-        @Query("category_name") category: String
-    ): MovieListResponse
+    suspend fun getSliders(): Response<SliderListResponse>
 
     @GET("getAllInforamtionHome.php")
-    suspend fun getAllMovie(
+    suspend fun getMoviesByMovieCategory(
         @Query("category_name") category: String
-    ): MovieListResponse
+    ): Response<MovieListResponse>
 
     @GET("get_show_genre.php")
     suspend fun getMoviesByGenreCategory(

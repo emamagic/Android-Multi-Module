@@ -165,6 +165,7 @@
                                 android:id="@+id/shimmerFrameLayout_genre"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:visibility="gone"
                                 android:layout_gravity="center"
                                 android:orientation="horizontal"
                                 app:shimmer_duration="1000">
@@ -174,26 +175,25 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <include layout="@layout/shimmer_genre_layout" />
+<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-                                    <include layout="@layout/shimmer_genre_layout" />
+<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-                                    <include layout="@layout/shimmer_genre_layout" />
+<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-                                    <include layout="@layout/shimmer_genre_layout" />
+<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-                                    <include layout="@layout/shimmer_genre_layout" />
+<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
+                            <com.airbnb.epoxy.EpoxyRecyclerView
                                 android:id="@+id/recyclerView_genre"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:visibility="invisible"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                         </FrameLayout>
 
@@ -246,13 +246,13 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -317,15 +317,15 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -390,25 +390,24 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
+                            <com.airbnb.epoxy.EpoxyRecyclerView
                                 android:id="@+id/recyclerView_series"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:visibility="invisible"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                         </FrameLayout>
 
@@ -461,15 +460,15 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -532,15 +531,15 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-                                    <include layout="@layout/shimmer_movie_layout" />
+<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>

@@ -20,10 +20,10 @@ abstract class SafeApi : ErrorHandler {
         withContext(Dispatchers.IO) { handleResponse { call() } }
 
     suspend fun <T, E> safe(
-        call: suspend () -> Response<T>,
-        mapper: (T) -> E
+        networkCall: suspend () -> Response<T>,
+        mapping: (T) -> E
     ): ResultWrapper<E> =
-        withContext(Dispatchers.IO) { handleResponse({ call() }, mapper) }
+        withContext(Dispatchers.IO) { handleResponse({ networkCall() }, mapping) }
 
 
     private inline fun <T> handleResponse(call: () -> Response<T>): ResultWrapper<T> {
