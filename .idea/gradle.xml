@@ -22,7 +22,6 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/home" />
-            <option value="$PROJECT_DIR$/features/signin" />
             <option value="$PROJECT_DIR$/navigator" />
             <option value="$PROJECT_DIR$/safe" />
           </set>

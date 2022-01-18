@@ -5,7 +5,6 @@ import com.emamagic.core.base.ViewModelFactoryBinderModule
 import com.emamagic.home.di.HomeComponent
 import com.emamagic.network.di.RetrofitModule
 import com.emamagic.repository.di.RepositoryBinderModule
-import com.emamagic.signin.di.SigninComponent
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -22,7 +21,6 @@ import javax.inject.Singleton
 interface AppComponent {
 
     // Save the reference of factories in the app component for creating sub components
-    fun signinComponent(): SigninComponent.Factory
     fun homeComponent(): HomeComponent.Factory
 
     @Component.Factory

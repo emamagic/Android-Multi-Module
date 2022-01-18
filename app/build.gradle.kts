@@ -49,7 +49,6 @@ android {
 
 dependencies {
 
-    // Di
     implementation(project(Modules.network))
     implementation(project(Modules.repository))
     implementation(project(Modules.cache))
@@ -59,14 +58,13 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.logging_interceptor)
 
-    // Features
-    implementation(project(Modules.signin))
+
     implementation(project(Modules.home))
 
-    // Navigator
+
     implementation(project(Modules.navigator))
 
-    // Other
+
     implementation(Libs.multidex)
     implementation (Libs.dagger)
     kapt (Libs.dagger_kapt)
