@@ -1,11 +1,13 @@
 package com.emamagic.home.contract
 
+import com.emamagic.common_entity.Slider
 import com.emamagic.common_jvm.GenreCategory
-import com.emamagic.core.base.BaseEvent
+import com.emamagic.core.base.Event
 import com.emamagic.common_jvm.MovieCategory
+import com.emamagic.common_jvm.ResultWrapper
 
-sealed class HomeEvent: BaseEvent {
-    object GetSliders: HomeEvent()
+sealed class HomeEvent: Event {
+    data class GetSliders(var sliders: List<Slider>): HomeEvent()
     object GetMovies: HomeEvent()
     object GetGenre: HomeEvent()
     object ShouldCloseApp: HomeEvent()

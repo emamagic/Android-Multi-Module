@@ -29,7 +29,7 @@ import com.emamagic.core.utils.AlertType
 import com.emamagic.core.utils.ToastyMode
 import javax.inject.Inject
 
-abstract class BaseFragment<DB : ViewDataBinding, STATE : State, EVENT : Event, VM : BaseViewModel<STATE, EVENT>> :
+abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, EVENT : Event, STORE : Store<STATE, EVENT>, VM : BaseViewModelRedux<STATE, EVENT, STORE>> :
     Fragment() {
 
     @Inject
@@ -52,12 +52,12 @@ abstract class BaseFragment<DB : ViewDataBinding, STATE : State, EVENT : Event, 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.uiState.collect { renderViewState(it) }
+            viewModel.viewState.collect { renderViewState(it) }
         }
 
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.uiEffect.collect { renderDefaultViewEffect(it) }
-        }
+//        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+//            viewModel.uiEffect.collect { renderDefaultViewEffect(it) }
+//        }
         onFragmentCreated(view, savedInstanceState)
     }
 

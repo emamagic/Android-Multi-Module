@@ -5,7 +5,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import com.emamagic.core.utils.Event
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -18,13 +17,13 @@ fun Fragment.showSnackBar(snackBarText: String, timeLength: Int) {
 /**
  * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
  */
-fun Fragment.setupSnackBar(lifecycleOwner: LifecycleOwner, snackBarEvent: LiveData<Event<Int>>, timeLength: Int) {
-    snackBarEvent.observe(lifecycleOwner) { event ->
-        event.getContentIfNotHandled()?.let { res ->
-            context?.let { showSnackBar(it.getString(res), timeLength) }
-        }
-    }
-}
+//fun Fragment.setupSnackBar(lifecycleOwner: LifecycleOwner, snackBarEvent: LiveData<Event<Int>>, timeLength: Int) {
+//    snackBarEvent.observe(lifecycleOwner) { event ->
+//        event.getContentIfNotHandled()?.let { res ->
+//            context?.let { showSnackBar(it.getString(res), timeLength) }
+//        }
+//    }
+//}
 
 fun View.gone() {
     if (isVisible)

@@ -5,16 +5,18 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.emamagic.core.base.BaseFragment
+import com.emamagic.core.base.BaseFragmentRedux
 import com.emamagic.core.extension.findComponent
 import com.emamagic.home.contract.HomeEvent
 import com.emamagic.home.contract.HomeState
+import com.emamagic.home.contract.redux.HomeStore
 import com.emamagic.home.databinding.FragmentHomeBinding
 import com.emamagic.home.di.HomeComponentProvider
 
-class HomeFragment: BaseFragment<FragmentHomeBinding, HomeState, HomeEvent, HomeViewModel>() {
+class HomeFragment: BaseFragmentRedux<FragmentHomeBinding, HomeState, HomeEvent, HomeStore, HomeViewModelRedux>() {
 
-    override val viewModel: HomeViewModel
-        get() = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
+    override val viewModel: HomeViewModelRedux
+        get() = ViewModelProvider(this, viewModelFactory)[HomeViewModelRedux::class.java]
 
     override fun getResId(): Int = R.layout.fragment_home
 

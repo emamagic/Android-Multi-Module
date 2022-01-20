@@ -30,7 +30,7 @@ class HomeViewModel @Inject constructor(
             is HomeEvent.GenreClicked -> TODO()
             HomeEvent.GetGenre -> TODO()
             HomeEvent.GetMovies -> TODO()
-            HomeEvent.GetSliders -> TODO()
+            is HomeEvent.GetSliders -> TODO()
             is HomeEvent.MoreMovieClicked -> TODO()
             HomeEvent.SearchClicked -> TODO()
             HomeEvent.ShouldCloseApp -> TODO()

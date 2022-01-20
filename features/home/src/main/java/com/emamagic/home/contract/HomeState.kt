@@ -3,7 +3,7 @@ package com.emamagic.home.contract
 import com.emamagic.common_entity.Genre
 import com.emamagic.common_entity.Movie
 import com.emamagic.common_entity.Slider
-import com.emamagic.core.base.BaseState
+import com.emamagic.core.base.State
 
 data class HomeState(
     val sliders: List<Slider>,
@@ -13,7 +13,7 @@ data class HomeState(
     val popularMovies: List<Movie>,
     val series: List<Movie>,
     val closeApp: Boolean,
-) : BaseState {
+) : State {
     companion object {
         fun initialize() = HomeState (
             sliders = emptyList(),

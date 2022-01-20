@@ -12,7 +12,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModel<STATE : BaseState, EVENT : BaseEvent> :
+abstract class BaseViewModel<STATE : State, EVENT : Event> :
     ViewModel() {
 
     // Create Initial State of View
