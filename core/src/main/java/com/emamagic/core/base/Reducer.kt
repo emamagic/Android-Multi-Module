@@ -1,6 +1,6 @@
 package com.emamagic.core.base
 
-interface Reducer<S : State, E : Event> {
+interface Reducer<STATE : State, ACTION : Action> {
 
-    fun reduce(currentState: S, event: E): S
+    fun reduce(currentState: STATE, action: ACTION): STATE
 }

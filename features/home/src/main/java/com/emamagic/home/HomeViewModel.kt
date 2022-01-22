@@ -2,58 +2,37 @@ package com.emamagic.home
 
 import androidx.lifecycle.viewModelScope
 import com.emamagic.common_jvm.MovieCategory
-import com.emamagic.core.base.BaseViewModel
-import com.emamagic.core.interactor.HomeUseCase
-import com.emamagic.core.utils.exhaustive
-import com.emamagic.home.contract.HomeEvent
+import com.emamagic.core.base.BaseViewModelRedux
+import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
+import com.emamagic.home.contract.redux.HomeStore
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
-    private val homeUseCase: HomeUseCase
-): BaseViewModel<HomeState, HomeEvent>() {
+    private val store: HomeStore
+): BaseViewModelRedux<HomeState, HomeAction>(store) {
 
     init {
-        getSliders()
-        getMoviesByCategory(MovieCategory.TOP_IMDB)
-        getMoviesByCategory(MovieCategory.POPULAR)
-        getMoviesByCategory(MovieCategory.ANIMATION)
-        getMoviesByCategory(MovieCategory.SERIES)
+        getSlidersEvent()
+        getGenresEvent()
+        getMoviesByCategoryEvent(MovieCategory.TOP_IMDB)
+        getMoviesByCategoryEvent(MovieCategory.POPULAR)
+        getMoviesByCategoryEvent(MovieCategory.ANIMATION)
+        getMoviesByCategoryEvent(MovieCategory.SERIES)
     }
 
-    override fun createInitialState(): HomeState = HomeState.initialize()
 
-    override fun handleEvent(event: HomeEvent) {
-        when (event) {
-            HomeEvent.FavoriteClicked -> TODO()
-            is HomeEvent.GenreClicked -> TODO()
-            HomeEvent.GetGenre -> TODO()
-            HomeEvent.GetMovies -> TODO()
-            is HomeEvent.GetSliders -> TODO()
-            is HomeEvent.MoreMovieClicked -> TODO()
-            HomeEvent.SearchClicked -> TODO()
-            HomeEvent.ShouldCloseApp -> TODO()
-            HomeEvent.SwipeRefreshed -> TODO()
-        }.exhaustive
+    private fun getSlidersEvent() = viewModelScope.launch {
+        store.dispatch(HomeAction.GetSliders)
     }
 
-    private fun getSliders() = viewModelScope.launch {
-        homeUseCase.getSliders().manageResult()?.let { sliders ->
-            setState { copy(sliders = sliders) }
-        }
+    private fun getGenresEvent() = viewModelScope.launch {
+        store.dispatch(HomeAction.GetGenre)
     }
 
-    private fun getMoviesByCategory(@MovieCategory category: String) = viewModelScope.launch {
-        homeUseCase.getMoviesByMovieCategory(category).manageResult()?.let { movies ->
-            when (category) {
-                MovieCategory.TOP_IMDB -> setState { copy(topImdbMovies = movies) }
-                MovieCategory.POPULAR -> setState { copy(popularMovies = movies) }
-                MovieCategory.ANIMATION -> setState { copy(animation = movies) }
-                MovieCategory.SERIES -> setState { copy(series = movies) }
-            }
-        }
+    private fun getMoviesByCategoryEvent(@MovieCategory category: String) = viewModelScope.launch {
+        store.dispatch(HomeAction.GetMovies(category))
     }
-
 
 }

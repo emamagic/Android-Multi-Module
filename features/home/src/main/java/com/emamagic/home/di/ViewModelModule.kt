@@ -2,7 +2,7 @@ package com.emamagic.home.di
 
 import androidx.lifecycle.ViewModel
 import com.emamagic.core.utils.ViewModelKey
-import com.emamagic.home.HomeViewModelRedux
+import com.emamagic.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -15,6 +15,6 @@ abstract class ViewModelModule {
 //    abstract fun firstViewModel(viewModel: HomeViewModel): ViewModel
     @Binds
     @IntoMap
-    @ViewModelKey(HomeViewModelRedux::class)
-    abstract fun firstViewModel(viewModel: HomeViewModelRedux): ViewModel
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun firstViewModel(viewModel: HomeViewModel): ViewModel
 }

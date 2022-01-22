@@ -1,10 +1,10 @@
 package com.emamagic.core.base
 
-interface Middleware<STATE : State, EVENT : Event> {
+interface Middleware<STATE : State, ACTION : Action> {
 
     suspend fun process(
-        event: EVENT,
+        action: ACTION,
         currentState: STATE,
-        store: Store<STATE, EVENT>,
+        store: Store<STATE, ACTION>,
     )
 }

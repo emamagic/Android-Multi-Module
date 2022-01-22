@@ -11,7 +11,7 @@ interface MovieService {
     @GET("getSlider.php")
     suspend fun getSliders(): Response<SliderListResponse>
 
-    @GET("getAllInforamtionHome.php")
+    @GET("getAllInformationHome.php")
     suspend fun getMoviesByMovieCategory(
         @Query("category_name") category: String
     ): Response<MovieListResponse>

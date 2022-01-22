@@ -27,9 +27,10 @@ import com.emamagic.core.extension.gone
 import com.emamagic.core.extension.visible
 import com.emamagic.core.utils.AlertType
 import com.emamagic.core.utils.ToastyMode
+import com.emamagic.core.utils.keyboard.getRootView
 import javax.inject.Inject
 
-abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, EVENT : Event, STORE : Store<STATE, EVENT>, VM : BaseViewModelRedux<STATE, EVENT, STORE>> :
+abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, ACTION : Action, VM : BaseViewModelRedux<STATE, ACTION>> :
     Fragment() {
 
     @Inject
@@ -51,13 +52,14 @@ abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, EVENT : Ev
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val loadingId = resources.getIdentifier("loading", "id",requireActivity().packageName)
+        loading = requireActivity().getRootView().findViewById(loadingId)!!
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.viewState.collect { renderViewState(it) }
         }
-
-//        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-//            viewModel.uiEffect.collect { renderDefaultViewEffect(it) }
-//        }
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.uiEffect.collect { renderDefaultViewEffect(it) }
+        }
         onFragmentCreated(view, savedInstanceState)
     }
 

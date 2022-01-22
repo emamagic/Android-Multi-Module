@@ -12,57 +12,49 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModelRedux<STATE : State, EVENT : Event, STORE : Store<STATE, EVENT>>
-    : ViewModel() {
+abstract class BaseViewModelRedux<STATE : State, ACTION : Action> constructor(
+    private val store: Store<STATE, ACTION>
+) : ViewModel() {
 
-    abstract fun createStore(): STORE
-    private val store: Store<STATE, EVENT> by lazy { createStore() }
     val viewState: StateFlow<STATE> = store.state
 
     val currentState: STATE
         get() = viewState.value
 
-//    private val _uiEvent: MutableSharedFlow<EVENT> = MutableSharedFlow()
-//    val uiEvent = _uiEvent.asSharedFlow()
-//
-//    private val _uiEffect: Channel<BaseEffect> = Channel()
-//    val uiEffect = _uiEffect.receiveAsFlow()
+    private val _uiEvent: MutableSharedFlow<ACTION> = MutableSharedFlow()
+    val uiEvent = _uiEvent.asSharedFlow()
 
-//    fun setEvent(event: EVENT) {
-//        val newEvent = event
-//        viewModelScope.launch { _uiEvent.emit(newEvent) }
-//    }
+    val uiEffect = store.effect.receiveAsFlow()
 
-    protected fun setState(reduce: STATE.() -> STATE) {
-        val newState = currentState.reduce()
-       // _uiState.value = newState
+    fun setEvent(event: ACTION) {
+        val newEvent = event
+        viewModelScope.launch { _uiEvent.emit(newEvent) }
     }
 
-//    protected fun setEffect(builder: () -> BaseEffect) {
-//        val effectValue = builder()
-//        viewModelScope.launch { _uiEffect.send(effectValue) }
-//    }
+    protected fun setEffect(builder: () -> BaseEffect) {
+        val effectValue = builder()
+        viewModelScope.launch { store.effect.send(effectValue) }
+    }
 
 
     init {
-       // subscribeEvents()
+        subscribeEvents()
     }
 
-//    private fun subscribeEvents() = viewModelScope.launch {
-//        uiEvent.collect {
-//          //  handleEvent(it)
-//        }
-//    }
+    private fun subscribeEvents() = viewModelScope.launch {
+        uiEvent.collect {
+            store.dispatch(it)
+        }
+    }
 
-//    abstract fun handleEvent(event: EVENT)
 
-//    fun navigateTo(directions: NavDirections) {
-//        setEffect { BaseEffect.NavigateTo(directions) }
-//    }
-//
-//    fun navigateBack() {
-//        setEffect { BaseEffect.NavigateBack }
-//    }
+    fun navigateTo(directions: NavDirections) {
+        setEffect { BaseEffect.NavigateTo(directions) }
+    }
+
+    fun navigateBack() {
+        setEffect { BaseEffect.NavigateBack }
+    }
 //
 //    fun showToast(
 //        message: String,
@@ -81,16 +73,16 @@ abstract class BaseViewModelRedux<STATE : State, EVENT : Event, STORE : Store<ST
 //    ) {
 //        setEffect { BaseEffect.ShowAlert(message, accept, decline, alertType, canBeDismiss) }
 //    }
-//
-//    fun showLoading(isDime: Boolean = false) {
-//        setEffect { BaseEffect.ShowLoading(isDime) }
-//    }
-//
-//    fun hideLoading() {
-//        setEffect { BaseEffect.HideLoading }
-//    }
-//
-//
+
+    fun showLoading(isDime: Boolean = false) {
+        setEffect { BaseEffect.ShowLoading(isDime) }
+    }
+
+    fun hideLoading() {
+        setEffect { BaseEffect.HideLoading }
+    }
+
+
 //    fun <T> ResultWrapper<T>.manageResult(): T? {
 ////        hideLoading()
 //        if (!succeeded) {

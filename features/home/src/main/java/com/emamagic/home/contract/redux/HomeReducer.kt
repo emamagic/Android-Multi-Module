@@ -1,16 +1,17 @@
 package com.emamagic.home.contract.redux
 
 import com.emamagic.core.base.Reducer
-import com.emamagic.core.utils.exhaustive
-import com.emamagic.home.contract.HomeEvent
+import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 
-class HomeReducer : Reducer<HomeState, HomeEvent> {
+class HomeReducer : Reducer<HomeState, HomeAction> {
 
-    override fun reduce(currentState: HomeState, event: HomeEvent): HomeState {
+    override fun reduce(currentState: HomeState, action: HomeAction): HomeState {
 
-        return when (event) {
-            is HomeEvent.GetSliders -> currentState.copy(sliders = event.sliders)
+        return when (action) {
+            is HomeAction.SlidersLoaded -> currentState.copy(sliders = action.sliders)
+            is HomeAction.MoviesLoaded -> currentState.copy(movieCategory = action.category, movies = action.movies)
+            is HomeAction.GenreLoaded -> currentState.copy(genres = action.genres)
             else -> currentState
         }
 
