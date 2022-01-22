@@ -55,24 +55,24 @@ abstract class BaseViewModelRedux<STATE : State, ACTION : Action> constructor(
     fun navigateBack() {
         setEffect { BaseEffect.NavigateBack }
     }
-//
-//    fun showToast(
-//        message: String,
-//        @ToastyMode mode: Int = ToastyMode.MODE_TOAST_DEFAULT
-//    ) {
-//        setEffect { BaseEffect.ShowToast(message, mode) }
-//    }
 
-//    fun showAlert(
-//        message: String,
-//        accept: String?,
-//        decline: String?,
-//        @AlertType alertType: Int,
-//        canBeDismiss: Boolean = false,
-////        val action: BaseFragment.DialogListener? = null
-//    ) {
-//        setEffect { BaseEffect.ShowAlert(message, accept, decline, alertType, canBeDismiss) }
-//    }
+    fun showToast(
+        message: String,
+        @ToastyMode mode: Int = ToastyMode.MODE_TOAST_DEFAULT
+    ) {
+        setEffect { BaseEffect.ShowToast(message, mode) }
+    }
+
+    fun showAlert(
+        message: String,
+        accept: String?,
+        decline: String?,
+        @AlertType alertType: Int,
+        canBeDismiss: Boolean = false,
+//        val action: BaseFragment.DialogListener? = null
+    ) {
+        setEffect { BaseEffect.ShowAlert(message, accept, decline, alertType, canBeDismiss) }
+    }
 
     fun showLoading(isDime: Boolean = false) {
         setEffect { BaseEffect.ShowLoading(isDime) }
@@ -81,17 +81,6 @@ abstract class BaseViewModelRedux<STATE : State, ACTION : Action> constructor(
     fun hideLoading() {
         setEffect { BaseEffect.HideLoading }
     }
-
-
-//    fun <T> ResultWrapper<T>.manageResult(): T? {
-////        hideLoading()
-//        if (!succeeded) {
-//            showToast(error?.message ?: "unKnown error")
-//            Logger.e("Error Happened", error?.message)
-//            return null
-//        }
-//        return data
-//    }
 
 
 }

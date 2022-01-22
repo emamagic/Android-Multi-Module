@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 interface Store<STATE : State, ACTION : Action> {
 
     val state: StateFlow<STATE>
+
     val effect: Channel<BaseEffect>
 
     suspend fun dispatch(action: ACTION)
