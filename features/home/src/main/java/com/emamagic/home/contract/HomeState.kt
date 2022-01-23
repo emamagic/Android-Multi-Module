@@ -9,15 +9,19 @@ import com.emamagic.core.base.State
 data class HomeState(
     val sliders: List<Slider>,
     val genres: List<Genre>,
-    val movies: List<Movie>,
-    @MovieCategory val movieCategory: String
+    val topImdbMovies: List<Movie>,
+    val popularMovies: List<Movie>,
+    val animations: List<Movie>,
+    val series: List<Movie>
 ) : State {
     companion object {
-        fun initialize() = HomeState (
+        fun initialize() = HomeState(
             sliders = emptyList(),
             genres = emptyList(),
-            movies = emptyList(),
-            movieCategory = MovieCategory.TOP_IMDB
+            topImdbMovies = emptyList(),
+            popularMovies = emptyList(),
+            animations = emptyList(),
+            series = emptyList()
         )
     }
 }

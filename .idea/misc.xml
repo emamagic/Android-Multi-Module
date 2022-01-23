@@ -37,6 +37,7 @@
         <entry key="features/login/signin/src/main/res/drawable/ic_phone.xml" value="0.35333333333333333" />
         <entry key="features/login/signin/src/main/res/layout/fragment_phone_number.xml" value="0.15989583333333332" />
         <entry key="features/login/signin/src/main/res/layout/fragment_signin.xml" value="0.34270833333333334" />
+        <entry key="features/movies/src/main/res/layout/fragment_movies.xml" value="0.34270833333333334" />
         <entry key="features/signin/src/main/res/layout/fragment_signin.xml" value="0.34270833333333334" />
       </map>
     </option>

@@ -9,6 +9,8 @@ import com.emamagic.common_jvm.GenreCategory
 import com.emamagic.common_jvm.MovieCategory
 import com.emamagic.core.base.BaseFragmentRedux
 import com.emamagic.core.extension.findComponent
+import com.emamagic.core.extension.gone
+import com.emamagic.core.utils.Logger
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.databinding.FragmentHomeBinding
@@ -25,15 +27,12 @@ class HomeFragment :
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
-
         setUpRecyclerView()
-
     }
 
     override fun onResume() {
         super.onResume()
         val dummyTimeout = 4000L
-        startShimmers()
         Handler(Looper.getMainLooper()).postDelayed({
             hideShimmer()
         }, dummyTimeout)
@@ -41,64 +40,59 @@ class HomeFragment :
 
 
     override fun renderViewState(viewState: HomeState) {
-
-        when (viewState.movieCategory) {
-            MovieCategory.TOP_IMDB -> {
-                binding.recyclerViewTopMovieImdb.withModels {
-                    viewState.movies.forEach { topMovie ->
-                        movieV {
-                            id(topMovie.id)
-                            movie(topMovie)
-                            onClickListener { _ ->
-                                movieClicked(topMovie.categoryName!!)
-                            }
-                        }
-                    }
-                }
-            }
-            MovieCategory.SERIES -> {
-                binding.recyclerViewSeries.withModels {
-                    viewState.movies.forEach { movie ->
-                        movieH {
-                            id(movie.id)
-                            movie(movie)
-                            onClickListener { _ ->
-                                movieClicked(movie.categoryName!!)
-                            }
-                        }
-                    }
-                }
-            }
-            MovieCategory.ANIMATION -> {
-                binding.recyclerViewAnimation.withModels {
-                    viewState.movies.forEach { animation ->
-                        movieV {
-                            id(animation.id)
-                            movie(animation)
-                            movieClicked(animation.categoryName!!)
-                        }
-                    }
-                }
-            }
-            MovieCategory.POPULAR -> {
-                binding.recyclerViewPopularMovie.withModels {
-                    viewState.movies.forEach { papular ->
-                        movieH {
-                            id(papular.id)
-                            movie(papular)
-                            movieClicked(papular.categoryName!!)
-                        }
+        binding.recyclerViewTopMovieImdb.withModels {
+            viewState.topImdbMovies.forEach { topMovie ->
+                movieV {
+                    id(topMovie.id)
+                    movie(topMovie)
+                    onClickListener { _ ->
+                        movieClicked(topMovie.categoryName!!)
                     }
                 }
             }
         }
+        binding.recyclerViewSeries.withModels {
+            viewState.series.forEach { movie ->
+                movieH {
+                    id(movie.id)
+                    movie(movie)
+                    onClickListener { _ ->
+                        movieClicked(movie.categoryName!!)
+                    }
+                }
+            }
+        }
+        binding.recyclerViewAnimation.withModels {
+            viewState.animations.forEach { animation ->
+                movieV {
+                    id(animation.id)
+                    movie(animation)
+                    onClickListener { _ ->
+                        movieClicked(animation.categoryName!!)
+                    }
+                }
+            }
+        }
+        binding.recyclerViewPopularMovie.withModels {
+            viewState.popularMovies.forEach { papular ->
+                movieH {
+                    id(papular.id)
+                    movie(papular)
+                    onClickListener { _ ->
+                        movieClicked(papular.categoryName!!)
+                    }
+                }
+            }
 
+        }
         binding.recyclerViewGenre.withModels {
             viewState.genres.forEach { genre ->
                 genre {
                     id(genre.id)
                     genre(genre)
-                    genreClicked(genre.name)
+                    onClickListener { _ ->
+                        genreClicked(genre.name)
+                    }
                 }
             }
         }
@@ -112,20 +106,17 @@ class HomeFragment :
         viewModel.genreClickEvent(category)
     }
 
-    private fun startShimmers() {
-        binding.shimmerFrameLayoutGenre.startShimmer()
-        binding.shimmerFrameLayoutTop.startShimmer()
-        binding.shimmerFrameLayoutSeries.startShimmer()
-        binding.shimmerFrameLayoutAnim.startShimmer()
-        binding.shimmerFrameLayoutPopular.startShimmer()
-    }
-
     private fun hideShimmer() {
         binding.shimmerFrameLayoutGenre.hideShimmer()
         binding.shimmerFrameLayoutTop.hideShimmer()
         binding.shimmerFrameLayoutPopular.hideShimmer()
         binding.shimmerFrameLayoutAnim.hideShimmer()
         binding.shimmerFrameLayoutSeries.hideShimmer()
+        binding.shimmerFrameLayoutGenre.gone()
+        binding.shimmerFrameLayoutTop.gone()
+        binding.shimmerFrameLayoutPopular.gone()
+        binding.shimmerFrameLayoutAnim.gone()
+        binding.shimmerFrameLayoutSeries.gone()
     }
 
     private fun setUpRecyclerView() {

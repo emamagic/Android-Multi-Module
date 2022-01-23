@@ -38,7 +38,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun movieClickEvent(@MovieCategory category: String) = viewModelScope.launch {
-//        store.setEffect(BaseEffect.NavigateTo())
+        store.setEffect(BaseEffect.NavigateTo(HomeFragmentDirections.actionHomeFragmentToMoviesFragment(category)))
     }
 
     fun genreClickEvent(@GenreCategory category: String) = viewModelScope.launch {
