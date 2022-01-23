@@ -5,14 +5,26 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @StringDef({
-        GenreCategory.COMEDY,
         GenreCategory.WESTERN,
-        GenreCategory.ROMANCE
+        GenreCategory.DRAMA,
+        GenreCategory.ROMANCE,
+        GenreCategory.COMEDY,
+        GenreCategory.ADVENTURE,
+        GenreCategory.MUSICAL,
+        GenreCategory.MYSTERY,
+        GenreCategory.EPIC,
+        GenreCategory.SPORTS
 })
 
 @Retention(RetentionPolicy.SOURCE)
 public @interface GenreCategory {
-    String COMEDY = "top_movie_imdb";
-    String WESTERN = "series";
-    String ROMANCE = "popular_movie";
+    String WESTERN = "Western";
+    String DRAMA = "Drama";
+    String ROMANCE = "Action";
+    String COMEDY = "Comedy";
+    String ADVENTURE = "Adventure";
+    String MUSICAL = "Musical";
+    String MYSTERY = "Mystery";
+    String EPIC = "Epic";
+    String SPORTS = "Sports";
 }

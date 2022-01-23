@@ -11,7 +11,7 @@ import com.emamagic.core.utils.ToastyMode
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-
+/** events and states are stream */
 abstract class BaseViewModel<STATE : State, EVENT : Event> :
     ViewModel() {
 

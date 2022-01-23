@@ -7,465 +7,418 @@
 
     </data>
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+
+    <RelativeLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <!--tools:openDrawer="start"-->
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigationView"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:theme="@style/NavigationStyle"
-            app:headerLayout="@layout/header_layout"
-            app:menu="@menu/home_menu" />
+            android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/parent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RelativeLayout
-                android:id="@+id/toolbar"
+            <ScrollView
+                android:id="@+id/scrollview"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="monospace"
-                    android:text="Movie Streaming"
-                    android:textColor="@color/textColor"
-                    android:textStyle="bold" />
+                android:layout_height="match_parent">
 
 
-                <ImageView
-                    android:id="@+id/btn_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:padding="10dp"
-                    app:srcCompat="@drawable/ic_menu" />
-
-
-            </RelativeLayout>
-
-
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                android:id="@+id/swipe_refresh_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/toolbar">
-
-                <ScrollView
-                    android:id="@+id/scrollview"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/slider"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="200dp"
+                        android:layout_margin="16dp"
+                        app:cardCornerRadius="6dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/slider"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:layout_margin="16dp"
-                            app:cardCornerRadius="6dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                        <!-- <com.smarteist.autoimageslider.SliderView-->
+                        <!--     android:id="@+id/slider_view"-->
+                        <!--     android:layout_width="match_parent"-->
+                        <!--     android:layout_height="200dp"-->
+                        <!--     app:sliderAnimationDuration="3000"-->
+                        <!--     app:sliderAutoCycleDirection="right"-->
+                        <!--     app:sliderAutoCycleEnabled="true"-->
+                        <!--     app:sliderIndicatorAnimationDuration="3000"-->
+                        <!--     app:sliderIndicatorGravity="center"-->
+                        <!--     app:sliderIndicatorMargin="15dp"-->
+                        <!--     app:sliderIndicatorOrientation="horizontal"-->
+                        <!--     app:sliderIndicatorPadding="3dp"-->
+                        <!--     app:sliderIndicatorRadius="2dp"-->
+                        <!--     app:sliderIndicatorSelectedColor="@color/colorAccent"-->
+                        <!--     app:sliderIndicatorUnselectedColor="@android:color/darker_gray"-->
+                        <!--     app:sliderScrollTimeInSec="10"-->
+                        <!--     app:sliderStartAutoCycle="true" />-->
 
-<!--                                                    <com.smarteist.autoimageslider.SliderView-->
-<!--                                                        android:id="@+id/slider_view"-->
-<!--                                                        android:layout_width="match_parent"-->
-<!--                                                        android:layout_height="200dp"-->
-<!--                                                        app:sliderAnimationDuration="3000"-->
-<!--                                                        app:sliderAutoCycleDirection="right"-->
-<!--                                                        app:sliderAutoCycleEnabled="true"-->
-<!--                                                        app:sliderIndicatorAnimationDuration="3000"-->
-<!--                                                        app:sliderIndicatorGravity="center"-->
-<!--                                                        app:sliderIndicatorMargin="15dp"-->
-<!--                                                        app:sliderIndicatorOrientation="horizontal"-->
-<!--                                                        app:sliderIndicatorPadding="3dp"-->
-<!--                                                        app:sliderIndicatorRadius="2dp"-->
-<!--                                                        app:sliderIndicatorSelectedColor="@color/colorAccent"-->
-<!--                                                        app:sliderIndicatorUnselectedColor="@android:color/darker_gray"-->
-<!--                                                        app:sliderScrollTimeInSec="10"-->
-<!--                                                        app:sliderStartAutoCycle="true" />-->
+                    </androidx.cardview.widget.CardView>
 
-                        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/txt_more_genre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="monospace"
+                        android:gravity="right"
+                        android:padding="6dp"
+                        android:text="More >"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/slider" />
 
-                        <TextView
-                            android:id="@+id/txt_more_genre"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginRight="8dp"
-                            android:fontFamily="monospace"
-                            android:gravity="right"
-                            android:padding="6dp"
-                            android:text="More >"
-                            android:textColor="@color/textColor"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/slider" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="monospace"
+                        android:padding="6dp"
+                        android:text="Genre"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/slider" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="monospace"
-                            android:padding="6dp"
-                            android:text="Genre"
-                            android:textColor="@color/textColor"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/slider" />
+                    <FrameLayout
+                        android:id="@+id/frame_genre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_more_genre">
 
-                        <FrameLayout
-                            android:id="@+id/frame_genre"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txt_more_genre">
-
-                            <com.facebook.shimmer.ShimmerFrameLayout
-                                android:id="@+id/shimmerFrameLayout_genre"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="horizontal"
-                                android:visibility="gone"
-                                app:shimmer_duration="1000">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
-
-                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
-
-                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
-
-                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
-
-                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
-
-                                </LinearLayout>
-                            </com.facebook.shimmer.ShimmerFrameLayout>
-
-                            <com.airbnb.epoxy.EpoxyRecyclerView
-                                android:id="@+id/recyclerView_genre"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/txt_more_top_movie_imdb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:fontFamily="monospace"
-                            android:gravity="right"
-                            android:padding="6dp"
-                            android:text="More >"
-                            android:textColor="@color/textColor"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_genre" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:fontFamily="monospace"
-                            android:padding="6dp"
-                            android:text="Top IMDB"
-                            android:textColor="@color/textColor"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_genre" />
-
-                        <FrameLayout
-                            android:id="@+id/frame_top"
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/shimmerFrameLayout_genre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txt_more_top_movie_imdb">
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            app:shimmer_duration="1000">
 
-                            <com.facebook.shimmer.ShimmerFrameLayout
-                                android:id="@+id/shimmerFrameLayout_top"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="horizontal"
-                                app:shimmer_duration="1000">
+                                android:orientation="horizontal">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                <include layout="@layout/shimmer_genre_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_genre_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_genre_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_genre_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_genre_layout" />
 
-                                </LinearLayout>
-                            </com.facebook.shimmer.ShimmerFrameLayout>
+                            </LinearLayout>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
 
-                            <com.airbnb.epoxy.EpoxyRecyclerView
-                                android:id="@+id/recyclerView_top_movie_imdb"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:fontFamily="monospace"
-                            android:padding="6dp"
-                            android:text="Series"
-                            android:textColor="@color/textColor"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_top" />
-
-                        <TextView
-                            android:id="@+id/txt_more_series"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:fontFamily="monospace"
-                            android:gravity="right"
-                            android:padding="6dp"
-                            android:text="More >"
-                            android:textColor="@color/textColor"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_top" />
-
-                        <FrameLayout
-                            android:id="@+id/frame_series"
+                        <com.airbnb.epoxy.EpoxyRecyclerView
+                            android:id="@+id/recyclerView_genre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txt_more_series">
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                            <com.facebook.shimmer.ShimmerFrameLayout
-                                android:id="@+id/shimmerFrameLayout_series"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="horizontal"
-                                app:shimmer_duration="1000">
+                    </FrameLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txt_more_top_movie_imdb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="monospace"
+                        android:gravity="right"
+                        android:padding="6dp"
+                        android:text="More >"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_genre" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="monospace"
+                        android:padding="6dp"
+                        android:text="Top IMDB"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_genre" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                    <FrameLayout
+                        android:id="@+id/frame_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_more_top_movie_imdb">
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-                                </LinearLayout>
-                            </com.facebook.shimmer.ShimmerFrameLayout>
-
-                            <com.airbnb.epoxy.EpoxyRecyclerView
-                                android:id="@+id/recyclerView_series"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:fontFamily="monospace"
-                            android:padding="6dp"
-                            android:text="Popular Movie"
-                            android:textColor="@color/textColor"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_series" />
-
-                        <TextView
-                            android:id="@+id/txt_more_popular_movie"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:fontFamily="monospace"
-                            android:gravity="right"
-                            android:padding="6dp"
-                            android:text="More >"
-                            android:textColor="@color/textColor"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_series" />
-
-                        <FrameLayout
-                            android:id="@+id/frame_popular"
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/shimmerFrameLayout_top"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txt_more_popular_movie">
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            app:shimmer_duration="1000">
 
-                            <com.facebook.shimmer.ShimmerFrameLayout
-                                android:id="@+id/shimmerFrameLayout_popular"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="horizontal"
-                                app:shimmer_duration="1000">
+                                android:orientation="horizontal">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                <include layout="@layout/shimmer_movie_v_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_v_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_v_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_v_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                            </LinearLayout>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-                                </LinearLayout>
-                            </com.facebook.shimmer.ShimmerFrameLayout>
-
-                            <com.airbnb.epoxy.EpoxyRecyclerView
-                                android:id="@+id/recyclerView_popular_movie"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:fontFamily="monospace"
-                            android:padding="6dp"
-                            android:text="Animation"
-                            android:textColor="@color/textColor"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_popular" />
-
-                        <TextView
-                            android:id="@+id/txt_more_animation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:fontFamily="monospace"
-                            android:gravity="right"
-                            android:padding="6dp"
-                            android:text="More >"
-                            android:textColor="@color/textColor"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_popular" />
-
-                        <FrameLayout
-                            android:id="@+id/frame_anim"
+                        <com.airbnb.epoxy.EpoxyRecyclerView
+                            android:id="@+id/recyclerView_top_movie_imdb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txt_more_animation">
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </FrameLayout>
 
-                            <com.facebook.shimmer.ShimmerFrameLayout
-                                android:id="@+id/shimmerFrameLayout_anim"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="monospace"
+                        android:padding="6dp"
+                        android:text="Series"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_top" />
+
+                    <TextView
+                        android:id="@+id/txt_more_series"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="monospace"
+                        android:gravity="right"
+                        android:padding="6dp"
+                        android:text="More >"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_top" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_series"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_more_series">
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/shimmerFrameLayout_series"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            app:shimmer_duration="1000">
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="horizontal"
-                                app:shimmer_duration="1000">
+                                android:orientation="horizontal">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                <include layout="@layout/shimmer_movie_h_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_h_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_h_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_h_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                <include layout="@layout/shimmer_movie_h_layout" />
 
-                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                            </LinearLayout>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
 
-                                </LinearLayout>
-                            </com.facebook.shimmer.ShimmerFrameLayout>
+                        <com.airbnb.epoxy.EpoxyRecyclerView
+                            android:id="@+id/recyclerView_series"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </FrameLayout>
 
-                            <com.airbnb.epoxy.EpoxyRecyclerView
-                                android:id="@+id/recyclerView_animation"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="monospace"
+                        android:padding="6dp"
+                        android:text="Popular Movie"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_series" />
+
+                    <TextView
+                        android:id="@+id/txt_more_popular_movie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="monospace"
+                        android:gravity="right"
+                        android:padding="6dp"
+                        android:text="More >"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_series" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_popular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_more_popular_movie">
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/shimmerFrameLayout_popular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            app:shimmer_duration="1000">
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-                        </FrameLayout>
+                                android:orientation="horizontal">
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                <include layout="@layout/shimmer_movie_h_layout" />
+
+                                <include layout="@layout/shimmer_movie_h_layout" />
+
+                                <include layout="@layout/shimmer_movie_h_layout" />
+
+                                <include layout="@layout/shimmer_movie_h_layout" />
+
+                                <include layout="@layout/shimmer_movie_h_layout" />
+
+                            </LinearLayout>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                        <com.airbnb.epoxy.EpoxyRecyclerView
+                            android:id="@+id/recyclerView_popular_movie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:fontFamily="monospace"
+                        android:padding="6dp"
+                        android:text="Animation"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_popular" />
+
+                    <TextView
+                        android:id="@+id/txt_more_animation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:fontFamily="monospace"
+                        android:gravity="right"
+                        android:padding="6dp"
+                        android:text="More >"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/frame_popular" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_anim"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_more_animation">
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/shimmerFrameLayout_anim"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            app:shimmer_duration="1000">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <include layout="@layout/shimmer_movie_v_layout" />
+
+                                <include layout="@layout/shimmer_movie_v_layout" />
+
+                                <include layout="@layout/shimmer_movie_v_layout" />
+
+                                <include layout="@layout/shimmer_movie_v_layout" />
+
+                                <include layout="@layout/shimmer_movie_v_layout" />
+
+                            </LinearLayout>
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                        <com.airbnb.epoxy.EpoxyRecyclerView
+                            android:id="@+id/recyclerView_animation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                </ScrollView>
+            </ScrollView>
 
 
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 
-    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

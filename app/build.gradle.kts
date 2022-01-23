@@ -60,6 +60,7 @@ dependencies {
 
 
     implementation(project(Modules.home))
+    implementation(project(Modules.movies))
 
 
     implementation(project(Modules.navigator))

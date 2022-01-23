@@ -3,6 +3,7 @@ object Modules {
     const val core = ":core"
     const val commonJvm = ":domain:common-jvm"
     const val home = ":features:home"
+    const val movies = ":features:movies"
     const val navigator = ":navigator"
     const val cache = ":data:cache"
     const val network = ":data:network"

@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="movie"
             type="com.emamagic.common_entity.Movie" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <RelativeLayout
@@ -35,6 +40,7 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="140dp"
+            android:onClick="@{onClickListener}"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="8dp"
             app:cardElevation="-1dp">
@@ -66,7 +72,7 @@
             android:fontFamily="monospace"
             android:gravity="left"
             android:maxLines="1"
-            android:text="@{movie.name}"
+            android:text="@{movie.name, default=`Movie Name`}"
             android:textColor="@color/textColor"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -94,7 +100,7 @@
                 android:layout_marginLeft="2dp"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:text="@{movie.time}"
+                android:text="@{movie.time, default=`2h 25m`}"
                 android:textColor="@color/textColor"
                 android:textSize="11sp" />
 

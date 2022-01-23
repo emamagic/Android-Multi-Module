@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="220dp"
+    android:layout_height="wrap_content"
+    android:background="@color/colorGrey"
+    android:padding="4dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorGrey"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="-1dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_top_movie_imdb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/name_top_movie_imdb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card"
+        android:layout_marginTop="4dp"
+        android:fontFamily="monospace"
+        android:gravity="left"
+        android:maxLines="1"
+        android:textColor="@color/colorGrey"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        tools:text="Movie Name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_top_movie_imdb"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorGrey2"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_access_time" />
+
+
+        <TextView
+            android:id="@+id/time_movie_imdb"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:textColor="@color/colorGrey2"
+            android:textSize="11sp"
+            tools:text="2h 25m" />
+
+    </LinearLayout>
+
+</RelativeLayout>

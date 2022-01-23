@@ -3,9 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="movie"
             type="com.emamagic.common_entity.Movie" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <RelativeLayout
@@ -19,6 +24,7 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:onClick="@{onClickListener}"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="8dp"
             app:cardElevation="-1dp">
@@ -31,8 +37,8 @@
                     android:id="@+id/img_top_movie_imdb"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:loadImage="@{movie.imageLink}"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    app:loadImage="@{movie.imageLink}" />
 
             </RelativeLayout>
 
@@ -49,7 +55,7 @@
             android:fontFamily="monospace"
             android:gravity="left"
             android:maxLines="1"
-            android:text="@{movie.name}"
+            android:text="@{movie.name, default=`Movie Name`}"
             android:textColor="@color/textColor"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -66,7 +72,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:timeImage="@{movie.categoryName}"/>
+                app:srcCompat="@drawable/ic_access_time"
+                app:timeImage="@{movie.categoryName}" />
 
 
             <TextView
@@ -76,7 +83,7 @@
                 android:layout_marginLeft="2dp"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:text="@{movie.time}"
+                android:text="@{movie.time, default=`2h 25m`}"
                 android:textColor="@color/textColor"
                 android:textSize="11sp" />
 

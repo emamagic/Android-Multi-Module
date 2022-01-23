@@ -1,7 +1,9 @@
 package com.emamagic.home
 
 import androidx.lifecycle.viewModelScope
+import com.emamagic.common_jvm.GenreCategory
 import com.emamagic.common_jvm.MovieCategory
+import com.emamagic.core.base.BaseEffect
 import com.emamagic.core.base.BaseViewModelRedux
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
@@ -33,6 +35,14 @@ class HomeViewModel @Inject constructor(
 
     private fun getMoviesByCategoryEvent(@MovieCategory category: String) = viewModelScope.launch {
         store.dispatch(HomeAction.GetMovies(category))
+    }
+
+    fun movieClickEvent(@MovieCategory category: String) = viewModelScope.launch {
+//        store.setEffect(BaseEffect.NavigateTo())
+    }
+
+    fun genreClickEvent(@GenreCategory category: String) = viewModelScope.launch {
+
     }
 
 }

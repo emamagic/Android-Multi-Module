@@ -11,6 +11,7 @@ include(
         ":app",
         ':core',
         ":features:home",
+        ":features:movies",
         ":navigator",
         ":data:cache",
         ":data:network",
