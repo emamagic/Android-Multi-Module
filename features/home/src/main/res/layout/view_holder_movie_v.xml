@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.emamagic.common_entity.Movie" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="4dp">
+
+
+        <TextView
+            android:id="@+id/rank_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="3dp"
+            android:background="@drawable/bg_rank"
+            android:fontFamily="monospace"
+            android:padding="2dp"
+            android:textColor="@color/textColor"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:rank="@{movie.rank}"
+            tools:text="Rank:1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="-1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_top_movie_imdb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:loadImage="@{movie.imageLink}" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/name_top_movie_imdb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card"
+            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:gravity="left"
+            android:maxLines="1"
+            android:text="@{movie.name}"
+            android:textColor="@color/textColor"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_top_movie_imdb"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/img_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_access_time" />
+
+
+            <TextView
+                android:id="@+id/time_movie_imdb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="@{movie.time}"
+                android:textColor="@color/textColor"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

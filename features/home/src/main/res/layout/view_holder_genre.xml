@@ -23,6 +23,7 @@
                 android:id="@+id/img_genre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:loadImage="@{genre.imageLink}"
                 android:scaleType="centerCrop" />
 
             <ImageView
@@ -38,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="monospace"
-                android:text="Comedy"
+                android:text="@{genre.name}"
                 android:textColor="@color/textColor"
                 android:textSize="11sp"
                 android:textStyle="bold" />

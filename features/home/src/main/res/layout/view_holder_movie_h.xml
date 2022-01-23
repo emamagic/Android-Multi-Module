@@ -31,6 +31,7 @@
                     android:id="@+id/img_top_movie_imdb"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:loadImage="@{movie.imageLink}"
                     android:scaleType="centerCrop" />
 
             </RelativeLayout>
@@ -65,7 +66,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_access_time" />
+                app:timeImage="@{movie.categoryName}"/>
 
 
             <TextView

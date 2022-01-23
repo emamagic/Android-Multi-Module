@@ -26,6 +26,8 @@ dependencies {
     implementation(Libs.kotlin_coroutines)
     kapt(Libs.dagger_kapt)
 
+    implementation(Libs.glide)
+    kapt(Libs.glide_kapt)
 }
 
 kapt {

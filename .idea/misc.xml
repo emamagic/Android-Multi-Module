@@ -6,14 +6,16 @@
         <entry key="app/src/main/res/drawable/ic_splash.xml" value="0.35333333333333333" />
         <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.35333333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15648148148148147" />
+        <entry key="features/home/src/main/res/drawable/bg_rank.xml" value="0.24259259259259258" />
         <entry key="features/home/src/main/res/drawable/ic_access_time.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_apps.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.34629629629629627" />
+        <entry key="features/home/src/main/res/drawable/ic_folder_special.xml" value="0.24259259259259258" />
         <entry key="features/home/src/main/res/drawable/ic_home.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_menu.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_payment.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_search.xml" value="0.34629629629629627" />
-        <entry key="features/home/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="features/home/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="features/home/src/main/res/layout/header_layout.xml" value="0.34270833333333334" />
         <entry key="features/home/src/main/res/layout/item_genre.xml" value="0.34270833333333334" />
         <entry key="features/home/src/main/res/layout/shimmer_genre_layout.xml" value="0.26296296296296295" />
@@ -22,6 +24,7 @@
         <entry key="features/home/src/main/res/layout/view_holder_genre.xml" value="0.30462962962962964" />
         <entry key="features/home/src/main/res/layout/view_holder_movie.xml" value="0.34270833333333334" />
         <entry key="features/home/src/main/res/layout/view_holder_movie_h.xml" value="0.196875" />
+        <entry key="features/home/src/main/res/layout/view_holder_top_movie_imdb.xml" value="0.34270833333333334" />
         <entry key="features/home/src/main/res/menu/home_menu.xml" value="0.34270833333333334" />
         <entry key="features/login/signin/src/main/res/drawable/bg_btn.xml" value="0.35333333333333333" />
         <entry key="features/login/signin/src/main/res/drawable/bg_register.xml" value="0.35333333333333333" />

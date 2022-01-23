@@ -72,4 +72,8 @@ object Libs {
 
     // Annotation
     const val annotationx = "androidx.annotation:annotation:${Versions.annotation}"
+
+    // Glide
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_kapt = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }

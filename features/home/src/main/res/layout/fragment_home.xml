@@ -74,25 +74,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <!--                    <androidx.viewpager.widget.ViewPager-->
-                        <!--                        android:id="@+id/slider"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="200dp"-->
-                        <!--                        android:background="@color/colorPrimary"-->
-                        <!--                        app:layout_constraintEnd_toEndOf="parent"-->
-                        <!--                        app:layout_constraintStart_toStartOf="parent"-->
-                        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
-
-                        <!--                    <com.google.android.material.tabs.TabLayout-->
-                        <!--                        android:id="@+id/tabLayout"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        app:layout_constraintEnd_toEndOf="parent"-->
-                        <!--                        app:layout_constraintStart_toStartOf="parent"-->
-                        <!--                        app:layout_constraintTop_toBottomOf="@+id/slider"-->
-                        <!--                        app:tabBackground="@drawable/bg_tabs"-->
-                        <!--                        app:tabGravity="center"-->
-                        <!--                        app:tabIndicatorHeight="0dp" />-->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/slider"
                             android:layout_width="match_parent"
@@ -103,23 +84,23 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
-                            <!--                        <com.smarteist.autoimageslider.SliderView-->
-                            <!--                            android:id="@+id/slider_view"-->
-                            <!--                            android:layout_width="match_parent"-->
-                            <!--                            android:layout_height="200dp"-->
-                            <!--                            app:sliderAnimationDuration="3000"-->
-                            <!--                            app:sliderAutoCycleDirection="right"-->
-                            <!--                            app:sliderAutoCycleEnabled="true"-->
-                            <!--                            app:sliderIndicatorAnimationDuration="3000"-->
-                            <!--                            app:sliderIndicatorGravity="center"-->
-                            <!--                            app:sliderIndicatorMargin="15dp"-->
-                            <!--                            app:sliderIndicatorOrientation="horizontal"-->
-                            <!--                            app:sliderIndicatorPadding="3dp"-->
-                            <!--                            app:sliderIndicatorRadius="2dp"-->
-                            <!--                            app:sliderIndicatorSelectedColor="@color/colorAccent"-->
-                            <!--                            app:sliderIndicatorUnselectedColor="@android:color/darker_gray"-->
-                            <!--                            app:sliderScrollTimeInSec="10"-->
-                            <!--                            app:sliderStartAutoCycle="true" />-->
+<!--                                                    <com.smarteist.autoimageslider.SliderView-->
+<!--                                                        android:id="@+id/slider_view"-->
+<!--                                                        android:layout_width="match_parent"-->
+<!--                                                        android:layout_height="200dp"-->
+<!--                                                        app:sliderAnimationDuration="3000"-->
+<!--                                                        app:sliderAutoCycleDirection="right"-->
+<!--                                                        app:sliderAutoCycleEnabled="true"-->
+<!--                                                        app:sliderIndicatorAnimationDuration="3000"-->
+<!--                                                        app:sliderIndicatorGravity="center"-->
+<!--                                                        app:sliderIndicatorMargin="15dp"-->
+<!--                                                        app:sliderIndicatorOrientation="horizontal"-->
+<!--                                                        app:sliderIndicatorPadding="3dp"-->
+<!--                                                        app:sliderIndicatorRadius="2dp"-->
+<!--                                                        app:sliderIndicatorSelectedColor="@color/colorAccent"-->
+<!--                                                        app:sliderIndicatorUnselectedColor="@android:color/darker_gray"-->
+<!--                                                        app:sliderScrollTimeInSec="10"-->
+<!--                                                        app:sliderStartAutoCycle="true" />-->
 
                         </androidx.cardview.widget.CardView>
 
@@ -165,9 +146,9 @@
                                 android:id="@+id/shimmerFrameLayout_genre"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:visibility="gone"
                                 android:layout_gravity="center"
                                 android:orientation="horizontal"
+                                android:visibility="gone"
                                 app:shimmer_duration="1000">
 
                                 <LinearLayout
@@ -175,15 +156,15 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_genre_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_genre_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -193,7 +174,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
                         </FrameLayout>
 
@@ -246,100 +227,24 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
+                            <com.airbnb.epoxy.EpoxyRecyclerView
                                 android:id="@+id/recyclerView_top_movie_imdb"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:visibility="invisible"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                         </FrameLayout>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:fontFamily="monospace"
-                            android:padding="6dp"
-                            android:text="Movie 2020"
-                            android:textColor="@color/textColor"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_top" />
-
-                        <TextView
-                            android:id="@+id/txt_more_new_movie"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:fontFamily="monospace"
-                            android:gravity="right"
-                            android:padding="6dp"
-                            android:text="More >"
-                            android:textColor="@color/textColor"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_top" />
-
-
-                        <FrameLayout
-                            android:id="@+id/frame_new"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txt_more_new_movie">
-
-                            <com.facebook.shimmer.ShimmerFrameLayout
-                                android:id="@+id/shimmerFrameLayout_new"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="horizontal"
-                                app:shimmer_duration="1000">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
-
-                                </LinearLayout>
-                            </com.facebook.shimmer.ShimmerFrameLayout>
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recyclerView_new_movie"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:visibility="invisible"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-                        </FrameLayout>
-
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -352,7 +257,7 @@
                             android:textSize="13sp"
                             android:textStyle="bold"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_new" />
+                            app:layout_constraintTop_toBottomOf="@+id/frame_top" />
 
                         <TextView
                             android:id="@+id/txt_more_series"
@@ -366,7 +271,7 @@
                             android:textColor="@color/textColor"
                             android:textSize="12sp"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/frame_new" />
+                            app:layout_constraintTop_toBottomOf="@+id/frame_top" />
 
                         <FrameLayout
                             android:id="@+id/frame_series"
@@ -390,15 +295,15 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -460,25 +365,24 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
+                            <com.airbnb.epoxy.EpoxyRecyclerView
                                 android:id="@+id/recyclerView_popular_movie"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:visibility="invisible"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                         </FrameLayout>
 
@@ -531,25 +435,24 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
-<!--                                    <include layout="@layout/shimmer_movie_layout" />-->
+                                    <!--                                    <include layout="@layout/shimmer_movie_layout" />-->
 
                                 </LinearLayout>
                             </com.facebook.shimmer.ShimmerFrameLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
+                            <com.airbnb.epoxy.EpoxyRecyclerView
                                 android:id="@+id/recyclerView_animation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:visibility="invisible"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                         </FrameLayout>
 
