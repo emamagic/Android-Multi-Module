@@ -8,4 +8,4 @@ import javax.inject.Scope;
 @Scope
 @Documented
 @Retention(RUNTIME)
-public @interface FragmentScope {}
+public @interface ViewModelScope {}

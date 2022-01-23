@@ -9,10 +9,7 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class ViewModelModule {
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(HomeViewModel::class)
-//    abstract fun firstViewModel(viewModel: HomeViewModel): ViewModel
+
     @Binds
     @IntoMap
     @ViewModelKey(HomeViewModel::class)

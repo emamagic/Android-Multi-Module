@@ -1,10 +1,10 @@
 package com.emamagic.home.di
 
-import com.emamagic.core.utils.FragmentScope
+import com.emamagic.core.utils.ViewModelScope
 import com.emamagic.home.HomeFragment
 import dagger.Subcomponent
 
-@FragmentScope
+@ViewModelScope
 @Subcomponent(modules = [ViewModelModule::class])
 interface HomeComponent {
 
