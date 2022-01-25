@@ -5,6 +5,7 @@
     app:startDestination="@id/homeFragment">
 
     <fragment android:id="@+id/homeFragment"
+        android:label=""
         android:name="com.emamagic.home.HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_moviesFragment"
@@ -12,6 +13,7 @@
     </fragment>
 
     <fragment android:id="@+id/moviesFragment"
+        android:label=""
         android:name="com.emamagic.movies.MoviesFragment">
         <argument
             android:name="category"

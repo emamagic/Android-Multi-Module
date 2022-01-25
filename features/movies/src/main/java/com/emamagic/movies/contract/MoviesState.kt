@@ -4,7 +4,7 @@ import com.emamagic.common_entity.Movie
 import com.emamagic.core.base.State
 
 data class MoviesState(
-    val movies: List<Movie>
+    val movies: List<Movie>?
 ): State {
     companion object {
         fun initialize() =

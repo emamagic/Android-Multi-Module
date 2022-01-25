@@ -5,6 +5,6 @@ import com.emamagic.core.base.Event
 
 sealed class MoviesEvent: Event {
 
-    data class GetMovies(@MovieCategory val category: String): MoviesEvent()
+    data class GetMoviesByCategory(@MovieCategory val category: String): MoviesEvent()
 
 }

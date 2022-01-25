@@ -18,4 +18,16 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/colorAccent</item>
+    </style>
+
+
+    <!-- for change the back icon of toolbar -->
+    <!--    <style name="Theme.MyFancyTheme" parent="android:Theme.Holo">-->
+    <!--        <item name="android:homeAsUpIndicator">@drawable/back_button_image</item>-->
+    <!--    </style>-->
+
+
 </resources>

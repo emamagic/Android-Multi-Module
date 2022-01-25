@@ -18,13 +18,15 @@ class MoviesViewModel @Inject constructor(
 
     override fun handleEvent(event: MoviesEvent) {
         when (event) {
-            is MoviesEvent.GetMovies -> getMoviesByCategory(event.category)
+            is MoviesEvent.GetMoviesByCategory -> getMoviesByCategory(event.category)
         }.exhaustive
     }
 
 
     private fun getMoviesByCategory(@MovieCategory category: String) = viewModelScope.launch {
-        moviesUseCase.getMoviesByMovieCategory(category).manageResult()
+        val movies = moviesUseCase.getMoviesByMovieCategory(category).manageResult()
+        setState { copy(movies = movies) }
+
     }
 
 

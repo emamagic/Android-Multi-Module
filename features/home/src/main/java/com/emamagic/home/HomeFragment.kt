@@ -10,7 +10,6 @@ import com.emamagic.common_jvm.MovieCategory
 import com.emamagic.core.base.BaseFragmentRedux
 import com.emamagic.core.extension.findComponent
 import com.emamagic.core.extension.gone
-import com.emamagic.core.utils.Logger
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.databinding.FragmentHomeBinding
@@ -32,10 +31,13 @@ class HomeFragment :
 
     override fun onResume() {
         super.onResume()
-        val dummyTimeout = 4000L
-        Handler(Looper.getMainLooper()).postDelayed({
-            hideShimmer()
-        }, dummyTimeout)
+        if (viewModel.shimmerLoading) {
+            val dummyTimeout = 4000L
+            Handler(Looper.getMainLooper()).postDelayed({
+                viewModel.shimmerLoading = false
+                hideShimmer()
+            }, dummyTimeout)
+        }
     }
 
 

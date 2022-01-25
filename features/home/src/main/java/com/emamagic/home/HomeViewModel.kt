@@ -15,6 +15,9 @@ class HomeViewModel @Inject constructor(
     private val store: HomeStore
 ): BaseViewModelRedux<HomeState, HomeAction>(store) {
 
+    // dummy field for shimmer
+    var shimmerLoading = true
+
     init {
         getSlidersEvent()
         getGenresEvent()
