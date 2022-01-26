@@ -7,6 +7,7 @@ import com.emamagic.safe.error.ErrorHandler
 import com.emamagic.safe.error.NoInternetException
 import com.emamagic.safe.error.ServerConnectionException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.Response
@@ -16,14 +17,16 @@ import java.net.UnknownHostException
 
 abstract class SafeApi : ErrorHandler {
 
-    suspend fun <T> safe(call: suspend () -> Response<T>): ResultWrapper<T> =
-        withContext(Dispatchers.IO) { handleResponse { call() } }
+    override suspend fun <T> safe(call: suspend () -> Response<T>): ResultWrapper<T> =
+        withContext(Dispatchers.IO) {
+            handleResponse { retryIO { call() } }
+        }
 
-    suspend fun <T, E> safe(
+    override suspend fun <T, E> safe(
         networkCall: suspend () -> Response<T>,
         mapping: (T) -> E
     ): ResultWrapper<E> =
-        withContext(Dispatchers.IO) { handleResponse({ networkCall() }, mapping) }
+        withContext(Dispatchers.IO) { handleResponse({ retryIO { networkCall() } }, mapping) }
 
 
     private inline fun <T> handleResponse(call: () -> Response<T>): ResultWrapper<T> {
@@ -84,6 +87,28 @@ abstract class SafeApi : ErrorHandler {
             )
             else -> ErrorEntity.Unknown(message = "${throwable.message}")
         }
+    }
+
+    override suspend fun <T> retryIO(
+        times: Int,
+        initialDelay: Long,
+        maxDelay: Long,
+        factor: Double,
+        block: suspend () -> T
+    ): T {
+        var currentDelay = initialDelay
+        repeat(times - 1)
+        {
+            try {
+                return block()
+            } catch (e: IOException) {
+                // you can log an error here and/or make a more finer-grained
+                // analysis of the cause to see if retry is needed
+            }
+            delay(currentDelay)
+            currentDelay = (currentDelay * factor).toLong().coerceAtMost(maxDelay)
+        }
+        return block()
     }
 
 }

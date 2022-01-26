@@ -30,6 +30,6 @@ sealed interface BaseEffect {
 
 }
 
-sealed class SigninEffect: BaseEffect {
-    object CustomEffect: SigninEffect()
+sealed class HomeEffect: BaseEffect {
+    object StopShimmer: HomeEffect()
 }

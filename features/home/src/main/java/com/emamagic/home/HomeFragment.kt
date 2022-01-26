@@ -3,19 +3,15 @@ package com.emamagic.home
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.emamagic.common_jvm.GenreCategory
-import com.emamagic.common_jvm.MovieCategory
+import com.emamagic.core.base.BaseEffect
 import com.emamagic.core.base.BaseFragmentRedux
+import com.emamagic.core.base.HomeEffect
 import com.emamagic.core.extension.findComponent
 import com.emamagic.core.extension.gone
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.databinding.FragmentHomeBinding
 import com.emamagic.home.di.HomeComponentProvider
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class HomeFragment :
     BaseFragmentRedux<FragmentHomeBinding, HomeState, HomeAction, HomeViewModel>() {
@@ -24,31 +20,12 @@ class HomeFragment :
         get() = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
 
     override fun getResId(): Int = R.layout.fragment_home
-    private lateinit var job: Job
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
         binding.viewModel = viewModel
         setUpRecyclerView()
     }
-
-    override fun onResume() {
-        super.onResume()
-        if (viewModel.shimmerLoading) {
-            val dummyTimeout = 4000L
-            job = viewLifecycleOwner.lifecycleScope.launch {
-                delay(dummyTimeout)
-                viewModel.shimmerLoading = false
-                hideShimmer()
-            }
-        }
-    }
-
-    override fun onStop() {
-        job.cancel()
-        super.onStop()
-    }
-
 
     override fun renderViewState(viewState: HomeState) {
         binding.recyclerViewTopMovieImdb.withModels {
@@ -109,7 +86,14 @@ class HomeFragment :
         }
     }
 
-    private fun hideShimmer() {
+    override fun renderCustomViewEffect(viewEffect: BaseEffect): Boolean {
+        when (viewEffect) {
+            is HomeEffect.StopShimmer -> stopShimmer()
+        }
+        return true
+    }
+
+    private fun stopShimmer() {
         binding.shimmerFrameLayoutGenre.hideShimmer()
         binding.shimmerFrameLayoutTop.hideShimmer()
         binding.shimmerFrameLayoutPopular.hideShimmer()

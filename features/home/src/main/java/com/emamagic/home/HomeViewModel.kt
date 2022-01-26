@@ -5,6 +5,7 @@ import com.emamagic.common_jvm.GenreCategory
 import com.emamagic.common_jvm.MovieCategory
 import com.emamagic.core.base.BaseEffect
 import com.emamagic.core.base.BaseViewModelRedux
+import com.emamagic.core.base.HomeEffect
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.contract.redux.HomeStore
@@ -15,8 +16,6 @@ class HomeViewModel @Inject constructor(
     private val store: HomeStore
 ): BaseViewModelRedux<HomeState, HomeAction>(store) {
 
-    // dummy field for shimmer
-    var shimmerLoading = true
 
     init {
         getSlidersEvent()
@@ -50,6 +49,10 @@ class HomeViewModel @Inject constructor(
 
     fun genreClickEvent(@GenreCategory category: String) = viewModelScope.launch {
 
+    }
+
+    private fun recyclerViewItemsLoaded() = viewModelScope.launch {
+        store.setEffect(HomeEffect.StopShimmer)
     }
 
 }

@@ -12,7 +12,8 @@ data class HomeState(
     val topImdbMovies: List<Movie>,
     val popularMovies: List<Movie>,
     val animations: List<Movie>,
-    val series: List<Movie>
+    val series: List<Movie>,
+    val stopShimmer: Boolean
 ) : State {
     companion object {
         fun initialize() = HomeState(
@@ -21,7 +22,8 @@ data class HomeState(
             topImdbMovies = emptyList(),
             popularMovies = emptyList(),
             animations = emptyList(),
-            series = emptyList()
+            series = emptyList(),
+            stopShimmer = false
         )
     }
 }

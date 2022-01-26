@@ -1,11 +1,13 @@
 package com.emamagic.home.contract.redux
 
 import com.emamagic.common_jvm.MovieCategory
+import com.emamagic.core.base.HomeEffect
 import com.emamagic.core.base.Middleware
 import com.emamagic.core.base.Store
 import com.emamagic.core.interactor.HomeUseCase
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class HomeNetworkMiddleware @Inject constructor(
@@ -28,6 +30,9 @@ class HomeNetworkMiddleware @Inject constructor(
         homeUseCase.getSliders().manageResult(store)?.let {
             store.dispatch(HomeAction.SlidersLoaded(it))
         }
+        // waiting for recyclerViews load items completely
+        delay(1500)
+        store.setEffect(HomeEffect.StopShimmer)
     }
 
     private suspend fun fetchGenre(store: Store<HomeState, HomeAction>) {

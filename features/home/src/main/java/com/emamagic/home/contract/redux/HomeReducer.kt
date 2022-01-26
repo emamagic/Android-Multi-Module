@@ -16,8 +16,8 @@ class HomeReducer : Reducer<HomeState, HomeAction> {
                 when (action.category) {
                     MovieCategory.POPULAR -> currentState.copy(popularMovies = action.movies)
                     MovieCategory.TOP_IMDB -> currentState.copy(topImdbMovies = action.movies)
-                    MovieCategory.SERIES -> currentState.copy(series = action.movies)
                     MovieCategory.ANIMATION -> currentState.copy(animations = action.movies)
+                    MovieCategory.SERIES -> currentState.copy(series = action.movies, stopShimmer = true)
                     else -> TODO()
                 }.exhaustive
             }
