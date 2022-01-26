@@ -5,15 +5,20 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.emamagic.common_jvm.GenreCategory
 import com.emamagic.common_jvm.MovieCategory
 import com.emamagic.core.base.BaseFragmentRedux
 import com.emamagic.core.extension.findComponent
 import com.emamagic.core.extension.gone
+import com.emamagic.core.utils.Logger
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.databinding.FragmentHomeBinding
 import com.emamagic.home.di.HomeComponentProvider
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class HomeFragment :
     BaseFragmentRedux<FragmentHomeBinding, HomeState, HomeAction, HomeViewModel>() {
@@ -22,7 +27,7 @@ class HomeFragment :
         get() = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
 
     override fun getResId(): Int = R.layout.fragment_home
-
+    private lateinit var job: Job
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
@@ -33,11 +38,17 @@ class HomeFragment :
         super.onResume()
         if (viewModel.shimmerLoading) {
             val dummyTimeout = 4000L
-            Handler(Looper.getMainLooper()).postDelayed({
+            job = viewLifecycleOwner.lifecycleScope.launch {
+                delay(dummyTimeout)
                 viewModel.shimmerLoading = false
                 hideShimmer()
-            }, dummyTimeout)
+            }
         }
+    }
+
+    override fun onStop() {
+        job.cancel()
+        super.onStop()
     }
 
 
