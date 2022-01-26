@@ -32,5 +32,6 @@ object Versions {
     const val epoxy = "5.0.0-beta03"
     const val annotation = "1.3.0"
     const val glide = "4.12.0"
+    const val room = "2.4.1"
 
 }

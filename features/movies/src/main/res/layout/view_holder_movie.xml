@@ -81,7 +81,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="monospace"
                     android:maxLines="1"
-                    android:text="Director :"
+                    android:text="@{`Director :` + movie.director, default = `Director : `}"
                     android:textColor="@color/textColor"
                     android:textSize="10sp" />
 
@@ -94,7 +94,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="monospace"
                     android:maxLines="1"
-                    android:text="Published :"
+                    android:text="@{`Published :` + movie.published, default = `Publisher : `}"
                     android:textColor="@color/textColor"
                     android:textSize="10sp" />
 

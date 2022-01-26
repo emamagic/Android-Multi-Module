@@ -8,10 +8,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15648148148148147" />
         <entry key="core/src/main/res/drawable/bg_rank.xml" value="0.3388888888888889" />
         <entry key="core/src/main/res/drawable/ic_access_time.xml" value="0.3388888888888889" />
+        <entry key="core/src/main/res/drawable/ic_favorite.xml" value="0.24722222222222223" />
+        <entry key="core/src/main/res/drawable/ic_folder_special.xml" value="0.24722222222222223" />
         <entry key="features/home/src/main/res/drawable/bg_rank.xml" value="0.24259259259259258" />
         <entry key="features/home/src/main/res/drawable/ic_access_time.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_apps.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.34629629629629627" />
+        <entry key="features/home/src/main/res/drawable/ic_favorite.xml" value="0.24722222222222223" />
         <entry key="features/home/src/main/res/drawable/ic_folder_special.xml" value="0.24259259259259258" />
         <entry key="features/home/src/main/res/drawable/ic_home.xml" value="0.34629629629629627" />
         <entry key="features/home/src/main/res/drawable/ic_menu.xml" value="0.34629629629629627" />

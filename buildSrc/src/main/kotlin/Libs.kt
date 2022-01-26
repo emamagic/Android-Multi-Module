@@ -76,4 +76,9 @@ object Libs {
     // Glide
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glide_kapt = "com.github.bumptech.glide:compiler:${Versions.glide}"
+
+    // Room
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val room_kapt = "androidx.room:room-compiler:${Versions.room}"
+    const val room_coroutine = "androidx.room:room-ktx:${Versions.room}"
 }
