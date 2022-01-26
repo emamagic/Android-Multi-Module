@@ -17,16 +17,26 @@ import java.net.UnknownHostException
 
 abstract class SafeApi : ErrorHandler {
 
-    override suspend fun <T> safe(call: suspend () -> Response<T>): ResultWrapper<T> =
+    override suspend fun <T> safe(
+        times: Int,
+        initialDelay: Long,
+        maxDelay: Long,
+        factor: Double,
+        call: suspend () -> Response<T>
+    ): ResultWrapper<T> =
         withContext(Dispatchers.IO) {
-            handleResponse { retryIO { call() } }
+            handleResponse { retryIO(times, initialDelay, maxDelay, factor) { call() } }
         }
 
     override suspend fun <T, E> safe(
+        times: Int,
+        initialDelay: Long,
+        maxDelay: Long,
+        factor: Double,
         networkCall: suspend () -> Response<T>,
         mapping: (T) -> E
     ): ResultWrapper<E> =
-        withContext(Dispatchers.IO) { handleResponse({ retryIO { networkCall() } }, mapping) }
+        withContext(Dispatchers.IO) { handleResponse({ retryIO(times, initialDelay, maxDelay, factor) { networkCall() } }, mapping) }
 
 
     private inline fun <T> handleResponse(call: () -> Response<T>): ResultWrapper<T> {
@@ -89,7 +99,7 @@ abstract class SafeApi : ErrorHandler {
         }
     }
 
-    override suspend fun <T> retryIO(
+    private suspend fun <T> retryIO(
         times: Int,
         initialDelay: Long,
         maxDelay: Long,
