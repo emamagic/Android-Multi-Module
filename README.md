@@ -8,13 +8,18 @@ if you have any idea to improve the project, I would be happy to hear that (keep
 complete modules functionality and writing test
 
 **Dependencies**
-1. MVI
-2. coroutines
-3. clean architecture 
-4. Navigation Components
-5. dagger 2
-6. kotlin dsl
-7. ....
+1. MVI (UDF)
+2. SSOT
+3. coroutines
+4. clean architecture 
+5. navigation components
+6. dagger 2
+7. kotlin dsl
+8. epoxy
+9. room
+10. retrofit
+11. data binding
+12. ....
 
-<img src="/photo/multi_module_diagram.png">
+<img src="/photo/multi_module_diagram.png" width="600">
 
