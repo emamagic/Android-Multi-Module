@@ -21,5 +21,7 @@ complete modules functionality and writing test
 11. data binding
 12. ....
 
-<img src="/photo/multi_module_diagram.png" width="600">
+<img src="/photo/multi_module_diagram.png" width="800">
+<img src="/photo/screen_1.jpeg" width="300">
+<img src="/photo/screen_2.jpeg" width="300">
 
