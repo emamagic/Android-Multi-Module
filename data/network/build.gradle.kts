@@ -16,5 +16,6 @@ dependencies {
     implementation(Libs.gson_converter)
     implementation(Libs.dagger)
     kapt(Libs.dagger_kapt)
+    implementation(Libs.kotlin_coroutines)
 
 }

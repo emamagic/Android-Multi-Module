@@ -81,4 +81,7 @@ object Libs {
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val room_kapt = "androidx.room:room-compiler:${Versions.room}"
     const val room_coroutine = "androidx.room:room-ktx:${Versions.room}"
+
+    // Lottie
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }

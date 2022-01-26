@@ -67,10 +67,11 @@ dependencies {
 
 
     implementation(Libs.multidex)
-    implementation (Libs.dagger)
-    kapt (Libs.dagger_kapt)
-    implementation (Libs.navigation_component_fragment)
-    implementation (Libs.navigation_component_ui)
+    implementation(Libs.dagger)
+    kapt(Libs.dagger_kapt)
+    implementation(Libs.navigation_component_fragment)
+    implementation(Libs.navigation_component_ui)
+    implementation(Libs.lottie)
 }
 
 kapt {

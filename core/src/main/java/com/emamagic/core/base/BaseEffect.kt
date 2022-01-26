@@ -28,6 +28,8 @@ sealed interface BaseEffect {
 //        val action: BaseFragment.DialogListener? = null
     ): BaseEffect
 
+    object NavigateToNoInternetDialog: BaseEffect
+
 }
 
 sealed class HomeEffect: BaseEffect {

@@ -7,16 +7,16 @@ import retrofit2.Response
 interface ErrorHandler {
 
     suspend fun <T> safe(
-        times: Int = Int.MAX_VALUE,
-        initialDelay: Long = 100,
-        maxDelay: Long = 1000,
+        times: Int = 5,
+        initialDelay: Long = 1000,
+        maxDelay: Long = 10000,
         factor: Double = 2.0,
         call: suspend () -> Response<T>): ResultWrapper<T>
 
     suspend fun <T, E> safe(
-        times: Int = Int.MAX_VALUE,
-        initialDelay: Long = 100,
-        maxDelay: Long = 1000,
+        times: Int = 5,
+        initialDelay: Long = 1000,
+        maxDelay: Long = 10000,
         factor: Double = 2.0,
         networkCall: suspend () -> Response<T>,
         mapping: (T) -> E

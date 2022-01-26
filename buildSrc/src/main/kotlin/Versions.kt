@@ -33,5 +33,6 @@ object Versions {
     const val annotation = "1.3.0"
     const val glide = "4.12.0"
     const val room = "2.4.1"
+    const val lottie = "3.4.0"
 
 }

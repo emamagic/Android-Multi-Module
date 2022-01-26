@@ -1,6 +1,8 @@
 package com.emamagic.safe
 
 import android.database.sqlite.SQLiteException
+import android.util.Log
+import com.emamagic.common_jvm.DoesNetworkHaveInternet
 import com.emamagic.common_jvm.ErrorEntity
 import com.emamagic.common_jvm.ResultWrapper
 import com.emamagic.safe.error.ErrorHandler
@@ -107,13 +109,12 @@ abstract class SafeApi : ErrorHandler {
         block: suspend () -> T
     ): T {
         var currentDelay = initialDelay
-        repeat(times - 1)
-        {
+        repeat(times - 1) {
             try {
                 return block()
             } catch (e: IOException) {
-                // you can log an error here and/or make a more finer-grained
-                // analysis of the cause to see if retry is needed
+                if (!DoesNetworkHaveInternet.execute())
+                    throw NoInternetException("Please Check Your Connectivity")
             }
             delay(currentDelay)
             currentDelay = (currentDelay * factor).toLong().coerceAtMost(maxDelay)

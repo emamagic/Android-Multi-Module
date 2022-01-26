@@ -20,4 +20,11 @@
             app:argType="string" />
     </fragment>
 
+    <fragment android:id="@+id/noInternetAvailableDialog"
+        android:label=""
+        android:name="com.emamagic.android_multi_module.connectivity.NoInternetAvailableDialog"/>
+
+    <action android:id="@+id/action_global_noInternetAvailableDialog"
+        app:destination="@+id/noInternetAvailableDialog"/>
+
 </navigation>

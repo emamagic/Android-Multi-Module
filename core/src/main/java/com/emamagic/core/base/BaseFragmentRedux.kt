@@ -24,6 +24,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.emamagic.core.R
 import com.emamagic.core.extension.gone
+import com.emamagic.core.extension.phoneHasNoInternet
 import com.emamagic.core.extension.visible
 import com.emamagic.core.utils.AlertType
 import com.emamagic.core.utils.ToastyMode
@@ -100,6 +101,7 @@ abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, ACTION : A
                 viewEffect.canBeDismiss,
 //                viewEffect.action
             )
+            is BaseEffect.NavigateToNoInternetDialog -> phoneHasNoInternet()
             else ->
                 if (!renderCustomViewEffect(viewEffect))
                     throw Exception("RenderViewEffect Does Not Implemented")

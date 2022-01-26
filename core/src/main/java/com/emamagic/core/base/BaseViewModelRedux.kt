@@ -1,16 +1,8 @@
 package com.emamagic.core.base
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavDirections
-import com.emamagic.common_jvm.ResultWrapper
-import com.emamagic.common_jvm.succeeded
-import com.emamagic.core.utils.AlertType
-import com.emamagic.core.utils.Logger
-import com.emamagic.core.utils.ToastyMode
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
+
 /** events are normal fun and states are stream */
 abstract class BaseViewModelRedux<STATE : State, ACTION : Action> constructor(
     store: Store<STATE, ACTION>
