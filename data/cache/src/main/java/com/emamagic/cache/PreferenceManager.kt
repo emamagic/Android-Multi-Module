@@ -2,7 +2,7 @@ package com.emamagic.cache
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
+import android.preference.PreferenceManager
 
 //const val KEY_TOKEN_PHONE_NUMBER = "KEY_TOKEN_PHONE_NUMBER"
 //const val KEY_IS_NOT_FIRST_OPEN_SHOW_CASE_CHILD = "KEY_IS_FIRST_OPEN_SHOW_CASE_CHILD"
