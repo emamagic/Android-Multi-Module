@@ -1,8 +1,6 @@
 package com.emamagic.home
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -11,7 +9,6 @@ import com.emamagic.common_jvm.MovieCategory
 import com.emamagic.core.base.BaseFragmentRedux
 import com.emamagic.core.extension.findComponent
 import com.emamagic.core.extension.gone
-import com.emamagic.core.utils.Logger
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.databinding.FragmentHomeBinding
@@ -31,6 +28,7 @@ class HomeFragment :
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
+        binding.viewModel = viewModel
         setUpRecyclerView()
     }
 
@@ -59,7 +57,7 @@ class HomeFragment :
                     id(topMovie.id)
                     movie(topMovie)
                     onClickListener { _ ->
-                        movieClicked(topMovie.categoryName!!)
+
                     }
                 }
             }
@@ -70,7 +68,7 @@ class HomeFragment :
                     id(movie.id)
                     movie(movie)
                     onClickListener { _ ->
-                        movieClicked(movie.categoryName!!)
+
                     }
                 }
             }
@@ -81,7 +79,7 @@ class HomeFragment :
                     id(animation.id)
                     movie(animation)
                     onClickListener { _ ->
-                        movieClicked(animation.categoryName!!)
+
                     }
                 }
             }
@@ -92,7 +90,7 @@ class HomeFragment :
                     id(papular.id)
                     movie(papular)
                     onClickListener { _ ->
-                        movieClicked(papular.categoryName!!)
+
                     }
                 }
             }
@@ -104,19 +102,11 @@ class HomeFragment :
                     id(genre.id)
                     genre(genre)
                     onClickListener { _ ->
-                        genreClicked(genre.name)
+
                     }
                 }
             }
         }
-    }
-
-    private fun movieClicked(@MovieCategory category: String) {
-        viewModel.movieClickEvent(category)
-    }
-
-    private fun genreClicked(@GenreCategory category: String) {
-        viewModel.genreClickEvent(category)
     }
 
     private fun hideShimmer() {

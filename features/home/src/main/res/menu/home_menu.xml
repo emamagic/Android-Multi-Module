@@ -29,7 +29,7 @@
         <item
             android:id="@+id/nav_favorite"
             android:title="Favorite"
-            android:icon="@drawable/ic_favorite"/>
+            android:icon="@drawable/ic_favorite_fill"/>
 
         <item
             android:id="@+id/nav_profile"

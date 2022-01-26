@@ -32,3 +32,12 @@ fun setTimeImage(imageView: ImageView, @MovieCategory category: String) {
         imageView.setImageResource(R.drawable.ic_access_time)
     }
 }
+
+@BindingAdapter("isFavorite")
+fun setIsFavorite(imageView: ImageView, isFavorite: Boolean) {
+    if (isFavorite) {
+        imageView.setImageResource(R.drawable.ic_favorite_fill)
+    } else {
+        imageView.setImageResource(R.drawable.ic_favorite_empty)
+    }
+}

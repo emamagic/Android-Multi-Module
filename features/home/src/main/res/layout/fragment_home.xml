@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.emamagic.home.HomeViewModel" />
+        <import type="com.emamagic.common_jvm.MovieCategory"/>
     </data>
 
 
@@ -69,6 +72,7 @@
                         android:gravity="right"
                         android:padding="6dp"
                         android:text="More >"
+                        android:onClick="@{()->viewModel.moreGenreClickEvent()}"
                         android:textColor="@color/textColor"
                         android:textSize="12sp"
                         app:layout_constraintRight_toRightOf="parent"
@@ -141,6 +145,7 @@
                         android:gravity="right"
                         android:padding="6dp"
                         android:text="More >"
+                        android:onClick="@{()->viewModel.moreMovieClickEvent(MovieCategory.TOP_IMDB)}"
                         android:textColor="@color/textColor"
                         android:textSize="12sp"
                         app:layout_constraintRight_toRightOf="parent"
@@ -222,6 +227,7 @@
                         android:gravity="right"
                         android:padding="6dp"
                         android:text="More >"
+                        android:onClick="@{()->viewModel.moreMovieClickEvent(MovieCategory.SERIES)}"
                         android:textColor="@color/textColor"
                         android:textSize="12sp"
                         app:layout_constraintRight_toRightOf="parent"
@@ -291,6 +297,7 @@
                         android:fontFamily="monospace"
                         android:gravity="right"
                         android:padding="6dp"
+                        android:onClick="@{()->viewModel.moreMovieClickEvent(MovieCategory.POPULAR)}"
                         android:text="More >"
                         android:textColor="@color/textColor"
                         android:textSize="12sp"
@@ -360,6 +367,7 @@
                         android:layout_marginRight="8dp"
                         android:fontFamily="monospace"
                         android:gravity="right"
+                        android:onClick="@{()->viewModel.moreMovieClickEvent(MovieCategory.ANIMATION)}"
                         android:padding="6dp"
                         android:text="More >"
                         android:textColor="@color/textColor"

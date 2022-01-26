@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="movie"
             type="com.emamagic.common_entity.Movie" />
+
         <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
@@ -34,8 +36,8 @@
                     android:id="@+id/img_movie"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:loadImage="@{movie.imageLink}"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    app:loadImage="@{movie.imageLink}" />
 
             </RelativeLayout>
 
@@ -67,10 +69,10 @@
                     android:layout_marginTop="6dp"
                     android:fontFamily="monospace"
                     android:maxLines="1"
+                    android:text="@{movie.name, default=`Name Movie`}"
                     android:textColor="@color/textColor"
                     android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:text="@{movie.name, default=`Name Movie`}" />
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -103,6 +105,7 @@
                     android:id="@+id/img_fav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:isFavorite="@{movie.isFavorite}"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="4dp"
@@ -120,7 +123,7 @@
                     android:background="@drawable/bg_rate_imdb"
                     android:fontFamily="monospace"
                     android:padding="3dp"
-                    android:text="IMDb:8.5/10"
+                    android:text="@{`IMDB: ` + movie.imdbRate, default=`IMDb:8.5/10`}"
                     android:textColor="@color/colorPrimary"
                     android:textSize="10sp"
                     android:textStyle="bold" />
@@ -137,6 +140,7 @@
                         android:id="@+id/img_hour"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:imageTime="@{movie.categoryName}"
                         app:srcCompat="@drawable/ic_access_time" />
 
                     <TextView
@@ -146,7 +150,7 @@
                         android:layout_marginLeft="2dp"
                         android:fontFamily="monospace"
                         android:gravity="center"
-                        android:text="2h 25m"
+                        android:text="@{movie.time, default=`2h 25m`}"
                         android:textColor="@color/textColor"
                         android:textSize="10sp" />
 
@@ -165,10 +169,11 @@
                     android:background="@drawable/bg_rank"
                     android:fontFamily="monospace"
                     android:padding="2dp"
-                    android:text="Rank:1"
                     android:textColor="@color/textColor"
                     android:textSize="10sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:rank="@{movie.rank}"
+                    tools:text="Rank:1" />
 
 
             </RelativeLayout>

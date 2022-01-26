@@ -11,5 +11,6 @@ data class Movie(
     val published: String? = null,
     val director: String? = null,
     val episode: String? = null,
-    val genreName: String? = null
+    val genreName: String? = null,
+    val isFavorite: Boolean? = false
 )
