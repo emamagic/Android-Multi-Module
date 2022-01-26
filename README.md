@@ -22,5 +22,6 @@ complete modules functionality and writing test
 12. ....
 
 <img src="/photo/multi_module_diagram.png" width="600">
-<img src="/photo/screen_1.jpeg" width="300">  <img src="/photo/screen_2.jpeg" width="300">
+<img src="/photo/screen_1.jpg" width="300">  
+<img src="/photo/screen_2.jpg" width="300">
 
