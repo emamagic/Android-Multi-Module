@@ -17,8 +17,7 @@ abstract class Middleware<STATE : State, ACTION : Action> {
 
     suspend fun <T> ResultWrapper<T>.manageResult(store: Store<STATE, ACTION>): T? {
         if (!succeeded) {
-            if (error is ErrorEntity.Network) store.setEffect(BaseEffect.NavigateToNoInternetDialog)
-            else store.setEffect(BaseEffect.ShowToast(error?.message ?: "unKnown error"))
+            store.setEffect(BaseEffect.ShowToast(error?.message ?: "unKnown error"))
             Logger.e("Error Happened", error?.message)
             return null
         }

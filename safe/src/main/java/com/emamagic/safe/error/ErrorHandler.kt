@@ -11,7 +11,7 @@ interface ErrorHandler {
         initialDelay: Long = 1000,
         maxDelay: Long = 10000,
         factor: Double = 2.0,
-        call: suspend () -> Response<T>): ResultWrapper<T>
+        networkCall: suspend () -> Response<T>): ResultWrapper<T>
 
     suspend fun <T, E> safe(
         times: Int = 5,

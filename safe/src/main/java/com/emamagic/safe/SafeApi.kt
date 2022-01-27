@@ -1,33 +1,37 @@
 package com.emamagic.safe
 
-import android.database.sqlite.SQLiteException
-import android.util.Log
-import com.emamagic.common_jvm.DoesNetworkHaveInternet
 import com.emamagic.common_jvm.ErrorEntity
+import com.emamagic.common_jvm.NoInternetException
 import com.emamagic.common_jvm.ResultWrapper
-import com.emamagic.safe.error.ErrorHandler
-import com.emamagic.safe.error.NoInternetException
-import com.emamagic.safe.error.ServerConnectionException
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
+import com.emamagic.common_jvm.ServerConnectionException
+import com.emamagic.safe.connectivity.Connectivity
+import com.emamagic.safe.connectivity.ConnectivityPublisher
+import com.emamagic.safe.connectivity.ConnectivityStatus
+import com.emamagic.safe.error.GeneralErrorHandlerImpl
+import kotlinx.coroutines.*
+import kotlinx.coroutines.sync.withLock
 import retrofit2.Response
 import java.io.IOException
-import java.net.SocketException
-import java.net.UnknownHostException
 
-abstract class SafeApi : ErrorHandler {
+abstract class SafeApi : GeneralErrorHandlerImpl() {
 
     override suspend fun <T> safe(
         times: Int,
         initialDelay: Long,
         maxDelay: Long,
         factor: Double,
-        call: suspend () -> Response<T>
+        networkCall: suspend () -> Response<T>
     ): ResultWrapper<T> =
         withContext(Dispatchers.IO) {
-            handleResponse { retryIO(times, initialDelay, maxDelay, factor) { call() } }
+            handleResponse {
+                retryIO(
+                    times,
+                    initialDelay,
+                    maxDelay,
+                    factor,
+                    this
+                ) { networkCall() }
+            }
         }
 
     override suspend fun <T, E> safe(
@@ -38,7 +42,17 @@ abstract class SafeApi : ErrorHandler {
         networkCall: suspend () -> Response<T>,
         mapping: (T) -> E
     ): ResultWrapper<E> =
-        withContext(Dispatchers.IO) { handleResponse({ retryIO(times, initialDelay, maxDelay, factor) { networkCall() } }, mapping) }
+        withContext(Dispatchers.IO) {
+            handleResponse({
+                retryIO(
+                    times,
+                    initialDelay,
+                    maxDelay,
+                    factor,
+                    this
+                ) { networkCall() }
+            }, mapping)
+        }
 
 
     private inline fun <T> handleResponse(call: () -> Response<T>): ResultWrapper<T> {
@@ -84,40 +98,29 @@ abstract class SafeApi : ErrorHandler {
 
     }
 
-    override fun getError(throwable: Throwable): ErrorEntity {
-        return when (throwable) {
-            is IOException,
-            is NoInternetException,
-            is SocketException -> ErrorEntity.Network(message = "${throwable.message}")
-            is SQLiteException -> ErrorEntity.Database(message = "${throwable.message}")
-            is UnknownHostException,
-            is ServerConnectionException -> ErrorEntity.Server(message = "${throwable.message}")
-            is HttpException -> ErrorEntity.Api(
-                message = throwable.response()?.message(),
-                code = throwable.code(),
-                errorBody = throwable.response()?.errorBody()?.string()
-            )
-            else -> ErrorEntity.Unknown(message = "${throwable.message}")
-        }
-    }
-
     private suspend fun <T> retryIO(
         times: Int,
         initialDelay: Long,
         maxDelay: Long,
         factor: Double,
+        coroutineScope: CoroutineScope,
         block: suspend () -> T
-    ): T {
+    ): T = Const.getMutex.withLock {
+        if (!Const.shouldRetryNetworkCall) coroutineScope.cancel() // disable retryIo api call
+
         var currentDelay = initialDelay
-        repeat(times - 1) {
+        repeat(times - 1) { index ->
             try {
                 return block()
             } catch (e: IOException) {
-                if (!DoesNetworkHaveInternet.execute())
-                    throw NoInternetException("Please Check Your Connectivity")
+                if (index == times - 2 && (e is NoInternetException || e is ServerConnectionException)) {
+                    ConnectivityPublisher.notifySubscribers(Connectivity(Const.DISCONNECT))
+                }
             }
-            delay(currentDelay)
-            currentDelay = (currentDelay * factor).toLong().coerceAtMost(maxDelay)
+            if (Const.shouldRetryNetworkCall) {
+                delay(currentDelay)
+                currentDelay = (currentDelay * factor).toLong().coerceAtMost(maxDelay)
+            }
         }
         return block()
     }

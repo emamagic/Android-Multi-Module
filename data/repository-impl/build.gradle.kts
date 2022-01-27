@@ -18,6 +18,6 @@ dependencies {
     implementation(Libs.dagger)
     implementation(Libs.dagger_kapt)
     implementation(Libs.kotlin_reflect)
-    implementation(Libs.store_4)
+//    implementation(Libs.store_4)
 
 }

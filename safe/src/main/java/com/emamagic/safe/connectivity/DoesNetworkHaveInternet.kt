@@ -1,5 +1,6 @@
-package com.emamagic.common_jvm
+package com.emamagic.safe.connectivity
 
+import android.util.Log
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -9,14 +10,14 @@ object DoesNetworkHaveInternet {
     val TAG = "C-Manager"
     fun execute(): Boolean{
         return try {
-            print("$TAG PINGING google")
+            Log.e(TAG,"PINGING google")
             val socket = Socket()
             socket.connect(InetSocketAddress("8.8.8.8" ,53) ,1500)
             socket.close()
-            print("$TAG PING success")
+            Log.e(TAG, "PING success")
             true
         }catch (e: IOException){
-            print("$TAG No internet connection -> ${e.message}")
+            Log.e(TAG, "No internet connection -> ${e.message}")
             false
         }
     }

@@ -6,5 +6,6 @@ dependencies {
     implementation project(Modules.commonJvm)
     implementation Libs.retrofit
     implementation Libs.coroutine
+    implementation Libs.kotlin_coroutines
 
 }

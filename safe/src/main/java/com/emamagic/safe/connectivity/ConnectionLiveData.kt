@@ -1,4 +1,4 @@
-package com.emamagic.network.connectivity
+package com.emamagic.safe.connectivity
 
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
@@ -8,40 +8,61 @@ import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.net.NetworkRequest
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.emamagic.common_jvm.DoesNetworkHaveInternet
+import com.emamagic.safe.Const
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ConnectionLiveData(context: Context) : LiveData<Boolean>() {
+class ConnectionLiveData(context: Context) : LiveData<ConnectivityStatus>(), ConnectivityPublisherDelegate {
 
     val TAG = "C-Manager"
 
     private lateinit var networkCallback: ConnectivityManager.NetworkCallback
     private val cm = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-    private val validNetworks: MutableSet<Network> = HashSet()
 
-    private fun checkValidNetworks() {
-        postValue(validNetworks.size > 0)
+    fun enableOfflineMode() {
+        Const.shouldRetryNetworkCall = false
+        postValue(ConnectivityStatus.OFFLINE_MODE)
+    }
+
+    fun disableOfflineMode() {
+        Const.shouldRetryNetworkCall = true
+        // and refresh or something like that ... 
+    }
+
+    fun connect() {
+        Log.e(TAG, "connect: ", )
+        Const.shouldRetryNetworkCall = true
+        postValue(ConnectivityStatus.CONNECT)
+    }
+
+    fun disconnect() {
+        Log.e(TAG, "disconnect: ", )
+        Const.shouldRetryNetworkCall = false
+        postValue(ConnectivityStatus.DISCONNECT)
     }
 
     override fun onActive() {
+        Log.d(TAG, "onAvailable")
         networkCallback = createNetworkCallback()
         val networkRequest = NetworkRequest.Builder()
             .addCapability(NET_CAPABILITY_INTERNET)
             .build()
         cm.registerNetworkCallback(networkRequest, networkCallback)
+        ConnectivityPublisher.subscribe(this, Const.CONNECT)
+        ConnectivityPublisher.subscribe(this, Const.DISCONNECT)
     }
 
     override fun onInactive() {
         cm.unregisterNetworkCallback(networkCallback)
+        ConnectivityPublisher.unSubscribe(this, Const.CONNECT)
+        ConnectivityPublisher.unSubscribe(this, Const.DISCONNECT)
     }
 
     private fun createNetworkCallback() = object : ConnectivityManager.NetworkCallback() {
 
         override fun onAvailable(network: Network) {
-            Log.d(TAG, "onAvailable: $network")
             val networkCapabilities = cm.getNetworkCapabilities(network)
             val hasInternetCapability = networkCapabilities?.hasCapability(NET_CAPABILITY_INTERNET)
             Log.d(TAG, "onAvailable: ${network}, $hasInternetCapability")
@@ -52,8 +73,7 @@ class ConnectionLiveData(context: Context) : LiveData<Boolean>() {
                     if (hasInternet) {
                         withContext(Dispatchers.Main) {
                             Log.d(TAG, "onAvailable: adding network. $network")
-                            validNetworks.add(network)
-                            checkValidNetworks()
+                            connect()
                         }
                     }
                 }
@@ -63,10 +83,18 @@ class ConnectionLiveData(context: Context) : LiveData<Boolean>() {
 
         override fun onLost(network: Network) {
             Log.d(TAG, "onLost: $network")
-            validNetworks.remove(network)
-            checkValidNetworks()
+            disconnect()
         }
 
+    }
+
+    override fun receiveConnectivity(connectivity: Connectivity) {
+        Log.e(TAG, "receiveConnectivity: ${connectivity.status}")
+        when (connectivity.status) {
+            Const.CONNECT -> connect()
+            Const.DISCONNECT -> disconnect()
+            Const.OFFLINE_MODE -> enableOfflineMode()
+        }
     }
 
 }

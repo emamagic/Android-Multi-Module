@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import com.google.android.material.snackbar.Snackbar
+import java.lang.ref.WeakReference
 
 fun View.gone() {
     if (isVisible)
@@ -23,7 +24,7 @@ fun View.visible() {
         visibility = View.VISIBLE
 }
 
-inline fun <T: View> T.afterMeasured(crossinline f: T.() -> Unit) {
+inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
     viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
         override fun onGlobalLayout() {
             if (measuredWidth > 0 && measuredHeight > 0) {
@@ -33,3 +34,9 @@ inline fun <T: View> T.afterMeasured(crossinline f: T.() -> Unit) {
         }
     })
 }
+
+fun isFragmentVisible(fragment: WeakReference<Fragment>): Boolean =
+    (fragment.get() != null && fragment.get()!!.activity != null &&
+            fragment.get()!!.isVisible && !fragment.get()!!.isRemoving)
+
+

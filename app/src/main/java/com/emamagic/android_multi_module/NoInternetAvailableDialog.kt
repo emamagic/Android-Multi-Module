@@ -1,4 +1,4 @@
-package com.emamagic.android_multi_module.connectivity
+package com.emamagic.android_multi_module
 
 import android.os.Bundle
 import android.util.Log

@@ -9,6 +9,7 @@
       <module name="Android-Multi-Module.data.network" target="11" />
       <module name="Android-Multi-Module.data.repository" target="11" />
       <module name="Android-Multi-Module.data.repository-impl" target="11" />
+      <module name="Android-Multi-Module.domain.safe" target="11" />
       <module name="Android-Multi-Module.features.chat" target="11" />
       <module name="Android-Multi-Module.features.conversation.conversation-add-member" target="11" />
       <module name="Android-Multi-Module.features.conversation.conversation-list" target="11" />

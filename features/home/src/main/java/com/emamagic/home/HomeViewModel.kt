@@ -18,7 +18,7 @@ class HomeViewModel @Inject constructor(
 
 
     init {
-        getSlidersEvent()
+//        getSlidersEvent()
         getGenresEvent()
         getMoviesByCategoryEvent(MovieCategory.TOP_IMDB)
         getMoviesByCategoryEvent(MovieCategory.POPULAR)

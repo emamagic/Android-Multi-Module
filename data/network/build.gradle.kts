@@ -11,6 +11,7 @@ apply {
 dependencies {
 
     implementation(project(Modules.commonJvm))
+    implementation(project(Modules.safe))
     implementation(Libs.retrofit)
     implementation(Libs.logging_interceptor)
     implementation(Libs.gson_converter)
