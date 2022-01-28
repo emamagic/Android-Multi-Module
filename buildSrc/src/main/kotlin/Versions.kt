@@ -34,5 +34,6 @@ object Versions {
     const val glide = "4.12.0"
     const val room = "2.4.1"
     const val lottie = "3.4.0"
+    const val work_manager = "2.7.1"
 
 }

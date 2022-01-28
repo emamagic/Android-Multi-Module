@@ -14,26 +14,30 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ConnectionLiveData(context: Context) : LiveData<ConnectivityStatus>(), ConnectivityPublisherDelegate {
+class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? = null) : LiveData<ConnectivityStatus>(), ConnectivityPublisherDelegate {
 
     val TAG = "C-Manager"
 
     private lateinit var networkCallback: ConnectivityManager.NetworkCallback
     private val cm = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+    private lateinit var apiCalls: List<suspend () -> Unit>
 
     fun enableOfflineMode() {
         Const.shouldRetryNetworkCall = false
         postValue(ConnectivityStatus.OFFLINE_MODE)
     }
 
+    fun setRefreshVisibleFragmentFunc(functions: List<suspend () -> Unit>) { apiCalls = functions }
+
     fun disableOfflineMode() {
         Const.shouldRetryNetworkCall = true
-        // and refresh or something like that ... 
+        refreshVisibleFragmentFuncIfEnable(apiCalls)
     }
 
     fun connect() {
         Log.e(TAG, "connect: ", )
         Const.shouldRetryNetworkCall = true
+        refreshVisibleFragmentFuncIfEnable(apiCalls)
         postValue(ConnectivityStatus.CONNECT)
     }
 
@@ -94,6 +98,14 @@ class ConnectionLiveData(context: Context) : LiveData<ConnectivityStatus>(), Con
             Const.CONNECT -> connect()
             Const.DISCONNECT -> disconnect()
             Const.OFFLINE_MODE -> enableOfflineMode()
+        }
+    }
+
+    private fun refreshVisibleFragmentFuncIfEnable(functions: List<suspend () -> Unit>) {
+        if (this::apiCalls.isInitialized) {
+            lifecycleScope?.launch(Dispatchers.IO) {
+                functions.forEach { it() }
+            }
         }
     }
 

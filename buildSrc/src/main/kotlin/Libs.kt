@@ -84,4 +84,7 @@ object Libs {
 
     // Lottie
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+
+    // WorkManager
+    const val work_manager = "androidx.work:work-runtime-ktx:${Versions.work_manager}"
 }

@@ -13,6 +13,8 @@ abstract class BaseViewModelRedux<STATE : State, ACTION : Action> constructor(
     val currentState: STATE
         get() = viewState.value
 
+    abstract fun getInitialFunctions(): List<suspend () -> Unit>
+
 //    private val _uiEvent: MutableSharedFlow<ACTION> = MutableSharedFlow()
 //    val uiEvent = _uiEvent.asSharedFlow()
 

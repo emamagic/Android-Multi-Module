@@ -6,7 +6,6 @@ import com.emamagic.common_jvm.ResultWrapper
 import com.emamagic.common_jvm.ServerConnectionException
 import com.emamagic.safe.connectivity.Connectivity
 import com.emamagic.safe.connectivity.ConnectivityPublisher
-import com.emamagic.safe.connectivity.ConnectivityStatus
 import com.emamagic.safe.error.GeneralErrorHandlerImpl
 import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.withLock

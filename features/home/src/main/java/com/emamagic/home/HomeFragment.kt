@@ -8,6 +8,7 @@ import com.emamagic.core.base.BaseFragmentRedux
 import com.emamagic.core.base.HomeEffect
 import com.emamagic.core.extension.findComponent
 import com.emamagic.core.extension.gone
+import com.emamagic.core.extension.setInitialFunctions
 import com.emamagic.home.contract.HomeAction
 import com.emamagic.home.contract.HomeState
 import com.emamagic.home.databinding.FragmentHomeBinding
@@ -23,8 +24,10 @@ class HomeFragment :
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
+        setInitialFunctions(viewModel.getInitialFunctions())
         binding.viewModel = viewModel
         setUpRecyclerView()
+
     }
 
     override fun renderViewState(viewState: HomeState) {

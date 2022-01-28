@@ -1,6 +1,7 @@
 package com.emamagic.network.di
 
 import com.emamagic.network.interceptor.ClientInterceptor
+import com.emamagic.network.interceptor.ServerConnection
 import com.emamagic.network.service.GenreService
 import com.emamagic.network.service.MovieDetailsService
 import com.emamagic.network.service.MovieService
@@ -27,9 +28,10 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideOkHttp(loggingInterceptor: HttpLoggingInterceptor, clientInterceptor: ClientInterceptor): OkHttpClient {
+    fun provideOkHttp(loggingInterceptor: HttpLoggingInterceptor, clientInterceptor: ClientInterceptor, serverInterceptor: ServerConnection): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(serverInterceptor)
             .addInterceptor(clientInterceptor)
             .readTimeout(8 , TimeUnit.SECONDS)
             .writeTimeout(8 , TimeUnit.SECONDS)

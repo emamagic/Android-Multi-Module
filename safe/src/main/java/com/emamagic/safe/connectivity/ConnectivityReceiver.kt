@@ -1,4 +1,4 @@
-package com.emamagic.android_multi_module
+package com.emamagic.safe.connectivity
 
 import android.content.BroadcastReceiver
 import android.content.Context

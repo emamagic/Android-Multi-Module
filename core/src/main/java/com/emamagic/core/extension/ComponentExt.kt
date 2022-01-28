@@ -3,6 +3,7 @@ package com.emamagic.core.extension
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.emamagic.core.base.InitialVisibleFragmentFun
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -17,6 +18,11 @@ inline fun <reified SubComponentProvider> Context.findComponent(): SubComponentP
 inline fun <reified SubComponentProvider> View.findComponent(): SubComponentProvider = context.findComponent()
 
 inline fun <reified SubComponentProvider> Fragment.findComponent(): SubComponentProvider = requireContext().findComponent()
+
+fun Fragment.setInitialFunctions(functions: List<suspend () -> Unit>) {
+    (requireActivity() as InitialVisibleFragmentFun).onInitialFunctions(functions)
+}
+
 
 fun <T> Flow<T>.throttleFirst(periodMillis: Long): Flow<T> {
     require(periodMillis > 0) { "period should be positive" }

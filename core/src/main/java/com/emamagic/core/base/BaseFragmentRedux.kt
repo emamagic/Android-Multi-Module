@@ -24,6 +24,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.emamagic.core.R
 import com.emamagic.core.extension.gone
+import com.emamagic.core.extension.setInitialFunctions
 import com.emamagic.core.extension.visible
 import com.emamagic.core.utils.AlertType
 import com.emamagic.core.utils.ToastyMode

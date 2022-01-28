@@ -2,7 +2,7 @@ package com.emamagic.safe
 
 import kotlinx.coroutines.sync.Mutex
 
-object Const {
+internal object Const {
     // getting single instance of mutex for different repositories
     val  getMutex = Mutex()
 

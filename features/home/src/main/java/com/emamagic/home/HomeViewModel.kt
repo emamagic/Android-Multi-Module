@@ -27,6 +27,14 @@ class HomeViewModel @Inject constructor(
     }
 
 
+    override fun getInitialFunctions(): List<suspend () -> Unit> = listOf {
+        store.dispatch(HomeAction.GetGenre)
+        store.dispatch(HomeAction.GetMovies(MovieCategory.TOP_IMDB))
+        store.dispatch(HomeAction.GetMovies(MovieCategory.POPULAR))
+        store.dispatch(HomeAction.GetMovies(MovieCategory.ANIMATION))
+        store.dispatch(HomeAction.GetMovies(MovieCategory.SERIES))
+    }
+
     private fun getSlidersEvent() = viewModelScope.launch {
         store.dispatch(HomeAction.GetSliders)
     }
