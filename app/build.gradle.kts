@@ -55,15 +55,12 @@ dependencies {
     implementation(project(Modules.repository))
     implementation(project(Modules.safe))
     implementation(project(Modules.core))
-    implementation(Libs.retrofit)
-    implementation(Libs.logging_interceptor)
+    implementation(project(Modules.navigator))
 
-
+    // Features
     implementation(project(Modules.home))
     implementation(project(Modules.movies))
-
-
-    implementation(project(Modules.navigator))
+    implementation(project(Modules.movie))
 
 
     implementation(Libs.multidex)
@@ -72,6 +69,9 @@ dependencies {
     implementation(Libs.navigation_component_fragment)
     implementation(Libs.navigation_component_ui)
     implementation(Libs.lottie)
+    implementation(Libs.retrofit)
+    implementation(Libs.logging_interceptor)
+
 }
 
 kapt {

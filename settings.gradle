@@ -12,6 +12,7 @@ include(
         ':core',
         ":features:home",
         ":features:movies",
+        ":features:movie",
         ":navigator",
         ":data:cache",
         ":data:network",

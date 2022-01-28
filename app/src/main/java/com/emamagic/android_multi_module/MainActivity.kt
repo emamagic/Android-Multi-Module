@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(), InitialVisibleFragmentFun {
         navHostFragment.childFragmentManager.fragments[0]::class.simpleName!!
 
 
+    // It is Eager and it is better to implemented lazy
     override fun onInitialFunctions(functions: List<suspend () -> Unit>) {
         connectionLiveData.setRefreshVisibleFragmentFunc(functions)
     }
