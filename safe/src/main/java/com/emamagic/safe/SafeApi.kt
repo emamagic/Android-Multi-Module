@@ -8,19 +8,22 @@ import com.emamagic.safe.connectivity.Connectivity
 import com.emamagic.safe.connectivity.ConnectivityPublisher
 import com.emamagic.safe.error.GeneralErrorHandlerImpl
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.withLock
 import retrofit2.Response
 import java.io.IOException
 
 abstract class SafeApi : GeneralErrorHandlerImpl() {
 
-    override suspend fun <T> safe(
+    override suspend fun <ResultType> getSafe(
         times: Int,
         initialDelay: Long,
         maxDelay: Long,
         factor: Double,
-        networkCall: suspend () -> Response<T>
-    ): ResultWrapper<T> =
+        networkCall: suspend () -> Response<ResultType>
+    ): ResultWrapper<ResultType> =
         withContext(Dispatchers.IO) {
             handleResponse {
                 retryIO(
@@ -33,14 +36,14 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
             }
         }
 
-    override suspend fun <T, E> safe(
+    override suspend fun <ResultType, RequestType> getSafe(
         times: Int,
         initialDelay: Long,
         maxDelay: Long,
         factor: Double,
-        networkCall: suspend () -> Response<T>,
-        mapping: (T) -> E
-    ): ResultWrapper<E> =
+        networkCall: suspend () -> Response<RequestType>,
+        mapping: (RequestType) -> ResultType,
+    ): ResultWrapper<ResultType> =
         withContext(Dispatchers.IO) {
             handleResponse({
                 retryIO(
@@ -54,7 +57,7 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
         }
 
 
-    private inline fun <T> handleResponse(call: () -> Response<T>): ResultWrapper<T> {
+    private inline fun <ResultType> handleResponse(call: () -> Response<ResultType>): ResultWrapper<ResultType> {
         return try {
             val response = call()
             if (response.isSuccessful) {
@@ -71,13 +74,42 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
         } catch (t: Throwable) {
             ResultWrapper.Failed(getError(t))
         }
-
     }
 
-    private inline fun <T, E> handleResponse(
-        call: () -> Response<T>,
-        noinline converter: (T) -> E
-    ): ResultWrapper<E> {
+    // NetworkBoundResource
+    private inline fun <ResultType, RequestType> steamSafe(
+        crossinline databaseQuery: () -> Flow<ResultType>,
+        crossinline networkCall: suspend () -> RequestType,
+        crossinline saveCallResult: suspend (RequestType) -> Unit,
+        crossinline shouldFetch: (ResultType) -> Boolean = { true },
+        crossinline onFetchSuccess: () -> Unit = { },
+        crossinline onFetchFailed: (ErrorEntity) -> Unit = { }
+    ) = channelFlow {
+        val data = databaseQuery().first()
+
+        if (shouldFetch(data)) {
+            val loading = launch {
+                databaseQuery().collect { send(ResultWrapper.FetchLoading(it)) }
+            }
+            try {
+                saveCallResult(networkCall())
+                onFetchSuccess()
+                loading.cancel()
+                databaseQuery().collect { send(ResultWrapper.Success(it)) }
+            } catch (t: Throwable) {
+                onFetchFailed(getError(t))
+                loading.cancel()
+                databaseQuery().collect { send(ResultWrapper.Failed(getError(t), it)) }
+            }
+        } else {
+            databaseQuery().collect { send(ResultWrapper.Success(it)) }
+        }
+    }
+
+    private inline fun <RequestType, ResultType> handleResponse(
+        call: () -> Response<RequestType>,
+        noinline converter: (RequestType) -> ResultType
+    ): ResultWrapper<ResultType> {
         return try {
             val response = call()
             if (response.isSuccessful) {

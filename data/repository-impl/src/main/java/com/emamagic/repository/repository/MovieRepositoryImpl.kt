@@ -17,12 +17,12 @@ class MovieRepositoryImpl @Inject constructor(
     private val movieService: MovieService
 ) : MovieRepository, SafeApi() {
 
-    override suspend fun getSliders(): ResultWrapper<List<Slider>> = safe(
+    override suspend fun getSliders(): ResultWrapper<List<Slider>> = getSafe(
         networkCall = { movieService.getSliders() },
         mapping = { response -> response.sliders.map { DataClassMapper<SliderDto,Slider>()(it) } }
     )
 
-    override suspend fun getMoviesByMovieCategory(category: String): ResultWrapper<List<Movie>> = safe(
+    override suspend fun getMoviesByMovieCategory(category: String): ResultWrapper<List<Movie>> = getSafe(
         networkCall = { movieService.getMoviesByMovieCategory(category) },
         mapping = { response -> response.movies.map { DataClassMapper<MovieDto,Movie>()(it) } }
     )

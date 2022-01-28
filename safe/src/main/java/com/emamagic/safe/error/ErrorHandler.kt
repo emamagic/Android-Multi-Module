@@ -6,21 +6,21 @@ import retrofit2.Response
 
 interface ErrorHandler {
 
-    suspend fun <T> safe(
+    suspend fun <ResultType> getSafe(
         times: Int = 5,
         initialDelay: Long = 1000,
         maxDelay: Long = 10000,
         factor: Double = 2.0,
-        networkCall: suspend () -> Response<T>): ResultWrapper<T>
+        networkCall: suspend () -> Response<ResultType>): ResultWrapper<ResultType>
 
-    suspend fun <T, E> safe(
+    suspend fun <ResultType, RequestType> getSafe(
         times: Int = 5,
         initialDelay: Long = 1000,
         maxDelay: Long = 10000,
         factor: Double = 2.0,
-        networkCall: suspend () -> Response<T>,
-        mapping: (T) -> E
-    ): ResultWrapper<E>
+        networkCall: suspend () -> Response<RequestType>,
+        mapping: (RequestType) -> ResultType
+    ): ResultWrapper<ResultType>
 
     fun getError(throwable: Throwable): ErrorEntity
 
