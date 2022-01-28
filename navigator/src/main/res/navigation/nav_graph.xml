@@ -27,4 +27,12 @@
     <action android:id="@+id/action_global_noInternetAvailableDialog"
         app:destination="@+id/noInternetAvailableDialog"/>
 
+    <fragment android:id="@+id/movieFragment"
+        android:label=""
+        android:name="com.emamagic.movie.MovieFragment">
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

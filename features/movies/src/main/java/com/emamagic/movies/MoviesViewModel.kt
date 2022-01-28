@@ -14,6 +14,8 @@ class MoviesViewModel @Inject constructor(
     private val moviesUseCase: MoviesUseCase
 ): BaseViewModel<MoviesState, MoviesEvent>() {
 
+    private lateinit var category: String
+
     override fun createInitialState(): MoviesState = MoviesState.initialize()
 
     override fun handleEvent(event: MoviesEvent) {
@@ -23,11 +25,21 @@ class MoviesViewModel @Inject constructor(
     }
 
 
-    private fun getMoviesByCategory(@MovieCategory category: String) = viewModelScope.launch {
-        val movies = moviesUseCase.getMoviesByMovieCategory(category).manageResult()
-        setState { copy(movies = movies) }
-
+    override fun getInitialFunctions(): List<suspend () -> Unit> {
+        return if (this::category.isInitialized)
+         listOf { moviesUseCase.getMoviesByMovieCategory(category) }
+        else emptyList()
     }
+
+    private fun getMoviesByCategory(@MovieCategory category: String) {
+        this.category = category
+        viewModelScope.launch {
+            val movies = moviesUseCase.getMoviesByMovieCategory(category).manageResult()
+            setState { copy(movies = movies) }
+
+        }
+    }
+
 
 
 }

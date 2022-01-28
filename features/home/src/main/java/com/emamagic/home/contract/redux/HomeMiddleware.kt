@@ -10,7 +10,7 @@ import com.emamagic.home.contract.HomeState
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
-class HomeNetworkMiddleware @Inject constructor(
+class HomeMiddleware @Inject constructor(
     private val homeUseCase: HomeUseCase
 ) : Middleware<HomeState, HomeAction>() {
 

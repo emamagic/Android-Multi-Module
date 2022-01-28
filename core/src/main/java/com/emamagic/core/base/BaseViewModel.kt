@@ -60,6 +60,9 @@ abstract class BaseViewModel<STATE : State, EVENT : Event> :
 
     abstract fun handleEvent(event: EVENT)
 
+
+    abstract fun getInitialFunctions(): List<suspend () -> Unit>
+
     fun navigateTo(directions: NavDirections) {
         setEffect { BaseEffect.NavigateTo(directions) }
     }

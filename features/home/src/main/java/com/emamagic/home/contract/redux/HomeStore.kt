@@ -6,11 +6,11 @@ import com.emamagic.home.contract.HomeState
 import javax.inject.Inject
 
 class HomeStore @Inject constructor(
-    homeNetworkMiddleware: HomeNetworkMiddleware
+    homeMiddleware: HomeMiddleware
 ) : BaseStore<HomeState, HomeAction>(
     initialState = HomeState.initialize(),
     reducer = HomeReducer(),
     middlewares = listOf(
-        homeNetworkMiddleware
+        homeMiddleware
     )
 )
