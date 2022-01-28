@@ -136,8 +136,8 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
         factor: Double,
         coroutineScope: CoroutineScope,
         block: suspend () -> T
-    ): T = Const.getMutex.withLock {
-        if (!Const.shouldRetryNetworkCall) coroutineScope.cancel() // disable retryIo api call
+    ): T = General.getMutex.withLock {
+        if (!General.shouldRetryNetworkCall) coroutineScope.cancel() // disable retryIo api call
 
         var currentDelay = initialDelay
         repeat(times - 1) { index ->
@@ -145,10 +145,10 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
                 return block()
             } catch (e: IOException) {
                 if (index == times - 2 && (e is NoInternetException || e is ServerConnectionException)) {
-                    ConnectivityPublisher.notifySubscribers(Connectivity(Const.DISCONNECT))
+                    ConnectivityPublisher.notifySubscribers(Connectivity(General.DISCONNECT))
                 }
             }
-            if (Const.shouldRetryNetworkCall) {
+            if (General.shouldRetryNetworkCall) {
                 delay(currentDelay)
                 currentDelay = (currentDelay * factor).toLong().coerceAtMost(maxDelay)
             }

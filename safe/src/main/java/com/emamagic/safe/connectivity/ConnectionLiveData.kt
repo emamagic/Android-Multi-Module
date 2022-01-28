@@ -8,7 +8,7 @@ import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.net.NetworkRequest
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.emamagic.safe.Const
+import com.emamagic.safe.General
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,27 +23,27 @@ class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? =
     private lateinit var apiCalls: List<suspend () -> Unit>
 
     fun enableOfflineMode() {
-        Const.shouldRetryNetworkCall = false
+        General.shouldRetryNetworkCall = false
         postValue(ConnectivityStatus.OFFLINE_MODE)
     }
 
     fun setRefreshVisibleFragmentFunc(functions: List<suspend () -> Unit>) { apiCalls = functions }
 
     fun disableOfflineMode() {
-        Const.shouldRetryNetworkCall = true
+        General.shouldRetryNetworkCall = true
         refreshVisibleFragmentFuncIfEnable(apiCalls)
     }
 
     fun connect() {
         Log.e(TAG, "connect: ", )
-        Const.shouldRetryNetworkCall = true
+        General.shouldRetryNetworkCall = true
         refreshVisibleFragmentFuncIfEnable(apiCalls)
         postValue(ConnectivityStatus.CONNECT)
     }
 
     fun disconnect() {
         Log.e(TAG, "disconnect: ", )
-        Const.shouldRetryNetworkCall = false
+        General.shouldRetryNetworkCall = false
         postValue(ConnectivityStatus.DISCONNECT)
     }
 
@@ -54,14 +54,14 @@ class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? =
             .addCapability(NET_CAPABILITY_INTERNET)
             .build()
         cm.registerNetworkCallback(networkRequest, networkCallback)
-        ConnectivityPublisher.subscribe(this, Const.CONNECT)
-        ConnectivityPublisher.subscribe(this, Const.DISCONNECT)
+        ConnectivityPublisher.subscribe(this, General.CONNECT)
+        ConnectivityPublisher.subscribe(this, General.DISCONNECT)
     }
 
     override fun onInactive() {
         cm.unregisterNetworkCallback(networkCallback)
-        ConnectivityPublisher.unSubscribe(this, Const.CONNECT)
-        ConnectivityPublisher.unSubscribe(this, Const.DISCONNECT)
+        ConnectivityPublisher.unSubscribe(this, General.CONNECT)
+        ConnectivityPublisher.unSubscribe(this, General.DISCONNECT)
     }
 
     private fun createNetworkCallback() = object : ConnectivityManager.NetworkCallback() {
@@ -95,9 +95,9 @@ class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? =
     override fun receiveConnectivity(connectivity: Connectivity) {
         Log.e(TAG, "receiveConnectivity: ${connectivity.status}")
         when (connectivity.status) {
-            Const.CONNECT -> connect()
-            Const.DISCONNECT -> disconnect()
-            Const.OFFLINE_MODE -> enableOfflineMode()
+            General.CONNECT -> connect()
+            General.DISCONNECT -> disconnect()
+            General.OFFLINE_MODE -> enableOfflineMode()
         }
     }
 
