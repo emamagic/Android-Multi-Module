@@ -8,10 +8,10 @@ class MovieReducer: Reducer<MovieState, MovieAction> {
 
     override fun reduce(currentState: MovieState, action: MovieAction): MovieState {
         return when (action) {
-            is MovieAction.GetDetailMovie -> TODO()
-            is MovieAction.GetSeasons -> TODO()
-            is MovieAction.PlayVideoClicked -> TODO()
-            is MovieAction.SeasonClicked -> TODO()
+            is MovieAction.MovieDetailLoaded -> currentState.copy(movie = action.movieDetail)
+            is MovieAction.CastsLoaded -> currentState.copy(casts = action.casts)
+            is MovieAction.SeasonsLoaded -> currentState.copy(season = action.seasons)
+            else -> currentState
         }
     }
 }

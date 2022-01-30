@@ -10,17 +10,17 @@ interface MovieDetailsService {
     @GET("getCast.php")
     suspend fun getCasts(
         @Query("id_item") itemId: String
-    ): CastResponse
+    ): Response<CastResponse>
 
     @GET("getSeasons.php")
     suspend fun getSeasons(
         @Query("id_item") itemId: String
-    ): SeasonResponse
+    ): Response<SeasonResponse>
 
     @GET("getEpisodes.php")
     suspend fun getEpisodes(
         @Query("id_season") seasonId: String
-    ): EpisodeResponse
+    ): Response<EpisodeResponse>
 
     @GET("show_detail.php")
     suspend fun getDetailMovie(

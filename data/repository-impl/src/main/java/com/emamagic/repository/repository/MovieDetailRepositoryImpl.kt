@@ -6,7 +6,11 @@ import com.emamagic.common_entity.MovieDetail
 import com.emamagic.common_entity.Season
 import com.emamagic.common_jvm.ResultWrapper
 import com.emamagic.domain.MovieDetailRepository
+import com.emamagic.network.dto.CastDto
+import com.emamagic.network.dto.MovieDetailDto
+import com.emamagic.network.dto.SeasonDto
 import com.emamagic.network.service.MovieDetailsService
+import com.emamagic.repository.mapper.DataClassMapper
 import com.emamagic.safe.SafeApi
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -14,22 +18,21 @@ import javax.inject.Singleton
 @Singleton
 class MovieDetailRepositoryImpl @Inject constructor(
     private val movieDetailsService: MovieDetailsService
-): MovieDetailRepository, SafeApi() {
+) : MovieDetailRepository, SafeApi() {
 
 
-    override suspend fun getMovieCasts(movieId: String): ResultWrapper<List<Cast>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getMovieCasts(movieId: String): ResultWrapper<List<Cast>> = getSafe(
+        networkCall = { movieDetailsService.getCasts(movieId) },
+        mapping = { response -> response.casts.map { DataClassMapper<CastDto, Cast>()(it) } }
+    )
 
-    override suspend fun getMovieSeasons(movieId: String): ResultWrapper<List<Season>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getMovieSeasons(movieId: String): ResultWrapper<List<Season>> = getSafe(
+        networkCall = { movieDetailsService.getSeasons(movieId) },
+        mapping = { response -> response.seasons.map { DataClassMapper<SeasonDto, Season>()(it) } }
+    )
 
-    override suspend fun getMovieEpisodes(movieId: String): ResultWrapper<List<Episode>> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun getMovieDetails(movieId: String): ResultWrapper<List<MovieDetail>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getMovieDetails(movieId: String): ResultWrapper<MovieDetail> = getSafe(
+        networkCall = { movieDetailsService.getDetailMovie(movieId) },
+        mapping = { response -> DataClassMapper<MovieDetailDto, MovieDetail>()(response.movie) }
+    )
 }

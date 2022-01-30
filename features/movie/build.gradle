@@ -3,4 +3,5 @@ apply {
 }
 
 dependencies {
+    implementation (Libs.circle_image_view)
 }

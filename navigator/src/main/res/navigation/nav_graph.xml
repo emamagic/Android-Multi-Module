@@ -37,8 +37,14 @@
         android:label=""
         android:name="com.emamagic.movie.MovieFragment">
         <argument
-            android:name="movie"
-            app:argType="com.emamagic.common_entity.Movie" />
+            android:name="movieId"
+            app:argType="string" />
+        <argument
+            android:name="movieCategory"
+            app:argType="string" />
+        <argument
+            android:name="videoLink"
+            app:argType="string" />
     </fragment>
 
 </navigation>

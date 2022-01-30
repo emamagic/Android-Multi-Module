@@ -78,6 +78,10 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
 
     // NetworkBoundResource
     private inline fun <ResultType, RequestType> steamSafe(
+        times: Int,
+        initialDelay: Long,
+        maxDelay: Long,
+        factor: Double,
         crossinline databaseQuery: () -> Flow<ResultType>,
         crossinline networkCall: suspend () -> RequestType,
         crossinline saveCallResult: suspend (RequestType) -> Unit,
@@ -92,7 +96,7 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
                 databaseQuery().collect { send(ResultWrapper.FetchLoading(it)) }
             }
             try {
-                saveCallResult(networkCall())
+                saveCallResult(retryIO(times, initialDelay, maxDelay, factor, null) { networkCall() })
                 onFetchSuccess()
                 loading.cancel()
                 databaseQuery().collect { send(ResultWrapper.Success(it)) }
@@ -134,10 +138,10 @@ abstract class SafeApi : GeneralErrorHandlerImpl() {
         initialDelay: Long,
         maxDelay: Long,
         factor: Double,
-        coroutineScope: CoroutineScope,
+        coroutineScope: CoroutineScope?,
         block: suspend () -> T
     ): T = General.getMutex.withLock {
-        if (!General.shouldRetryNetworkCall) coroutineScope.cancel() // disable retryIo api call
+        if (!General.shouldRetryNetworkCall) coroutineScope?.cancel() // disable retryIo api call
 
         var currentDelay = initialDelay
         repeat(times - 1) { index ->

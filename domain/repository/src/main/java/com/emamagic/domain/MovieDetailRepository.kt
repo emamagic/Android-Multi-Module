@@ -12,8 +12,6 @@ interface MovieDetailRepository {
 
     suspend fun getMovieSeasons(movieId: String): ResultWrapper<List<Season>>
 
-    suspend fun getMovieEpisodes(movieId: String): ResultWrapper<List<Episode>>
-
-    suspend fun getMovieDetails(movieId: String): ResultWrapper<List<MovieDetail>>
+    suspend fun getMovieDetails(movieId: String): ResultWrapper<MovieDetail>
 
 }
