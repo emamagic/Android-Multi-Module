@@ -37,7 +37,9 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
+    lint {
+        abortOnError = false
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

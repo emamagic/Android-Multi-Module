@@ -8,7 +8,7 @@ object Versions {
     const val junit_4 = "4.13.2"
     const val androidx_junit = "1.1.3"
     const val androidx_espresso = "3.4.0"
-    const val tools = "7.0.4"
+    const val tools = "7.1.0"
     const val gradle = "1.6.10"
     const val hilt = "2.38.1"
     const val dagger = "2.40.5"

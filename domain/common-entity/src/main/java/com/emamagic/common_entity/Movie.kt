@@ -1,5 +1,7 @@
 package com.emamagic.common_entity
 
+import java.io.Serializable
+
 data class Movie(
     val id: Long? = null,
     val name: String? = null,
@@ -13,4 +15,4 @@ data class Movie(
     val episode: String? = null,
     val genreName: String? = null,
     val isFavorite: Boolean? = false
-)
+): Serializable

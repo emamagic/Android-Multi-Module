@@ -10,6 +10,9 @@
         <action
             android:id="@+id/action_homeFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
     </fragment>
 
     <fragment android:id="@+id/moviesFragment"
@@ -18,6 +21,9 @@
         <argument
             android:name="category"
             app:argType="string" />
+        <action
+            android:id="@+id/action_moviesFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
     </fragment>
 
     <fragment android:id="@+id/noInternetAvailableDialog"
@@ -31,8 +37,8 @@
         android:label=""
         android:name="com.emamagic.movie.MovieFragment">
         <argument
-            android:name="category"
-            app:argType="string" />
+            android:name="movie"
+            app:argType="com.emamagic.common_entity.Movie" />
     </fragment>
 
 </navigation>
