@@ -3,7 +3,6 @@ package com.emamagic.android_multi_module
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity(), InitialVisibleFragmentFun, OnAppVisibi
     private lateinit var binding: ActivityMainBinding
     private lateinit var connectionLiveData: ConnectionLiveData
 
-    private val refreshVisibleFragmentDelay = 5000L
+    private var refreshVisibleFragmentDelay = 20000L
     private var shouldRefresh = false
     private val handler = Handler(Looper.getMainLooper())
     private val refreshVisibleFragmentRunnable =
@@ -74,8 +73,9 @@ class MainActivity : AppCompatActivity(), InitialVisibleFragmentFun, OnAppVisibi
         navHostFragment.childFragmentManager.fragments[0]::class.simpleName!!
 
 
-    override fun onInitialFunctions(functions: List<suspend () -> Unit>) {
-        connectionLiveData.setRefreshVisibleFragmentFunc(functions)
+    override fun onInitialFunctions(pair: Pair<List<suspend () -> Unit>, Long>) {
+        refreshVisibleFragmentDelay = pair.second
+        connectionLiveData.setRefreshVisibleFragmentFunc(pair.first)
     }
 
     override fun appVisibility(isInBackground: Boolean) {

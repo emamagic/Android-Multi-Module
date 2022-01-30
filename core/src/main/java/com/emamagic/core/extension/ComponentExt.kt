@@ -19,8 +19,8 @@ inline fun <reified SubComponentProvider> View.findComponent(): SubComponentProv
 
 inline fun <reified SubComponentProvider> Fragment.findComponent(): SubComponentProvider = requireContext().findComponent()
 
-fun Fragment.setInitialFunctionsForRefreshing(functions: List<suspend () -> Unit>) {
-    (requireActivity() as InitialVisibleFragmentFun).onInitialFunctions(functions)
+fun Fragment.setInitialFunctionsForRefreshing(pair: Pair<List<suspend () -> Unit>, Long>) {
+    (requireActivity() as InitialVisibleFragmentFun).onInitialFunctions(pair)
 }
 
 
