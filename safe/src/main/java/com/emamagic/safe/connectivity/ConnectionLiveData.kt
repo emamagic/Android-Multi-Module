@@ -9,10 +9,7 @@ import android.net.NetworkRequest
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.emamagic.safe.General
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? = null) : LiveData<ConnectivityStatus>(), ConnectivityPublisherDelegate {
 
@@ -31,13 +28,13 @@ class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? =
 
     fun disableOfflineMode() {
         General.shouldRetryNetworkCall = true
-        refreshVisibleFragmentFuncIfEnable(apiCalls)
+        refreshVisibleFragmentFuncIfEnable()
     }
 
     fun connect() {
         Log.e(TAG, "connect: ", )
         General.shouldRetryNetworkCall = true
-        refreshVisibleFragmentFuncIfEnable(apiCalls)
+        refreshVisibleFragmentFuncIfEnable()
         postValue(ConnectivityStatus.CONNECT)
     }
 
@@ -101,10 +98,10 @@ class ConnectionLiveData(context: Context, val lifecycleScope: CoroutineScope? =
         }
     }
 
-    private fun refreshVisibleFragmentFuncIfEnable(functions: List<suspend () -> Unit>) {
-        if (this::apiCalls.isInitialized) {
+    fun refreshVisibleFragmentFuncIfEnable() {
+        if (this::apiCalls.isInitialized && !apiCalls.isNullOrEmpty()) {
             lifecycleScope?.launch(Dispatchers.IO) {
-                functions.forEach { it() }
+                apiCalls.forEach { it() }
             }
         }
     }

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.emamagic.core.base.BaseFragment
 import com.emamagic.core.extension.findComponent
-import com.emamagic.core.extension.setInitialFunctions
+import com.emamagic.core.extension.setInitialFunctionsForRefreshing
 import com.emamagic.movies.contract.MoviesEvent
 import com.emamagic.movies.contract.MoviesState
 import com.emamagic.movies.databinding.FragmentMoviesBinding
@@ -30,7 +30,7 @@ class MoviesFragment :
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         binding.recyclerView.setHasFixedSize(true)
-        setInitialFunctions(viewModel.getInitialFunctions())
+        setInitialFunctionsForRefreshing(viewModel.getInitialFunctions())
     }
 
     override fun renderViewState(viewState: MoviesState) {

@@ -3,7 +3,7 @@ package com.emamagic.core.extension
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.emamagic.core.base.InitialVisibleFragmentFun
+import com.emamagic.core.interfaces.InitialVisibleFragmentFun
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -19,7 +19,7 @@ inline fun <reified SubComponentProvider> View.findComponent(): SubComponentProv
 
 inline fun <reified SubComponentProvider> Fragment.findComponent(): SubComponentProvider = requireContext().findComponent()
 
-fun Fragment.setInitialFunctions(functions: List<suspend () -> Unit>) {
+fun Fragment.setInitialFunctionsForRefreshing(functions: List<suspend () -> Unit>) {
     (requireActivity() as InitialVisibleFragmentFun).onInitialFunctions(functions)
 }
 

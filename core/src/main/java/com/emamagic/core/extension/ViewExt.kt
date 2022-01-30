@@ -1,12 +1,11 @@
 package com.emamagic.core.extension
 
+import android.content.Context
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import com.google.android.material.snackbar.Snackbar
+import com.emamagic.core.interfaces.OnAppVisibility
 import java.lang.ref.WeakReference
 
 fun View.gone() {
@@ -38,5 +37,18 @@ inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
 fun isFragmentVisible(fragment: WeakReference<Fragment>): Boolean =
     (fragment.get() != null && fragment.get()!!.activity != null &&
             fragment.get()!!.isVisible && !fragment.get()!!.isRemoving)
+
+
+fun Context.appIsInBackground(): Boolean {
+    return if (applicationContext is OnAppVisibility) {
+        (applicationContext as OnAppVisibility).appIsInBackground()
+    } else {
+        throw IllegalStateException("Provide the application context which implement App Visibility")
+    }
+}
+
+fun View.appIsInBackground(): Boolean = context.appIsInBackground()
+
+fun Fragment.appIsInBackground(): Boolean = requireContext().appIsInBackground()
 
 

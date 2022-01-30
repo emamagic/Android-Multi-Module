@@ -1,6 +1,9 @@
 package com.emamagic.android_multi_module
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -9,24 +12,31 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.emamagic.android_multi_module.databinding.ActivityMainBinding
-import com.emamagic.core.base.InitialVisibleFragmentFun
+import com.emamagic.core.interfaces.InitialVisibleFragmentFun
 import com.emamagic.core.extension.gone
 import com.emamagic.core.extension.visible
 import com.emamagic.safe.connectivity.ConnectionLiveData
 import com.emamagic.safe.connectivity.ConnectivityStatus
 
-class MainActivity : AppCompatActivity(), InitialVisibleFragmentFun {
+class MainActivity : AppCompatActivity(), InitialVisibleFragmentFun, OnAppVisibilityListener {
 
     private lateinit var navController: NavController
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var binding: ActivityMainBinding
     private lateinit var connectionLiveData: ConnectionLiveData
 
+    private val refreshVisibleFragmentDelay = 5000L
+    private var shouldRefresh = false
+    private val handler = Handler(Looper.getMainLooper())
+    private val refreshVisibleFragmentRunnable =
+        Runnable { shouldRefresh = true }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Android_Multi_Module)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
+        
+        (application as App).appVisibilityListener = this
         setUpNavigateUpArrow()
         processNoInternetAvailable()
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -64,9 +74,20 @@ class MainActivity : AppCompatActivity(), InitialVisibleFragmentFun {
         navHostFragment.childFragmentManager.fragments[0]::class.simpleName!!
 
 
-    // It is Eager and it is better to implemented lazy
     override fun onInitialFunctions(functions: List<suspend () -> Unit>) {
         connectionLiveData.setRefreshVisibleFragmentFunc(functions)
+    }
+
+    override fun appVisibility(isInBackground: Boolean) {
+        if (isInBackground) {
+            handler.postDelayed(refreshVisibleFragmentRunnable, refreshVisibleFragmentDelay)
+        } else {
+            handler.removeCallbacks(refreshVisibleFragmentRunnable)
+            if (shouldRefresh) {
+                shouldRefresh = false
+                connectionLiveData.refreshVisibleFragmentFuncIfEnable()
+            }
+        }
     }
 
 }

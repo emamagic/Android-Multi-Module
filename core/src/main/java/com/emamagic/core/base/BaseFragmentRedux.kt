@@ -24,7 +24,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.emamagic.core.R
 import com.emamagic.core.extension.gone
-import com.emamagic.core.extension.setInitialFunctions
+import com.emamagic.core.extension.setInitialFunctionsForRefreshing
 import com.emamagic.core.extension.visible
 import com.emamagic.core.utils.AlertType
 import com.emamagic.core.utils.ToastyMode
@@ -62,6 +62,7 @@ abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, ACTION : A
             viewModel.uiEffect.collect { renderDefaultViewEffect(it) }
         }
         onFragmentCreated(view, savedInstanceState)
+        setInitialFunctionsForRefreshing(viewModel.getInitialFunctions())
     }
 
     abstract val viewModel: VM
