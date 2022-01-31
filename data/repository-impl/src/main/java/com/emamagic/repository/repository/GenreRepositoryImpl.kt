@@ -16,7 +16,7 @@ class GenreRepositoryImpl @Inject constructor(
 ) : GenreRepository, SafeApi() {
 
     override suspend fun getAllGenre(): ResultWrapper<List<Genre>> = getSafe(
-        networkCall = { genreService.getAllGenre() },
+        remoteFetch = { genreService.getAllGenre() },
         mapping = { response -> response.genres.map { DataClassMapper<GenreDto, Genre>()(it) } }
     )
 }

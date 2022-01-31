@@ -1,7 +1,6 @@
 package com.emamagic.repository.repository
 
 import com.emamagic.common_entity.Cast
-import com.emamagic.common_entity.Episode
 import com.emamagic.common_entity.MovieDetail
 import com.emamagic.common_entity.Season
 import com.emamagic.common_jvm.ResultWrapper
@@ -22,17 +21,17 @@ class MovieDetailRepositoryImpl @Inject constructor(
 
 
     override suspend fun getMovieCasts(movieId: String): ResultWrapper<List<Cast>> = getSafe(
-        networkCall = { movieDetailsService.getCasts(movieId) },
+        remoteFetch = { movieDetailsService.getCasts(movieId) },
         mapping = { response -> response.casts.map { DataClassMapper<CastDto, Cast>()(it) } }
     )
 
     override suspend fun getMovieSeasons(movieId: String): ResultWrapper<List<Season>> = getSafe(
-        networkCall = { movieDetailsService.getSeasons(movieId) },
+        remoteFetch = { movieDetailsService.getSeasons(movieId) },
         mapping = { response -> response.seasons.map { DataClassMapper<SeasonDto, Season>()(it) } }
     )
 
     override suspend fun getMovieDetails(movieId: String): ResultWrapper<MovieDetail> = getSafe(
-        networkCall = { movieDetailsService.getDetailMovie(movieId) },
+        remoteFetch = { movieDetailsService.getDetailMovie(movieId) },
         mapping = { response -> DataClassMapper<MovieDetailDto, MovieDetail>()(response.movie) }
     )
 }
