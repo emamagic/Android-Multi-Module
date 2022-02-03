@@ -30,7 +30,6 @@ class MoviesFragment :
 
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         binding.recyclerView.setHasFixedSize(true)
-        setInitialFunctionsForRefreshing(viewModel.getInitialFunctions())
     }
 
     override fun renderViewState(viewState: MoviesState) {

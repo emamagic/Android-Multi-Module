@@ -12,9 +12,10 @@ class MovieViewModel @Inject constructor(
     private val store: MovieStore
 ): BaseViewModelRedux<MovieState, MovieAction>(store) {
 
-    override fun getInitialFunctions(): List<suspend () -> Unit> =
-        emptyList()
 
+
+    override fun getInitialFunctions(): Pair<List<suspend () -> Unit>, Long> =
+        Pair(emptyList(), 100L)
 
     fun getMovieDetailEvent(movieId: String) = viewModelScope.launch {
         store.dispatch(MovieAction.GetMovieDetail(movieId))
@@ -31,5 +32,6 @@ class MovieViewModel @Inject constructor(
     fun playButtonClickEvent(videoLink: String) = viewModelScope.launch {
         // navigate
     }
+
 
 }
