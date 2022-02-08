@@ -71,7 +71,7 @@ abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, ACTION : A
     open fun getExtras(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 
     /**
-     * you must do like convention naming
+     * convention naming for fragment class and fragment layout
      * */
     @LayoutRes
     fun getResId(className: String): Int {
