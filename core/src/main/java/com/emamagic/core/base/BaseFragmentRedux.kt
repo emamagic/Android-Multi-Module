@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -46,7 +47,7 @@ abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, ACTION : A
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = DataBindingUtil.inflate(inflater, getResId(), container, false)
+        _binding = DataBindingUtil.inflate(inflater, getResId(this.javaClass.simpleName), container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
@@ -69,10 +70,22 @@ abstract class BaseFragmentRedux<DB : ViewDataBinding, STATE : State, ACTION : A
 
     open fun getExtras(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 
+    /**
+     * you must do like convention naming
+     * */
     @LayoutRes
-    abstract fun getResId(): Int
-
-//    resources.getIdentifier("fragment_first", "layout",requireActivity().packageName)
+    fun getResId(className: String): Int {
+        var result = ""
+        val words = className.split(regex = Regex(
+            "(?<=[A-Z])(?=[A-Z][a-z])|(?<=[^A-Z])(?=[A-Z])|(?<=[A-Za-z])(?=[^A-Za-z])")
+        )
+        val orderedWords = words.reversed()
+        orderedWords.forEachIndexed { index, s ->
+            result += if (orderedWords.size-1 != index) "${s.lowercase()}_"
+            else s.lowercase()
+        }
+        return  resources.getIdentifier(result, "layout", requireActivity().packageName)
+    }
 
     abstract fun onFragmentCreated(view: View, savedInstanceState: Bundle?)
 

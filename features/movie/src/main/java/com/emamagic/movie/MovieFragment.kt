@@ -21,8 +21,6 @@ class MovieFragment: BaseFragmentRedux<FragmentMovieBinding, MovieState, MovieAc
 
     private val args: MovieFragmentArgs by navArgs()
 
-    override fun getResId(): Int = R.layout.fragment_movie
-
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<MovieComponentProvider>().provideMovieComponent().inject(this)
 

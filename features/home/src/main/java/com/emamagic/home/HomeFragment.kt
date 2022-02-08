@@ -19,8 +19,6 @@ class HomeFragment :
     override val viewModel: HomeViewModel
         get() = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
 
-    override fun getResId(): Int = R.layout.fragment_home
-
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         findComponent<HomeComponentProvider>().provideHomeComponent().inject(this)
 //        setInitialFunctions(viewModel.getInitialFunctions())
