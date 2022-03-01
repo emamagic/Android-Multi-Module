@@ -9,7 +9,7 @@ dependencyResolutionManagement {
 rootProject.name = "Android-Multi-Module"
 include(
         ":app",
-        ':core',
+        ':application',
         ":features:home",
         ":features:movies",
         ":features:movie",

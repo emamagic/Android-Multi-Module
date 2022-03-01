@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="Android-Multi-Module.app" target="11" />
+      <module name="Android-Multi-Module.application" target="11" />
       <module name="Android-Multi-Module.buildSrc" target="11" />
       <module name="Android-Multi-Module.core" target="11" />
       <module name="Android-Multi-Module.data.cache" target="11" />

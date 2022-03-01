@@ -1,6 +1,6 @@
 object Modules {
     const val app = ":app"
-    const val core = ":core"
+    const val application = ":application"
     const val commonJvm = ":domain:common-jvm"
     const val home = ":features:home"
     const val movies = ":features:movies"

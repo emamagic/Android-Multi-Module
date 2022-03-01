@@ -56,7 +56,7 @@ dependencies {
     implementation(project(Modules.cache))
     implementation(project(Modules.repository))
     implementation(project(Modules.safe))
-    implementation(project(Modules.core))
+    implementation(project(Modules.application))
     implementation(project(Modules.navigator))
 
     // Features
