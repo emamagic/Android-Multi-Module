@@ -2,7 +2,7 @@
 
 **NOTE**
 this is a sample template for android multi module application, I do my best for extending this app,
-if you have any idea to improve the project, I would be happy to hear that (keep me posted)
+if you have any idea to improve the project, It is open for contribution
 
 **TODO**
 complete modules functionality and writing test
